@@ -1,0 +1,41 @@
+:root{
+    --headerHeight: 150px;
+    --footerHeight: var(--headerHeight);
+}
+
+html{
+    scroll-behavior: smooth; /*movimenti all'interno della pagina animati*/
+}
+
+body{
+    min-height: 99vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /*Posiziona il footer in fondo, l'header in cima e il corpo nel mezzo*/
+}
+
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: var(--headerHeight);
+    background-color: aqua;
+}
+
+#content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: blue;
+}
+
+#footer{
+    display: flex;
+    justify-content: flex-end;
+    height: var(--footerHeight);
+    background-color: red;
+}
+
+#footer > img, #header > img{
+    height: 100%;
+}
