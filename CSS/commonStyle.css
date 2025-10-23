@@ -8,7 +8,7 @@ html{
 }
 
 body{
-    min-height: 100vh;
+    min-height: 99vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between; /*Posiziona il footer in fondo, l'header in cima e il corpo nel mezzo*/
@@ -23,10 +23,15 @@ body{
 }
 
 #content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: blue;
 }
 
 #footer{
+    display: flex;
+    justify-content: flex-end;
     height: var(--footerHeight);
     background-color: red;
 }
