@@ -1,6 +1,9 @@
 :root{
-    --headerHeight: 150px;
+    --headerHeight: 120px;
     --footerHeight: var(--headerHeight);
+    --colorePrimario: white;
+    --coloreSecondario: #e2457c;
+    --headerButtonsLateralPadding: 1vw;
 }
 
 html{
@@ -8,34 +11,113 @@ html{
 }
 
 body{
-    min-height: 99vh;
+    /*Posiziona il footer in fondo, l'header in cima e il corpo nel mezzo*/
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /*Posiziona il footer in fondo, l'header in cima e il corpo nel mezzo*/
+    justify-content: space-between; 
+
+    /*dimensioni*/
+    margin: 0;
+    min-height: 100vh;
 }
 
 #header{
+    /*Allinea il contenuto verticalmente*/
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+
+    /*Posiziono l'header sempre in cima alla pagina anche quando scrollo verso il basso*/
+    position: sticky;
+    top: 0%;
+
+    /*Dimensioni*/
     height: var(--headerHeight);
-    background-color: aqua;
+
+    /*Colore & bordo*/
+    background-color: var(--colorePrimario);
+    border-bottom: var(--coloreSecondario);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
 }
 
-#content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: blue;
+#header .logo{
+    /*Posizione*/
+    position: absolute;
+    left: 10%;
 }
 
 #footer{
+    /*Allineo il contenuto al centro*/
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    
+    position: relative;
+
+    /*Dimensioni*/
     height: var(--footerHeight);
-    background-color: red;
+
+    /*Colore & bordo*/
+    background-color: var(--colorePrimario);
+    border-top: var(--coloreSecondario);
+    border-top-width: 1px;
+    border-top-style: solid;
 }
 
-#footer > img, #header > img{
-    height: 100%;
+#footer .logo{
+    /*Posizione*/
+    position: absolute;
+    right: 2%;
+}
+
+#buttons{
+    /*Allineo e distanzio i bottoni*/
+    display: flex;
+    justify-content: space-between;
+    gap: 2vw;
+
+    /*Posiziono i bottoni*/
+    position: absolute;
+    right: 3vw;
+}
+
+#buttons > a > button{
+    /*Colori & Stile*/
+    border-style: none;
+    color: var(--coloreSecondario);
+    background-color: var(--colorePrimario);
+    border-radius: 15px;
+
+    /*Testo*/
+    font-size: 18px;
+    white-space: nowrap;
+    font-weight: bolder;
+
+    /*Dimensioni*/
+    padding-left: var(--headerButtonsLateralPadding);
+    padding-right: var(--headerButtonsLateralPadding);
+    height: calc(var(--headerHeight) / 2.2);
+    
+    cursor: pointer; /*Quando ci passo sopra il cursore cambia stile*/
+}
+
+/*Quando ci passo sopra col mouse il bottone cambia colore*/
+#buttons > a > button:hover{
+    background-color: var(--coloreSecondario);
+    color: var(--colorePrimario);
+}
+
+#content{
+    /*Centro contenuti*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /*Dimensioni*/
+    height: 500vh;
+}
+
+.logo{
+    /*Dimensioni relative al padre*/
+    height: 90%;
 }
