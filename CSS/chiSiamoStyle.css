@@ -18,4 +18,8 @@
     display: flex;
     flex-direction: row;
     gap: 10px;
-  }
+}
+.leftRow{
+    text-align: right;
+}
+
