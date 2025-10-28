@@ -7,7 +7,16 @@
     --btnAnimDelay: 300ms;
 }
 
+html{
+    scroll-behavior: smooth; /*movimenti all'interno della pagina animati*/
+}
+
 body{
+    /*Posiziona il footer in fondo, l'header in cima e il corpo nel mezzo*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+
     /*dimensioni*/
     margin: 0;
     min-height: 100vh;
