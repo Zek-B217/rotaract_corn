@@ -4,6 +4,7 @@
     --colorePrimario: white;
     --coloreSecondario: #e2457c;
     --headerButtonsLateralPadding: 1vw;
+    --btnAnimDelay: 300ms;
 }
 
 html{
@@ -67,7 +68,7 @@ body{
 #footer .logo{
     /*Posizione*/
     position: absolute;
-    right: 2%;
+    right: 5%;
 }
 
 #buttons{
@@ -105,6 +106,10 @@ body{
 #buttons > a > button:hover{
     background-color: var(--coloreSecondario);
     color: var(--colorePrimario);
+
+    -webkit-transition: background-color var(--btnAnimDelay) ease-in;
+    -ms-transition: background-color var(--btnAnimDelay) ease-in;
+    transition: background-color var(--btnAnimDelay) ease-in;
 }
 
 #content{
@@ -112,12 +117,38 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
 
-    /*Dimensioni*/
-    height: 500vh;
+#sede{
+    /*Posizione*/
+    position: relative;
+    left: 5%;
+}
+
+#sitiEsterni{
+    /*Allineo contenuto*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    /*Posizione*/
+    position: relative;
+    left: 35%;
+
+    width: 30vw;
+}
+
+/*Link di colore nero*/
+#sitiEsterni a{
+    color: black;
 }
 
 .logo{
     /*Dimensioni relative al padre*/
     height: 90%;
+}
+
+h4{
+    color: var(--coloreSecondario)
 }
