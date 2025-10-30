@@ -1,0 +1,48 @@
+:root{
+    --colorePrimario: white;
+    --coloreSecondario: #e2457c;
+    --btnAnimDelay: 300ms;
+}
+
+#img_bg_home{
+    width: 100vw;
+    height: auto;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: black;
+}
+
+.centered-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centered-text > strong {
+    color: black;
+    font-size: 35px;
+}
+
+.btn_home{
+    background-color: var(--coloreSecondario);
+    color: var(--colorePrimario);
+    border-radius: 10px;
+    width: 18vw;
+    height: 4vh;
+    font-size: 22px;
+    border-color: var(--coloreSecondario);
+    border: none;
+}
+
+.btn_home:hover{
+    background-color: var(--colorePrimario);
+    color: var(--coloreSecondario);
+
+    -webkit-transition: background-color var(--btnAnimDelay) ease-in;
+    -ms-transition: background-color var(--btnAnimDelay) ease-in;
+    transition: background-color var(--btnAnimDelay) ease-in;
+}
