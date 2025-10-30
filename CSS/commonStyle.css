@@ -152,9 +152,34 @@ body{
     color: black;
 }
 
+#menuHamburger{
+    /*Nascondo il menù*/
+    
+
+    /*Allineo le righe*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    /*Posizione*/
+    position: relative;
+    left: 90%;
+
+    /*Dimensioni*/
+    height: 50px;
+}
+
 .logo{
     /*Dimensioni*/
     max-height: var(--logoHeight);
+}
+
+/*Linee del menu amburgher*/
+#menuHamburger > div{
+    display: block;
+    height: 15%;
+    width: 50px;
+    background-color: var(--coloreSecondario);
 }
 
 h4{
