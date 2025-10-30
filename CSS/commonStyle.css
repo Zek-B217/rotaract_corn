@@ -1,13 +1,20 @@
 :root{
     --headerHeight: 120px;
-    --footerHeight: var(--headerHeight);
+    --footerLongHeight: calc(var(--headerHeight) * 4);
+    --footerShortHeight: var(--headerHeight);
     --colorePrimario: white;
     --coloreSecondario: #e2457c;
     --headerButtonsLateralPadding: 1vw;
     --btnAnimDelay: 300ms;
+    --logoHeight: 100px;
 }
 
 body{
+    /*Posiziono l'header in cima e il footer in fondo*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     /*dimensioni*/
     margin: 0;
     min-height: 100vh;
@@ -43,20 +50,27 @@ body{
 }
 
 #footer{
-    /*Allineo il contenuto al centro*/
-    display: flex;
-    align-items: center;
-    
+    /*Non rimuovere. Serve a dimensionare correttamente l'immagine del logo*/
     position: relative;
 
     /*Dimensioni*/
-    height: var(--footerHeight);
+    height: var(--footerShortHeight);
 
     /*Colore & bordo*/
     background-color: var(--colorePrimario);
     border-top: var(--coloreSecondario);
     border-top-width: 1px;
     border-top-style: solid;
+}
+
+#footerContent{
+    /*Allineo il contenuto al centro*/
+    display: flex;
+    align-items: center;
+
+    /*Dimensioni*/
+    width: 100%;
+    height: 100%;
 }
 
 #footer .logo{
@@ -111,8 +125,6 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    height: 100vh;
 }
 
 #sede{
@@ -141,20 +153,46 @@ body{
 }
 
 .logo{
-    /*Dimensioni relative al padre*/
-    height: 90%;
+    /*Dimensioni*/
+    max-height: var(--logoHeight);
 }
 
 h4{
     color: var(--coloreSecondario);
 }
 
-@media screen and (max-width: 1024px){
-    body{
-        background-color: aqua;
+/*Stile footer quando lo schermo è stretto*/
+@media screen and (max-width: 840px){
+    #sitiEsterni{
+        flex-direction: column;
+
+        position: static;
     }
 
-    #sitiEsterni{
-        
+    #footer{
+        height: var(--footerLongHeight);
     }
+
+    #footerContent{
+        justify-content: space-evenly;
+        flex-direction: column-reverse;
+
+        position: relative;
+
+        width: 50%;
+    }
+
+    #sede{
+        position: static;
+    }
+
+    #footer .logo{
+        position: static;
+    }
+
+}
+
+/*Stile header quando lo schermo è stretto*/
+@media screen and (max-width: 1024px){
+
 }
