@@ -31,12 +31,15 @@ body{
     border-bottom: var(--coloreSecondario);
     border-bottom-width: 1px;
     border-bottom-style: solid;
+
+    /*Porto l'header davanti al contenuto*/
+    z-index: 1;
 }
 
 #header .logo{
     /*Posizione*/
     position: absolute;
-    left: 10%;
+    left: 5%;
 }
 
 #footer{
@@ -110,8 +113,6 @@ body{
     align-items: center;
 
     height: 100vh;
-    /*Porto il contenuto dietro all'header*/
-    z-index: -1;
 }
 
 #sede{
@@ -125,13 +126,13 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 
     /*Posizione*/
     position: absolute;
-    left: 40vw;
+    left: 30vw;
 
-    width: 30vw;
+    width: 40vw;
 }
 
 /*Link di colore nero*/
@@ -145,5 +146,15 @@ body{
 }
 
 h4{
-    color: var(--coloreSecondario)
+    color: var(--coloreSecondario);
+}
+
+@media screen and (max-width: 1024px){
+    body{
+        background-color: aqua;
+    }
+
+    #sitiEsterni{
+        
+    }
 }
