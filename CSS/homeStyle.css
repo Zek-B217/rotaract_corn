@@ -9,10 +9,26 @@
     height: auto;
 }
 
+
 .container {
     position: relative;
     text-align: center;
     color: black;
+}
+
+.container > #img_bg_home{
+    filter: brightness(100%);
+    -webkit-transition: filter var(--btnAnimDelay) ease-in;
+    -ms-transition: filter var(--btnAnimDelay) ease-in;
+    transition: filter var(--btnAnimDelay) ease-in;
+}
+
+.container:hover > #img_bg_home{
+    filter: brightness(80%);
+
+    -webkit-transition: filter var(--btnAnimDelay) ease-in;
+    -ms-transition: filter var(--btnAnimDelay) ease-in;
+    transition: filter var(--btnAnimDelay) ease-in;
 }
 
 .centered-text {
@@ -36,6 +52,10 @@
     font-size: 22px;
     border-color: var(--coloreSecondario);
     border: none;
+
+    -webkit-transition: background-color var(--btnAnimDelay) ease-in;
+    -ms-transition: background-color var(--btnAnimDelay) ease-in;
+    transition: background-color var(--btnAnimDelay) ease-in;
 }
 
 .btn_home:hover{
@@ -46,3 +66,46 @@
     -ms-transition: background-color var(--btnAnimDelay) ease-in;
     transition: background-color var(--btnAnimDelay) ease-in;
 }
+
+.img_carosello{
+    width: 500px;
+    height: 500px;
+}
+
+.carosello{
+    position: relative;
+    width: 80%;
+    max-width: 500px;
+    margin: 50px auto;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carosello-track{
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.btn_carosello{
+    background-color: var(--coloreSecondario);
+    color: var(--colorePrimario);
+    border-radius: 10px;
+    border-color: var(--coloreSecondario);
+    border: none;
+
+    -webkit-transition: background-color var(--btnAnimDelay) ease-in;
+    -ms-transition: background-color var(--btnAnimDelay) ease-in;
+    transition: background-color var(--btnAnimDelay) ease-in;
+}
+
+.btn_carosello:hover{
+    background-color: var(--colorePrimario);
+    color: var(--coloreSecondario);
+
+    -webkit-transition: background-color var(--btnAnimDelay) ease-in;
+    -ms-transition: background-color var(--btnAnimDelay) ease-in;
+    transition: background-color var(--btnAnimDelay) ease-in;
+}
+
