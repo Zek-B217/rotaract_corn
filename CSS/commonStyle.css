@@ -154,19 +154,32 @@ body{
 
 #menuHamburger{
     /*Nascondo il menù*/
-    
-
-    /*Allineo le righe*/
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    display: none;
 
     /*Posizione*/
     position: relative;
-    left: 90%;
+    transform: translateX(100vw);
+    right: 100px;
 
     /*Dimensioni*/
-    height: 50px;
+    height: 40px;
+
+    cursor: pointer;
+}
+
+#menuHamburger:hover > .dropdownMenu{
+    display: block;
+
+    transform: translateY(40px);
+    background-color: aqua;
+}
+
+/*Linee del menu hamburgher*/
+#menuHamburger > .linea{
+    display: block;
+    height: 18%;
+    width: 50px;
+    background-color: var(--coloreSecondario);
 }
 
 .logo{
@@ -174,12 +187,8 @@ body{
     max-height: var(--logoHeight);
 }
 
-/*Linee del menu amburgher*/
-#menuHamburger > div{
-    display: block;
-    height: 15%;
-    width: 50px;
-    background-color: var(--coloreSecondario);
+.dropdownMenu{
+    display: none;
 }
 
 h4{
@@ -218,6 +227,15 @@ h4{
 }
 
 /*Stile header quando lo schermo è stretto*/
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 900px){
+    #menuHamburger{
+        /*Allineo le righe*/
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 
+    #buttons{
+        display: none;
+    }
 }
