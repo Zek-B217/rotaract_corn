@@ -6,23 +6,12 @@
     <title>Home - Rotaract Trento</title>
     <link rel="stylesheet" href="CSS/commonStyle.css">
     <link rel="stylesheet" href="CSS/homeStyle.css">
+    <script src="JS/slideshow.js"></script>
 </head>
 <body>
-    <div id="header">
-        <img class="logo" src="Media/logo.jpg">
+    <!--header-->
 
-        <div id="buttons">
-            <a href=""><button onclick="alert('worka')">Home</button></a>
-            <a href=""><button>Chi siamo</button></a>
-            <a href=""><button>Service</button></a>
-            <a href=""><button>Eventi</button></a>
-            <a href=""><button>Collaborazioni</button></a>
-            <a href=""><button>Contatti</button></a>
-        </div>
-    </div>
-
-    <div id="content">
-        <!--guarda https://www.html.it/pag/18965/inserire-del-testo-su-unimmagine/ per css-->
+    <!--guarda https://www.html.it/pag/18965/inserire-del-testo-su-unimmagine/ per css-->
     <div class="container">
         <img src="Media/trento.jpg" alt="immagine bg home" id="img_bg_home"/><br>
         <span class="centered-text">
@@ -31,7 +20,7 @@
             Lorem ipsum dolor sit amet consectetuer eros
             vivamus porta interdum venenatis.
            </p>
-           <button class="btn_home" onclick="alert('funzia')">Scopri di più</button>
+           <button class="btn_home" onclick="">Scopri di più</button>
         </span>
     </div>
 
@@ -55,20 +44,24 @@
         </div>
     </div>
 
-    <div>
+    <div class="descrizione_carosello">
         <div class="rotaract_description">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ipsa quidem, nemo, praesentium nulla totam nostrum repellat possimus voluptate quaerat doloribus error cupiditate unde voluptatem, reprehenderit assumenda pariatur? Repellendus, sint!</p>
             <button onclick="alert('funzia')" href=""><!--Linkare alla pagina chi siamo-->Scopri di più</button>
         </div>
-        <div class="carousel">
-            <div class="slideshow">
-              <img src="" alt="Foto 1">
-              <img src="" alt="Foto 2">
-              <img src="" alt="Foto 3">
+        <div class="slider-container">
+            <span id="slider-image-1"></span>
+            <span id="slider-image-2"></span>
+            <span id="slider-image-3"></span>
+            <div class="image-container">
+                <img src="Media/carosello1.jpg" class="slider-image" />
+                <img src="Media/carosello2.jpg" class="slider-image" />
+                <img src="Media/carosello3.jpg" class="slider-image" />
             </div>
-            <div class="buttons_ss">
-              <button id="prev">❮</button>
-              <button id="next">❯</button>
+            <div class="button-container">
+                <a href="#slider-image-1" class="slider-change"></a>
+                <a href="#slider-image-2" class="slider-change"></a>
+                <a href="#slider-image-3" class="slider-change"></a>
             </div>
         </div>
     </div>
@@ -77,26 +70,5 @@
         <button onclick="alert('funzia')">Visita la nostra pagina Instagram</button> <!--Linkare a ig, mettere al centro bello grande-->
     </div>
     <!--Footer di pippo-->
-    </div>
-
-    <div id="footer">
-        <div id="sede">
-            <h4>Sede:</h4>
-            <p>Lorem ipsum dolor sit amet</p>
-        </div>
-
-        <div id="sitiEsterni">
-            <div>
-                <h4>Distretto 2060</h4>
-                <p><a href="https://www.rotaract2060.it/">https://www.rotaract2060.it/</a></p>
-            </div>
-
-            <div>
-                <h4>Rotary Trento</h4>
-                <p><a href="https://trento.rotary2060.org/">https://trento.rotary2060.org/</a></p>
-            </div>
-        </div>
-        <img class="logo" src="Media/logo.jpg">
-    </div>
 </body>
 </html>
