@@ -44,20 +44,24 @@
         </div>
     </div>
 
-    <div>
+    <div class="descrizione_carosello">
         <div class="rotaract_description">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ipsa quidem, nemo, praesentium nulla totam nostrum repellat possimus voluptate quaerat doloribus error cupiditate unde voluptatem, reprehenderit assumenda pariatur? Repellendus, sint!</p>
             <button onclick="alert('funzia')" href=""><!--Linkare alla pagina chi siamo-->Scopri di più</button>
         </div>
-        <div class="carosello">
-            <div class="carosello-track">
-              <img src="Media/carosello1.jpg" alt="Foto 1" class="img_carosello">
-              <img src="Media/carosello2.jpg" alt="Foto 2" class="img_carosello">
-              <img src="Media/carosello3.jpg" alt="Foto 3" class="img_carosello">
+        <div class="slider-container">
+            <span id="slider-image-1"></span>
+            <span id="slider-image-2"></span>
+            <span id="slider-image-3"></span>
+            <div class="image-container">
+                <img src="Media/carosello1.jpg" class="slider-image" />
+                <img src="Media/carosello2.jpg" class="slider-image" />
+                <img src="Media/carosello3.jpg" class="slider-image" />
             </div>
-            <div class="buttons_ss">
-              <button id="prev" class="btn_carosello">❮</button>
-              <button id="next" class="btn_carosello">❯</button>
+            <div class="button-container">
+                <a href="#slider-image-1" class="slider-change"></a>
+                <a href="#slider-image-2" class="slider-change"></a>
+                <a href="#slider-image-3" class="slider-change"></a>
             </div>
         </div>
     </div>
