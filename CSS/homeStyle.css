@@ -33,7 +33,7 @@
 
 .centered-text {
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -43,22 +43,18 @@
     font-size: 35px;
 }
 
-.btn_home{
+.bottone{
     background-color: var(--coloreSecondario);
     color: var(--colorePrimario);
-    border-radius: 10px;
-    width: 18vw;
-    height: 4vh;
-    font-size: 22px;
     border-color: var(--coloreSecondario);
-    border: none;
+    border-radius: 10px;
 
     -webkit-transition: background-color var(--btnAnimDelay) ease-in;
     -ms-transition: background-color var(--btnAnimDelay) ease-in;
     transition: background-color var(--btnAnimDelay) ease-in;
 }
 
-.btn_home:hover{
+.bottone:hover{
     background-color: var(--colorePrimario);
     color: var(--coloreSecondario);
 
@@ -67,8 +63,16 @@
     transition: background-color var(--btnAnimDelay) ease-in;
 }
 
+#bottone_home{
+    width: 18vw;
+    height: 4vh;
+    font-size: 22px;
+    border: none;
+}
+
 .descrizione_carosello{
     display: flex;
+    flex-direction: row;
 }
 
 .rotaract_description{
@@ -78,41 +82,11 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    vertical-align: middle;
+    justify-content: center;
+    padding: 10px;
 }
 
 /*CSS per il carosello*/
-@keyframes foto1 {
-    from{
-        left: -250px;
-    }
-    to{
-        left:-750px;
-    }
-}
-
-@keyframes foto2 {
-    from{
-        left: -750px;
-    }
-    to{
-        left: -1250px;
-    }
-}
-
-@keyframes foto3 {
-    from{
-        left: -1250px;
-    }
-    to{
-        left: 0px;
-    }
-}
-
-
-@keyframes wait{
-    
-}
 
 .slider-container
 {
@@ -134,21 +108,33 @@
     clear: both;
     position: relative;
 
-    animation: foto1 2s infinite alternate, wait 2s alternate, foto2 2s alternate;
+    left: -250px;
 }
 
 #slider-image-1:target ~ .image-container
 {
     left: -250px;
+    -webkit-transition: left 2s;
+    -moz-transition: left 2s;
+    -o-transition: left 2s;
+    transition: left 2s;
 }
 
 #slider-image-2:target ~ .image-container
 {
     left: -750px;
+    -webkit-transition: left 2s;
+    -moz-transition: left 2s;
+    -o-transition: left 2s;
+    transition: left 2s;
 }
 #slider-image-3:target ~ .image-container
 {
     left: -1250px;
+    -webkit-transition: left 2s;
+    -moz-transition: left 2s;
+    -o-transition: left 2s;
+    transition: left 2s;
 }
 
 .button-container
@@ -169,4 +155,14 @@
 .slider-image{
     width: 500px;
     height: 500px;
+}
+
+@media screen and (max-width:840px) {
+    .descrizione_carosello{
+        flex-direction: column;
+    }
+    .rotaract_description{
+        width: 100vw;
+        height: 300px;
+    }
 }
