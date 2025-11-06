@@ -2,11 +2,14 @@
     --headerHeight: 120px;
     --footerLongHeight: calc(var(--headerHeight) * 4);
     --footerShortHeight: var(--headerHeight);
-    --colorePrimario: white;
-    --coloreSecondario: #e2457c;
+    --primaryColor: white;
+    --secondaryColor: #e2457c;
     --headerButtonsLateralPadding: 1vw;
     --btnAnimDelay: 300ms;
     --logoHeight: 100px;
+    --hamburgerIconHeight: 40px;
+    --dropdownButtonWidth: 200px;
+    --hamburgerRightSpace: 50px;
 }
 
 body{
@@ -34,13 +37,19 @@ body{
     height: var(--headerHeight);
 
     /*Colore & bordo*/
-    background-color: var(--colorePrimario);
-    border-bottom: var(--coloreSecondario);
+    background-color: var(--primaryColor);
+    border-bottom: var(--secondaryColor);
     border-bottom-width: 1px;
     border-bottom-style: solid;
 
     /*Porto l'header davanti al contenuto*/
     z-index: 1;
+}
+
+/*Allinea immagine del logo al centro del contenitore*/
+.logoContainer {
+    display: flex;
+    align-items: center;
 }
 
 #header .logo{
@@ -57,8 +66,8 @@ body{
     height: var(--footerShortHeight);
 
     /*Colore & bordo*/
-    background-color: var(--colorePrimario);
-    border-top: var(--coloreSecondario);
+    background-color: var(--primaryColor);
+    border-top: var(--secondaryColor);
     border-top-width: 1px;
     border-top-style: solid;
 }
@@ -93,8 +102,8 @@ body{
 #buttons > a > button{
     /*Colori & Stile*/
     border-style: none;
-    color: var(--coloreSecondario);
-    background-color: var(--colorePrimario);
+    color: var(--secondaryColor);
+    background-color: var(--primaryColor);
     border-radius: 15px;
 
     /*Testo*/
@@ -112,8 +121,8 @@ body{
 
 /*Quando ci passo sopra col mouse il bottone cambia colore*/
 #buttons > a > button:hover{
-    background-color: var(--coloreSecondario);
-    color: var(--colorePrimario);
+    background-color: var(--secondaryColor);
+    color: var(--primaryColor);
 
     -webkit-transition: background-color var(--btnAnimDelay) ease-in;
     -ms-transition: background-color var(--btnAnimDelay) ease-in;
@@ -152,9 +161,12 @@ body{
     color: black;
 }
 
+/*== MENU HAMBURGER ==*/
 #menuHamburger{
-    /*Nascondo il menù*/
+    /*Allineo le righe*/
     display: none;
+    flex-direction: column;
+    justify-content: space-between;
 
     /*Posizione*/
     position: relative;
@@ -162,37 +174,63 @@ body{
     right: 100px;
 
     /*Dimensioni*/
-    height: 40px;
+    height: var(--hamburgerIconHeight);
+    width: 50px;
 
     cursor: pointer;
-}
-
-#menuHamburger:hover > .dropdownMenu{
-    display: block;
-
-    transform: translateY(40px);
-    background-color: aqua;
 }
 
 /*Linee del menu hamburgher*/
 #menuHamburger > .linea{
     display: block;
     height: 18%;
-    width: 50px;
-    background-color: var(--coloreSecondario);
+    background-color: var(--secondaryColor);
 }
+
+/*Mostra il menù*/
+#menuHamburger:hover > .dropdownMenu{
+    display: block;
+}
+
+#menuHamburger .dropdownContent{
+    /*Allinea il contenuto in colonna*/
+    display: flex;
+    flex-direction: column;
+
+    /*Posiziona il contenuto del menù in maniera che sia sotto all'icona*/
+    position: relative;
+    transform: translateY(calc(var(--hamburgerIconHeight) + 20px));
+    right: calc(var(--dropdownButtonWidth) - var(--hamburgerRightSpace));
+}
+
+#menuHamburger > .dropdownMenu button{
+    width: var(--dropdownButtonWidth);
+
+    border-style: solid;
+    border-width: 1px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    border-color: var(--secondaryColor);
+    color: var(--secondaryColor);
+    background-color: var(--primaryColor);
+}
+
+/*Nascondo il menù*/
+.dropdownMenu{
+    display: none;
+}
+
+/*== FINE MENU HAMBURGER ==*/
 
 .logo{
     /*Dimensioni*/
     max-height: var(--logoHeight);
 }
 
-.dropdownMenu{
-    display: none;
-}
-
 h4{
-    color: var(--coloreSecondario);
+    color: var(--secondaryColor);
 }
 
 /*Stile footer quando lo schermo è stretto*/
@@ -229,10 +267,8 @@ h4{
 /*Stile header quando lo schermo è stretto*/
 @media screen and (max-width: 900px){
     #menuHamburger{
-        /*Allineo le righe*/
+        /*Mostro il menù*/
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
     }
 
     #buttons{
