@@ -1,15 +1,28 @@
 :root{
     --headerHeight: 120px;
-    --footerLongHeight: calc(var(--headerHeight) * 4);
-    --footerShortHeight: var(--headerHeight);
-    --primaryColor: white;
-    --secondaryColor: #e2457c;
-    --headerButtonsLateralPadding: 1vw;
-    --btnAnimDelay: 300ms;
     --logoHeight: 100px;
     --hamburgerIconHeight: 40px;
     --dropdownButtonWidth: 200px;
     --hamburgerRightSpace: 50px;
+    --larghezzaSelezioneLaterale:40vw;
+
+    --footerLongHeight: calc(var(--headerHeight) * 4);
+    --footerShortHeight: var(--headerHeight);
+    --primaryColor: white;
+    --secondaryColor: #e2457c;
+    --backgroundColorGradientStart: #ffe6f0;
+    --backgroundColorGradientEnd: #fff;
+    --exitButtonHoverColor: #e6aabf;
+
+    /*Animazioni*/
+    --headerButtonsLateralPadding: 1vw;
+    --btnAnimDelay: 300ms;
+    --opacitaInizialeOscuratore: 0;
+    --opacitaFinaleOscuratore: 0.7;
+    --opacitaCorrenteOscuratore: var(--opacitaInizialeOscuratore);
+    --posizioneInizialeSelezioneLaterale: -40vw;
+    --posizioneFinaleSelezioneLaterale: 0;
+    --posizioneCorrenteSelezioneLaterale: var(--posizioneInizialeSelezioneLaterale);
 }
 
 body{
@@ -22,9 +35,11 @@ body{
     margin: 0;
     min-height: 100vh;
 
-    background: linear-gradient(135deg, #ffe6f0, #fff);
+    /*Colore sfondo*/
+    background: linear-gradient(135deg, var(--backgroundColorGradientStart) , var(--backgroundColorGradientEnd));
 }
 
+/*== HEADER&FOOTER ==*/
 #header{
     /*Allinea il contenuto verticalmente*/
     display: flex;
@@ -130,12 +145,15 @@ body{
     -ms-transition: background-color var(--btnAnimDelay) ease-in;
     transition: background-color var(--btnAnimDelay) ease-in;
 }
+/*== FINE HEADER&FOOTER ==*/
 
 #content{
     /*Centro contenuti*/
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    height: 200vh;
 }
 
 #sede{
@@ -165,7 +183,7 @@ body{
 
 /*== MENU HAMBURGER ==*/
 #menuHamburger{
-    /*Allineo le righe*/
+    /*Nascondo il menù e allineo le righe*/
     display: none;
     flex-direction: column;
     justify-content: space-between;
@@ -189,17 +207,124 @@ body{
     background-color: var(--secondaryColor);
 }
 
-/*Mostra il menù*/
+#selezioneLaterale{
+    display: none;
+
+    /*Dimensioni*/
+    width: var(--larghezzaSelezioneLaterale);
+    height: 100vh;
+
+    /*Colore*/
+    background-color: var(--primaryColor);
+    
+    z-index: 3; /*Porto davanti a tutto*/
+
+    /*Posizione iniziale*/
+    position: fixed;
+    right: var(--posizioneCorrenteSelezioneLaterale);
+
+    /*Bordo*/
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-left-color: var(--secondaryColor);
+}
+
+#bottoniLaterali {
+    width: 100%;
+
+    /*Allineo contenuto*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#bottoniLaterali a{
+    width: 100%;
+}
+
+#bottoniLaterali button{
+    /*Dimensioni*/
+    width: 100%;
+    height: 70px;
+
+    /*Stile testo*/
+    color: var(--secondaryColor);
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: end;
+    padding-right: 10%;
+
+    /*Nascondo lo sfondo e il bordo preesistente e personalizzo quello superiore*/
+    background: none;
+    border-style: none;
+    border-bottom-style: solid;
+    border-bottom-color: var(--secondaryColor);
+    border-bottom-width: 2px;
+
+    cursor: pointer;
+}
+
+#bottoniLaterali button:hover{
+    background-color: var(--secondaryColor);
+    color: var(--primaryColor);
+
+    -webkit-transition: background-color var(--btnAnimDelay) ease-in;
+    -ms-transition: background-color var(--btnAnimDelay) ease-in;
+    transition: background-color var(--btnAnimDelay) ease-in;
+}
+
+/*Scurisce la pagina quando compare la schermata di selezione laterale*/
+#oscuratore{
+    /*Nascondo*/
+    display: none;
+
+    position: fixed;
+
+    z-index: 2; /*Porto davanti al resto della pagina, ma dietro alla selezione laterale*/
+
+    /*Dimensioni*/
+    width: 100vw;
+    height: 100vh;
+    
+    /*Coloro di nero per scurire la pagina quando sarà mostrato con javascript*/
+    background-color: black;
+    opacity: var(--opacitaCorrenteOscuratore);
+}
+
+#exitBtn{
+    /*Posizione*/
+    position: relative;
+    top: 10px;
+    right: 35px;
+
+    /*Rimuovo sfondo e bordo*/
+    background: none;
+    border-style: none;
+
+    /*Dimensioni e colore*/
+    color: var(--secondaryColor);
+    font-weight: 900;
+    font-size: 20px;
+}
+
+#exitBtn:hover{
+    cursor: pointer;
+    color: var(--exitButtonHoverColor);
+}
+
+/*Menù a tendina disabilitato in favore di un menù di selezione a comparsa
+
+/*Mostra il menù
 #menuHamburger:hover > .dropdownMenu{
     display: block;
 }
 
 #menuHamburger .dropdownContent{
-    /*Allinea il contenuto in colonna*/
+    /*Allinea il contenuto in colonna
     display: flex;
     flex-direction: column;
 
-    /*Posiziona il contenuto del menù in maniera che sia sotto all'icona*/
+    /*Posiziona il contenuto del menù in maniera che sia sotto all'icona
     position: relative;
     transform: translateY(calc(var(--hamburgerIconHeight) + 20px));
     right: calc(var(--dropdownButtonWidth) - var(--hamburgerRightSpace));
@@ -219,10 +344,10 @@ body{
     background-color: var(--primaryColor);
 }
 
-/*Nascondo il menù*/
+/*Nascondo il menù
 .dropdownMenu{
     display: none;
-}
+}*/
 
 /*== FINE MENU HAMBURGER ==*/
 
@@ -275,5 +400,13 @@ h4{
 
     #buttons{
         display: none;
+    }
+}
+
+/*Stile selezione laterale quando lo schermo è basso*/
+@media screen and (max-height: 450px){
+    #bottoniLaterali button{
+        font-size: 15px;
+        height: 40px;
     }
 }
