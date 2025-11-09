@@ -1,11 +1,70 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Template</title>
+    <link rel="stylesheet" href="../CSS/commonStyle.css">
 </head>
 <body>
-    <iframe src="https://calendar.google.com/calendar/embed?height=700&wkst=2&ctz=Europe%2FRome&showPrint=0&hl=it&showTz=0&showCalendars=0&showTitle=0&src=Y183ZDhjNzRmYWZkNTA3MDljYWJjMDViNjAyMTk5MzRkZDkwMTQ2MjQ2NWQ3NTY5NTBkYjQ5MTVmNjYzMjdjNjJjQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23e67c73" style="border-width:0" width="1000" height="700" frameborder="0" scrolling="no"></iframe>
+    <div id="header">
+        <a class="logoContainer" href="../index.html"><img class="logo" src="../Media/logo.png"></a>
+
+        <div id="buttons">
+            <a href="../index.html"><button>Home</button></a>
+            <a href="chiSiamo.html"><button>Chi siamo</button></a>
+            <a href="service.html"><button>Service</button></a>
+            <a href="calendario.html"><button>Eventi</button></a>
+            <a href="collaborazioni.html"><button>Collaborazioni</button></a>
+            <a href="contatti.php"><button>Contatti</button></a> 
+        </div>
+
+        <!--Menù a linee responsive-->
+        <div id="menuHamburger">
+            <div class="linea"></div>
+            <div class="linea"></div>
+            <div class="linea"></div>
+
+            <div class="dropdownMenu">
+                <div class="dropdownContent">
+                    <a href="../index.html"><button>Home</button></a>
+                    <a href="chiSiamo.html"><button>Chi siamo</button></a>
+                    <a href="service.html"><button>Service</button></a>
+                    <a href="calendario.html"><button>Eventi</button></a>
+                    <a href="collaborazioni.html"><button>Collaborazioni</button></a>
+                    <a href="contatti.php"><button>Contatti</button></a> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="content" style="height: 65vh;">
+        <iframe src="https://calendar.google.com/calendar/embed?height=700&wkst=2&ctz=Europe%2FRome&showPrint=0&hl=it&showTz=0&showCalendars=0&showTitle=0&src=Y183ZDhjNzRmYWZkNTA3MDljYWJjMDViNjAyMTk5MzRkZDkwMTQ2MjQ2NWQ3NTY5NTBkYjQ5MTVmNjYzMjdjNjJjQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23e67c73" style="border-width:0" width="70%" height="100%" frameborder="0" scrolling="no"></iframe>
+        
+    </div>
+
+    <div id="footer">
+        <div id="footerContent">
+            <div id="sede">
+                <h4>Sede legale:</h4>
+                <p>Piazza Dante 20, 38122 Trento (TN)</p>
+            </div>
+
+            <div id="sitiEsterni">
+                <div>
+                    <h4>Distretto 2060</h4>
+                    <p><a href="https://www.rotaract2060.it/">https://www.rotaract2060.it/</a></p>
+                </div>
+
+                <div>
+                    <h4>Rotary Trento</h4>
+                    <p><a href="https://trento.rotary2060.org/">https://trento.rotary2060.org/</a></p>
+                </div>
+            </div>
+            <a class="logoContainer" href="../index.html"><img class="logo" src="../Media/logo.png"></a>
+        </div>
+    </div>
 </body>
 </html>
