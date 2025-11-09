@@ -4,72 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Rotaract Trento</title>
-    <link rel="stylesheet" href="CSS/commonStyle.css">
+    <link rel="stylesheet" href="CSS/mainStyle.css">
     <link rel="stylesheet" href="CSS/homeStyle.css">
-    <script src="JS/slideshow.js"></script>
 </head>
 <body>
+    <div id="obscurer"></div>
+    
+    <div id="lateralSelection">
+        <button id="exitBtn" onclick="hideLateralSelection()">X</button>
+
+        <div id="lateralBtns">
+            <a href="index.html"><button>Home</button></a>
+            <a href="Pages/whoWeAre.html"><button>Chi siamo</button></a>
+            <a href="Pages/service.html"><button>Service</button></a>
+            <a href="Pages/calendar.html"><button>Eventi</button></a>
+            <a href="Pages/collaborations.html"><button>Collaborazioni</button></a>
+            <a href="Pages/contacts.php"><button>Contatti</button></a>
+        </div>
+    </div>
+    
+
     <div id="header">
         <a class="logoContainer" href="index.html"><img class="logo" src="Media/logo.png"></a>
 
         <div id="buttons">
             <a href="index.html"><button>Home</button></a>
-            <a href="Pages/chiSiamo.html"><button>Chi siamo</button></a>
+            <a href="Pages/whoWeAre.html"><button>Chi siamo</button></a>
             <a href="Pages/service.html"><button>Service</button></a>
-            <a href="Pages/calendario.html"><button>Eventi</button></a>
-            <a href="Pages/collaborazioni.html"><button>Collaborazioni</button></a>
-            <a href="Pages/contatti.php"><button>Contatti</button></a> 
+            <a href="Pages/calendar.html"><button>Eventi</button></a>
+            <a href="Pages/collaborations.html"><button>Collaborazioni</button></a>
+            <a href="Pages/contacts.php"><button>Contatti</button></a> 
         </div>
 
         <!--Menù a linee responsive-->
-        <div id="menuHamburger">
+        <div id="hamburgerMenu" onclick="showLateralSelection()">
             <div class="linea"></div>
             <div class="linea"></div>
             <div class="linea"></div>
-
+            <!--Vecchia versione con menù a tendina
             <div class="dropdownMenu">
                 <div class="dropdownContent">
                     <a href="index.html"><button>Home</button></a>
-                    <a href="Pages/chiSiamo.html"><button>Chi siamo</button></a>
+                    <a href="Pages/whoWeAre.html"><button>Chi siamo</button></a>
                     <a href="Pages/service.html"><button>Service</button></a>
-                    <a href="Pages/calendario.html"><button>Eventi</button></a>
-                    <a href="Pages/collaborazioni.html"><button>Collaborazioni</button></a>
-                    <a href="Pages/contatti.php"><button>Contatti</button></a> 
+                    <a href="Pages/calendar.html"><button>Eventi</button></a>
+                    <a href="Pages/collaborations.html"><button>Collaborazioni</button></a>
+                    <a href="Pages/contacts.php"><button>Contatti</button></a> 
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 
     <div id="content">
         <div class="container">
-            <img src="Media/trento.jpg" alt="immagine bg home" id="img_bg_home"/><br>
-            <span class="centered-text">
+            <img src="Media/trento.jpg" alt="immagine bg home" id="imgBgHome"/><br>
+            <span class="centeredText">
                <strong>Rotaract Trento</strong><br>
                <p>
                 Distretto 2060
                </p>
-               <a href="Pages/calendario.html"><button class="bottone" id="bottone_home">Scopri i nostri eventi</button></a>
+               <a href="Pages/calendar.html"><button class="btn" id="btnHome">Scopri i nostri eventi</button></a>
             </span>
         </div>
     
-        <div class="descrizione_carosello">
-            <div class="rotaract_description">
+        <div class="carouselDescription">
+            <div class="rotaractDescription">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ipsa quidem, nemo, praesentium nulla totam nostrum repellat possimus voluptate quaerat doloribus error cupiditate unde voluptatem, reprehenderit assumenda pariatur? Repellendus, sint!</p>
-                <a href="Pages/chiSiamo.html"><button class="bottone" id="bottone_desc">Chi siamo</button></a>
+                <a href="Pages/whoWeAre.html"><button class="btn" id="btnDesc">Chi siamo</button></a>
             </div>
-            <div class="slider-container">
-                <span id="slider-image-1"></span>
-                <span id="slider-image-2"></span>
-                <span id="slider-image-3"></span>
-                <div class="image-container">
-                    <img src="Media/carosello1.jpg" class="slider-image" />
-                    <img src="Media/carosello2.jpg" class="slider-image" />
-                    <img src="Media/carosello3.jpg" class="slider-image" />
+            <div class="sliderContainer">
+                <span id="sliderImage1"></span>
+                <span id="sliderImage2"></span>
+                <span id="sliderImage3"></span>
+                <div class="imageContainer">
+                    <img src="Media/carosello1.jpg" class="sliderImage" />
+                    <img src="Media/carosello2.jpg" class="sliderImage" />
+                    <img src="Media/carosello3.jpg" class="sliderImage" />
                 </div>
-                <div class="button-container">
-                    <a href="#slider-image-1" class="slider-change"></a>
-                    <a href="#slider-image-2" class="slider-change"></a>
-                    <a href="#slider-image-3" class="slider-change"></a>
+                <div class="buttonContainer">
+                    <a href="#sliderImage1" class="sliderChange"></a>
+                    <a href="#sliderImage2" class="sliderChange"></a>
+                    <a href="#sliderImage3" class="sliderChange"></a>
                 </div>
             </div>
         </div>
@@ -79,12 +94,12 @@
 
     <div id="footer">
         <div id="footerContent">
-            <div id="sede">
+            <div id="registeredOffice">
                 <h4>Sede legale:</h4>
                 <p>Piazza Dante 20, 38122 Trento (TN)</p>
             </div>
 
-            <div id="sitiEsterni">
+            <div id="externalPages">
                 <div>
                     <h4>Distretto 2060</h4>
                     <p><a href="https://www.rotaract2060.it/">https://www.rotaract2060.it/</a></p>
@@ -98,6 +113,8 @@
             <a class="logoContainer" href="index.html"><img class="logo" src="Media/logo.png"></a>
         </div>
     </div>
-    <!--Footer di pippo-->
+
+    <script src="JS/slideshow.js"></script>
+    <script src="JS/lateralSelection.js"></script>
 </body>
 </html>

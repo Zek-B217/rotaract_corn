@@ -28,10 +28,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contatti - Rotaract Club Trento</title>
-  <link rel="stylesheet" href="../CSS/contattiStyle.css">
+  <link rel="stylesheet" href="../CSS/contactsStyle.css">
 </head>
 <body>
-  <div class="contact-form">
+  <div id="contactForm">
     <h2>Scrivi in questo form per contattarci</h2>
 
     <!-- Messaggio di conferma -->
@@ -46,18 +46,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php endif; ?>
 
     <!-- Social e Email -->
-    <div class="contact-info">
-      <a class="contact-item" href="https://www.instagram.com/rotaractclubtrento/" target="_blank">
+    <div id="contactInfo">
+      <a class="contactItem" href="https://www.instagram.com/rotaractclubtrento/" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram logo">
         @rotaractclubtrento
       </a>
 
-      <a class="contact-item" href="https://www.facebook.com/RotaractClubTrento" target="_blank">
+      <a class="contactItem" href="https://www.facebook.com/RotaractClubTrento" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook logo">
         Rotaract Club Trento
       </a>
 
-      <a class="contact-item" href="mailto:rac.trento@rotaract2060.it">
+      <a class="contactItem" href="mailto:rac.trento@rotaract2060.it">
         <svg xmlns="http://www.w3.org/2000/svg" fill="#e64b7d" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 1.99 2H20c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         rac.trento@rotaract2060.it
       </a>

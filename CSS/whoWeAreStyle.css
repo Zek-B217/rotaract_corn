@@ -1,15 +1,15 @@
-.titolo{
+.title{
     color: #e64b84;
     font-size: 2.5em;
     text-decoration: underline;
 }
 
-.ruolo{
+.role{
     font-weight: bold;
     color: rgb(78, 78, 78);
 }
 
-.sottoTitolo{
+.subtitle{
     color: #e64b84;
     font-size: 2em;
 }
