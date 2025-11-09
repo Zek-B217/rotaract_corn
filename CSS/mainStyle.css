@@ -165,8 +165,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    height: 200vh;
+    padding: 2vw;
 }
 
 #registeredOffice{
@@ -514,15 +513,15 @@ body{
     background-color: var(--primaryColor);
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  #contactForm label {
+#contactForm label {
     display: block;
     margin: 15px 0 5px;
     font-weight: 500;
-  }
-  
-  #contactForm input, textarea {
+}
+
+#contactForm input, textarea {
     width: 100%;
     padding: 14px;
     border: 1px solid #ccc;
@@ -531,20 +530,20 @@ body{
     resize: none;
     transition: border 0.3s, box-shadow 0.3s;
     background-color: var(--primaryColor);
-  }
-  
-  #contactForm input:focus, textarea:focus {
+}
+
+#contactForm input:focus, textarea:focus {
     border-color: var(var(--secondaryColor));
     box-shadow: 0 0 10px var(--shadowColor);
     outline: none;
-  }
-  
-  #contactForm textarea {
+}
+
+#contactForm textarea {
     height: 150px;
-  }
-  
-  /* Pulsante INVIA */
-  #contactForm button {
+}
+
+/* Pulsante INVIA */
+#contactForm button {
     background: linear-gradient(135deg, var(--sendBtnColorGradientStart), var(--sendBtnColorGradientEnd));
     color: var(--primaryColor);
     border: none;
@@ -555,13 +554,13 @@ body{
     cursor: pointer;
     margin-top: 25px;
     transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-  }
-  
-  #contactForm button:hover {
+}
+
+#contactForm button:hover {
     background: linear-gradient(135deg, var(--sendBtnHoverColorGradientStart), var(--sendBtnHoverColorGradientEnd));
     transform: translateY(-2px);
     box-shadow: 0 6px 12px var(--shadowColor);
-  }
+}
 /*== FINE FORM CONTATTI ==*/
 
 /*== SOCIAL/CONTATTI ==*/
