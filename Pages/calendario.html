@@ -1,72 +1,64 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Template</title>
-    <link rel="stylesheet" href="../CSS/mainStyle.css">
+    <link rel="stylesheet" href="../CSS/commonStyle.css">
 </head>
 <body>
-    <div id="obscurer"></div>
-    
-    <div id="lateralSelection">
-        <button id="exitBtn" onclick="hideLateralSelection()">X</button>
-
-        <div id="lateralBtns">
-            <a href="../index.html"><button>Home</button></a>
-            <a href="whoWeAre.html"><button>Chi siamo</button></a>
-            <a href="service.html"><button>Service</button></a>
-            <a href="calendar.html"><button>Eventi</button></a>
-            <a href="collaborations.html"><button>Collaborazioni</button></a>
-            <a href="contacts.php"><button>Contatti</button></a> 
-        </div>
-    </div>
-    
-
     <div id="header">
         <a class="logoContainer" href="../index.html"><img class="logo" src="../Media/logo.png"></a>
 
         <div id="buttons">
             <a href="../index.html"><button>Home</button></a>
-            <a href="whoWeAre.html"><button>Chi siamo</button></a>
+            <a href="chiSiamo.html"><button>Chi siamo</button></a>
             <a href="service.html"><button>Service</button></a>
-            <a href="calendar.html"><button>Eventi</button></a>
-            <a href="collaborations.html"><button>Collaborazioni</button></a>
-            <a href="contacts.php"><button>Contatti</button></a> 
+            <a href="calendario.html"><button>Eventi</button></a>
+            <a href="collaborazioni.html"><button>Collaborazioni</button></a>
+            <a href="contatti.php"><button>Contatti</button></a> 
         </div>
 
         <!--Menù a linee responsive-->
-        <div id="hamburgerMenu" onclick="showLateralSelection()">
+        <div id="menuHamburger">
             <div class="linea"></div>
             <div class="linea"></div>
             <div class="linea"></div>
-            <!--Vecchia versione con menù a tendina
+
             <div class="dropdownMenu">
                 <div class="dropdownContent">
-                    <a href="index.html"><button>Home</button></a>
-                    <a href="Pages/whoWeAre.html"><button>Chi siamo</button></a>
-                    <a href="Pages/service.html"><button>Service</button></a>
-                    <a href="Pages/calendar.html"><button>Eventi</button></a>
-                    <a href="Pages/collaborations.html"><button>Collaborazioni</button></a>
-                    <a href="Pages/contacts.php"><button>Contatti</button></a> 
+                    <a href="../index.html"><button>Home</button></a>
+                    <a href="chiSiamo.html"><button>Chi siamo</button></a>
+                    <a href="service.html"><button>Service</button></a>
+                    <a href="calendario.html"><button>Eventi</button></a>
+                    <a href="collaborazioni.html"><button>Collaborazioni</button></a>
+                    <a href="contatti.php"><button>Contatti</button></a> 
                 </div>
-            </div>-->
+            </div>
         </div>
     </div>
 
+<<<<<<< HEAD:Pages/calendar.html
     <!--Sitema stile calendario-->
     <div id="content" style="height: 65vh;">
         <iframe src="https://calendar.google.com/calendar/u/0/embed?src=rotaract2060.it_q6sglj02ighd5c12cq31ndf5o4@group.calendar.google.com&ctz=Europe/Rome" style="border-width:0" width="70%" height="90%" frameborder="0" scrolling="no"></iframe>
+=======
+    <div id="content" style="height: 65vh;">
+        <iframe src="https://calendar.google.com/calendar/embed?height=700&wkst=2&ctz=Europe%2FRome&showPrint=0&hl=it&showTz=0&showCalendars=0&showTitle=0&src=Y183ZDhjNzRmYWZkNTA3MDljYWJjMDViNjAyMTk5MzRkZDkwMTQ2MjQ2NWQ3NTY5NTBkYjQ5MTVmNjYzMjdjNjJjQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23e67c73" style="border-width:0" width="70%" height="100%" frameborder="0" scrolling="no"></iframe>
+        
+>>>>>>> 865301cf2afd0d10041ad0524e7ef9719e2c1bba:Pages/calendario.html
     </div>
 
     <div id="footer">
         <div id="footerContent">
-            <div id="registeredOffice">
+            <div id="sede">
                 <h4>Sede legale:</h4>
                 <p>Piazza Dante 20, 38122 Trento (TN)</p>
             </div>
 
-            <div id="externalPages">
+            <div id="sitiEsterni">
                 <div>
                     <h4>Distretto 2060</h4>
                     <p><a href="https://www.rotaract2060.it/">https://www.rotaract2060.it/</a></p>
@@ -80,8 +72,5 @@
             <a class="logoContainer" href="../index.html"><img class="logo" src="../Media/logo.png"></a>
         </div>
     </div>
-
-    <script src="../JS/lateralSelection.js"></script>
 </body>
 </html>
-

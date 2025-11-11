@@ -5,24 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Template</title>
     <link rel="stylesheet" href="../CSS/commonStyle.css">
+    <link rel="stylesheet" href="../CSS/chiSiamoStyle.css">
 </head>
 <body>
-    <div id="oscuratore"></div>
-    
-    <div id="selezioneLaterale">
-        <button id="exitBtn" onclick="nascondiSelezioneLaterale()">X</button>
-
-        <div id="bottoniLaterali">
-            <a href="../index.html"><button>Home</button></a>
-            <a href="chiSiamo.html"><button>Chi siamo</button></a>
-            <a href="service.html"><button>Service</button></a>
-            <a href="calendario.html"><button>Eventi</button></a>
-            <a href="collaborazioni.html"><button>Collaborazioni</button></a>
-            <a href="contatti.php"><button>Contatti</button></a> 
-        </div>
-    </div>
-    
-
     <div id="header">
         <a class="logoContainer" href="../index.html"><img class="logo" src="../Media/logo.png"></a>
 
@@ -36,11 +21,11 @@
         </div>
 
         <!--Menù a linee responsive-->
-        <div id="menuHamburger" onclick="mostraSelezioneLaterale()">
+        <div id="menuHamburger">
             <div class="linea"></div>
             <div class="linea"></div>
             <div class="linea"></div>
-            <!--Vecchia versione con menù a tendina
+
             <div class="dropdownMenu">
                 <div class="dropdownContent">
                     <a href="../index.html"><button>Home</button></a>
@@ -50,12 +35,45 @@
                     <a href="collaborazioni.html"><button>Collaborazioni</button></a>
                     <a href="contatti.php"><button>Contatti</button></a> 
                 </div>
-            </div>-->
+            </div>
         </div>
     </div>
 
     <div id="content">
-        <p>Inserire il codice quì. Cancellare questo paragrafo</p>
+        <h1 class="titolo">Chi siamo</h1>
+    <div>
+        <h2 class="sottoTitolo">Attuale Direttiva</h2>
+        <div class="container">
+            <div class="leftRow">
+                <p><span class="ruolo">Presidente: </span><span></span></p>
+                <p><span class="ruolo">Vicepresidente: </span><span></span></p>
+                <p><span class="ruolo">Prefetto: </span><span></span></p>
+                <p><span class="ruolo">Tesoriere: </span><span></span></p>
+            </div>
+                
+            <div>
+                <p><span class="ruolo">Segretaria: </span><span></span></p>
+                <p><span class="ruolo">Consigliere con : </span><span ></span></p>
+                <p><span class="ruolo">Presidente: </span><span></span></p>
+                <p><span class="ruolo">Presidente: </span><span></span></p>
+            </div>
+        </div>
+        
+    </div>
+    
+    <br>
+
+    <div>
+        <h2 class="sottoTitolo">Ex-presidenti</h2>
+        <div class="container">
+            <div class="leftRow">
+
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </div>    
     </div>
 
     <div id="footer">
@@ -79,7 +97,5 @@
             <a class="logoContainer" href="../index.html"><img class="logo" src="../Media/logo.png"></a>
         </div>
     </div>
-
-    <script src="../JS/selezioneLaterale.js"></script>
 </body>
 </html>
