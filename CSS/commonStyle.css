@@ -1,26 +1,15 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
 :root{
     --headerHeight: 120px;
     --logoHeight: 100px;
     --hamburgerIconHeight: 40px;
     --dropdownButtonWidth: 200px;
     --hamburgerRightSpace: 50px;
-    --lateralSelectionWidth:40vw;
+    --larghezzaSelezioneLaterale:40vw;
 
     --footerLongHeight: calc(var(--headerHeight) * 4);
     --footerShortHeight: var(--headerHeight);
     --primaryColor: white;
     --secondaryColor: #e2457c;
-    --shadowColor: rgba(230,75,125,0.3);
-    --sendBtnColorGradientStart: #e64b7d;
-    --sendBtnColorGradientEnd: #d13c6b;
-    --sendBtnHoverColorGradientStart: var(--sendBtnColorGradientEnd);
-    --sendBtnHoverColorGradientEnd: var(--sendBtnColorGradientStart);
     --backgroundColorGradientStart: #ffe6f0;
     --backgroundColorGradientEnd: #fff;
     --exitButtonHoverColor: #e6aabf;
@@ -28,17 +17,15 @@
     /*Animazioni*/
     --headerButtonsLateralPadding: 1vw;
     --btnAnimDelay: 300ms;
-    --obscurerStartingOpacity: 0;
-    --obscurerFinalOpacity: 0.7;
-    --obscurerCurrentOpacity: var(--obscurerStartingOpacity);
-    --lateralSelectionStartingPosition: -40vw;
-    --lateralSelectionFinalPosition: 0;
-    --lateralSelectionCurrentPosition: var(--lateralSelectionStartingPosition);
+    --opacitaInizialeOscuratore: 0;
+    --opacitaFinaleOscuratore: 0.7;
+    --opacitaCorrenteOscuratore: var(--opacitaInizialeOscuratore);
+    --posizioneInizialeSelezioneLaterale: -40vw;
+    --posizioneFinaleSelezioneLaterale: 0;
+    --posizioneCorrenteSelezioneLaterale: var(--posizioneInizialeSelezioneLaterale);
 }
 
 body{
-    font-family: 'Poppins', sans-serif;
-
     /*Posiziono l'header in cima e il footer in fondo*/
     display: flex;
     flex-direction: column;
@@ -165,16 +152,17 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2vw;
+
+    height: 200vh;
 }
 
-#registeredOffice{
+#sede{
     /*Posizione*/
     position: absolute;
     left: 5%;
 }
 
-#externalPages{
+#sitiEsterni{
     /*Allineo contenuto*/
     display: flex;
     flex-direction: row;
@@ -189,12 +177,12 @@ body{
 }
 
 /*Link di colore nero*/
-#externalPages a{
+#sitiEsterni a{
     color: black;
 }
 
 /*== MENU HAMBURGER ==*/
-#hamburgerMenu{
+#menuHamburger{
     /*Nascondo il menù e allineo le righe*/
     display: none;
     flex-direction: column;
@@ -213,17 +201,17 @@ body{
 }
 
 /*Linee del menu hamburgher*/
-#hamburgerMenu > .linea{
+#menuHamburger > .linea{
     display: block;
     height: 18%;
     background-color: var(--secondaryColor);
 }
 
-#lateralSelection{
+#selezioneLaterale{
     display: none;
 
     /*Dimensioni*/
-    width: var(--lateralSelectionWidth);
+    width: var(--larghezzaSelezioneLaterale);
     height: 100vh;
 
     /*Colore*/
@@ -233,7 +221,7 @@ body{
 
     /*Posizione iniziale*/
     position: fixed;
-    right: var(--lateralSelectionCurrentPosition);
+    right: var(--posizioneCorrenteSelezioneLaterale);
 
     /*Bordo*/
     border-left-style: solid;
@@ -241,7 +229,7 @@ body{
     border-left-color: var(--secondaryColor);
 }
 
-#lateralBtns {
+#bottoniLaterali {
     width: 100%;
 
     /*Allineo contenuto*/
@@ -250,11 +238,11 @@ body{
     align-items: center;
 }
 
-#lateralBtns a{
+#bottoniLaterali a{
     width: 100%;
 }
 
-#lateralBtns button{
+#bottoniLaterali button{
     /*Dimensioni*/
     width: 100%;
     height: 70px;
@@ -276,7 +264,7 @@ body{
     cursor: pointer;
 }
 
-#lateralBtns button:hover{
+#bottoniLaterali button:hover{
     background-color: var(--secondaryColor);
     color: var(--primaryColor);
 
@@ -286,7 +274,7 @@ body{
 }
 
 /*Scurisce la pagina quando compare la schermata di selezione laterale*/
-#obscurer{
+#oscuratore{
     /*Nascondo*/
     display: none;
 
@@ -300,7 +288,7 @@ body{
     
     /*Coloro di nero per scurire la pagina quando sarà mostrato con javascript*/
     background-color: black;
-    opacity: var(--obscurerCurrentOpacity);
+    opacity: var(--opacitaCorrenteOscuratore);
 }
 
 #exitBtn{
@@ -327,11 +315,11 @@ body{
 /*Menù a tendina disabilitato in favore di un menù di selezione a comparsa
 
 /*Mostra il menù
-#hamburgerMenu:hover > .dropdownMenu{
+#menuHamburger:hover > .dropdownMenu{
     display: block;
 }
 
-#hamburgerMenu .dropdownContent{
+#menuHamburger .dropdownContent{
     /*Allinea il contenuto in colonna
     display: flex;
     flex-direction: column;
@@ -342,7 +330,7 @@ body{
     right: calc(var(--dropdownButtonWidth) - var(--hamburgerRightSpace));
 }
 
-#hamburgerMenu > .dropdownMenu button{
+#menuHamburger > .dropdownMenu button{
     width: var(--dropdownButtonWidth);
 
     border-style: solid;
@@ -363,305 +351,9 @@ body{
 
 /*== FINE MENU HAMBURGER ==*/
 
-/*== IMMAGINE CENTRALE HOME ==*/
-#imgBgHome{
-    width: 100vw;
-    height: auto;
-}
-
-
-#mainImageContainer {
-    position: relative;
-    text-align: center;
-    color: black;
-}
-
-#mainImageContainer > #imgBgHome{
-    filter: brightness(100%);
-    -webkit-transition: filter var(--btnAnimDelay) ease-in;
-    -ms-transition: filter var(--btnAnimDelay) ease-in;
-    transition: filter var(--btnAnimDelay) ease-in;
-}
-
-#mainImageContainer:hover > #imgBgHome{
-    filter: brightness(80%);
-
-    -webkit-transition: filter var(--btnAnimDelay) ease-in;
-    -ms-transition: filter var(--btnAnimDelay) ease-in;
-    transition: filter var(--btnAnimDelay) ease-in;
-}
-
-#mainText {
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#mainText > strong {
-    color: black;
-    font-size: 35px;
-}
-
-#btnHome{
-    width: 18vw;
-    height: 4vh;
-    font-size: 22px;
-    border: none;
-}
-/*== FINE IMMAGINE CENTRALE HOME==*/
-
-#rotaractDescription{
-    width: 40vw;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    padding: 10px;
-}
-
-/*== CAROSELLO HOME ==*/
-.carouselDescription{
-    display: flex;
-    flex-direction: row;
-}
-
-.sliderContainer
-{
-    width: 500px;
-    height: 500px;
-    background-color: var(--primaryColor);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0px;
-    text-align: center;
-    overflow: hidden;
-}
-
-.imageContainer
-{
-    width: 2000px;
-    background-color: var(--primaryColor);
-    height: 500px;
-    clear: both;
-    position: relative;
-
-    left: -250px;
-}
-
-#sliderImage1:target ~ .imageContainer
-{
-    left: -250px;
-    -webkit-transition: left 2s;
-    -moz-transition: left 2s;
-    -o-transition: left 2s;
-    transition: left 2s;
-}
-
-#sliderImage2:target ~ .imageContainer
-{
-    left: -750px;
-    -webkit-transition: left 2s;
-    -moz-transition: left 2s;
-    -o-transition: left 2s;
-    transition: left 2s;
-}
-#sliderImage3:target ~ .imageContainer
-{
-    left: -1250px;
-    -webkit-transition: left 2s;
-    -moz-transition: left 2s;
-    -o-transition: left 2s;
-    transition: left 2s;
-}
-
-.carouselBtnContainer
-{
-	position: relative;
-	top: -20px;
-}
-
-.sliderChange
-{
-	display: inline-block;
-	height: 10px;
-	width: 10px;
-	border-radius: 5px;
-	background-color: var(--secondaryColor);
-}
-
-.sliderImage{
-    width: 500px;
-    height: 500px;
-}
-/*== FINE CAROSELLO HOME ==*/
-
-/*== FORM CONTATTI ==*/
-#formTitle {
-    color: var(--secondaryColor);
-    font-size: 32px;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-#contactForm {
-    width: 100%;
-    max-width: 700px;
-    padding: 40px 30px;
-    background-color: var(--primaryColor);
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
-#contactForm label {
-    display: block;
-    margin: 15px 0 5px;
-    font-weight: 500;
-}
-
-#contactForm input, textarea {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 15px;
-    resize: none;
-    transition: border 0.3s, box-shadow 0.3s;
-    background-color: var(--primaryColor);
-}
-
-#contactForm input:focus, textarea:focus {
-    border-color: var(var(--secondaryColor));
-    box-shadow: 0 0 10px var(--shadowColor);
-    outline: none;
-}
-
-#contactForm textarea {
-    height: 150px;
-}
-
-/* Pulsante INVIA */
-#contactForm button {
-    background: linear-gradient(135deg, var(--sendBtnColorGradientStart), var(--sendBtnColorGradientEnd));
-    color: var(--primaryColor);
-    border: none;
-    width: 100%;
-    padding: 16px;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 25px;
-    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-}
-
-#contactForm button:hover {
-    background: linear-gradient(135deg, var(--sendBtnHoverColorGradientStart), var(--sendBtnHoverColorGradientEnd));
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px var(--shadowColor);
-}
-/*== FINE FORM CONTATTI ==*/
-
-/*== SOCIAL/CONTATTI ==*/
-#contactInfo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-}
-
-.contactItem {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--secondaryColor);
-    text-decoration: none;
-    transition: transform 0.3s, filter 0.3s;
-}
-
-.contactItem img, .contactItem svg {
-    width: 28px;
-    height: 28px;
-    transition: transform 0.3s, filter 0.3s;
-}
-
-.contactItem:hover {
-    text-decoration: underline;
-}
-
-.contactItem:hover img, .contactItem:hover svg {
-    transform: scale(1.2);
-    filter: brightness(1.2);
-}
-/*== FINE SOCIAL/CONTATTI ==*/
-
-.messageBox {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.messageSuccess {
-    color: #28a745;
-}
-
-.messageError {
-    color: red;
-}
-
-.title{
-    color: var(--secondaryColor);
-    font-size: 2.5em;
-    text-decoration: underline;
-}
-
-.subtitle{
-    color: var(--secondaryColor);
-    font-size: 2em;
-}
-
 .logo{
     /*Dimensioni*/
     max-height: var(--logoHeight);
-}
-
-.leftRow{
-    text-align: right;
-}
-
-.role{
-    font-weight: bold;
-    color: rgb(78, 78, 78);
-}
-
-.container {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
-
-.linkBtn{
-    background-color: var(--secondaryColor);
-    color: var(--primaryColor);
-    border-color: var(--secondaryColor);
-    border-radius: 10px;
-
-    -webkit-transition: background-color var(--btnAnimDelay) ease-in;
-    -ms-transition: background-color var(--btnAnimDelay) ease-in;
-    transition: background-color var(--btnAnimDelay) ease-in;
-}
-
-.linkBtn:hover{
-    background-color: var(--primaryColor);
-    color: var(--secondaryColor);
-
-    -webkit-transition: background-color var(--btnAnimDelay) ease-in;
-    -ms-transition: background-color var(--btnAnimDelay) ease-in;
-    transition: background-color var(--btnAnimDelay) ease-in;
 }
 
 h4{
@@ -670,7 +362,7 @@ h4{
 
 /*Stile footer quando lo schermo è stretto*/
 @media screen and (max-width: 840px){
-    #externalPages{
+    #sitiEsterni{
         flex-direction: column;
 
         position: static;
@@ -689,7 +381,7 @@ h4{
         width: 50%;
     }
 
-    #registeredOffice{
+    #sede{
         position: static;
     }
 
@@ -699,9 +391,9 @@ h4{
 
 }
 
-/*Stile header/carosello quando lo schermo è stretto*/
+/*Stile header quando lo schermo è stretto*/
 @media screen and (max-width: 900px){
-    #hamburgerMenu{
+    #menuHamburger{
         /*Mostro il menù*/
         display: flex;
     }
@@ -709,32 +401,11 @@ h4{
     #buttons{
         display: none;
     }
-
-    .carouselDescription{
-        flex-direction: column;
-    }
-    .rotaractDescription{
-        width: 100vw;
-        height: 300px;
-    }
-}
-
-/*Stile contatti quando lo schermo è stretto*/
-@media screen and (max-width: 600px) {
-    .contactForm {
-      padding: 30px 20px;
-    }
-    #formTitle {
-      font-size: 28px;
-    }
-    .contactInfo {
-      gap: 20px;
-    }
 }
 
 /*Stile selezione laterale quando lo schermo è basso*/
 @media screen and (max-height: 450px){
-    #lateralBtns button{
+    #bottoniLaterali button{
         font-size: 15px;
         height: 40px;
     }

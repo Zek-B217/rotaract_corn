@@ -1,0 +1,14 @@
+.titolo{
+    color: #e64b84;
+    font-size: 2.5em;
+}
+
+.sottoTitolo{
+    color: #000000;
+    font-size: 2em;
+}
+
+.evidenziati{
+    font-weight: bold;
+    color: rgb(78, 78, 78);
+}

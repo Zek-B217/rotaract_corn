@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Template</title>
-    <link rel="stylesheet" href="../CSS/mainStyle.css">
+    <link rel="stylesheet" href="../CSS/commonStyle.css">
 </head>
 <body>
-    <div id="obscurer"></div>
+    <div id="oscuratore"></div>
     
-    <div id="lateralSelection">
-        <button id="exitBtn" onclick="hideLateralSelection()">X</button>
+    <div id="selezioneLaterale">
+        <button id="exitBtn" onclick="nascondiSelezioneLaterale()">X</button>
 
-        <div id="lateralBtns">
+        <div id="bottoniLaterali">
             <a href="../index.html"><button>Home</button></a>
-            <a href="whoWeAre.html"><button>Chi siamo</button></a>
+            <a href="chiSiamo.html"><button>Chi siamo</button></a>
             <a href="service.html"><button>Service</button></a>
-            <a href="calendar.html"><button>Eventi</button></a>
-            <a href="collaborations.html"><button>Collaborazioni</button></a>
-            <a href="contacts.php"><button>Contatti</button></a> 
+            <a href="calendario.html"><button>Eventi</button></a>
+            <a href="collaborazioni.html"><button>Collaborazioni</button></a>
+            <a href="contatti.php"><button>Contatti</button></a> 
         </div>
     </div>
     
@@ -28,27 +28,27 @@
 
         <div id="buttons">
             <a href="../index.html"><button>Home</button></a>
-            <a href="whoWeAre.html"><button>Chi siamo</button></a>
+            <a href="chiSiamo.html"><button>Chi siamo</button></a>
             <a href="service.html"><button>Service</button></a>
-            <a href="calendar.html"><button>Eventi</button></a>
-            <a href="collaborations.html"><button>Collaborazioni</button></a>
-            <a href="contacts.php"><button>Contatti</button></a> 
+            <a href="calendario.html"><button>Eventi</button></a>
+            <a href="collaborazioni.html"><button>Collaborazioni</button></a>
+            <a href="contatti.php"><button>Contatti</button></a> 
         </div>
 
         <!--Menù a linee responsive-->
-        <div id="hamburgerMenu" onclick="showLateralSelection()">
+        <div id="menuHamburger" onclick="mostraSelezioneLaterale()">
             <div class="linea"></div>
             <div class="linea"></div>
             <div class="linea"></div>
             <!--Vecchia versione con menù a tendina
             <div class="dropdownMenu">
                 <div class="dropdownContent">
-                    <a href="index.html"><button>Home</button></a>
-                    <a href="Pages/whoWeAre.html"><button>Chi siamo</button></a>
-                    <a href="Pages/service.html"><button>Service</button></a>
-                    <a href="Pages/calendar.html"><button>Eventi</button></a>
-                    <a href="Pages/collaborations.html"><button>Collaborazioni</button></a>
-                    <a href="Pages/contacts.php"><button>Contatti</button></a> 
+                    <a href="../index.html"><button>Home</button></a>
+                    <a href="chiSiamo.html"><button>Chi siamo</button></a>
+                    <a href="service.html"><button>Service</button></a>
+                    <a href="calendario.html"><button>Eventi</button></a>
+                    <a href="collaborazioni.html"><button>Collaborazioni</button></a>
+                    <a href="contatti.php"><button>Contatti</button></a> 
                 </div>
             </div>-->
         </div>
@@ -60,12 +60,12 @@
 
     <div id="footer">
         <div id="footerContent">
-            <div id="registeredOffice">
+            <div id="sede">
                 <h4>Sede legale:</h4>
                 <p>Piazza Dante 20, 38122 Trento (TN)</p>
             </div>
 
-            <div id="externalPages">
+            <div id="sitiEsterni">
                 <div>
                     <h4>Distretto 2060</h4>
                     <p><a href="https://www.rotaract2060.it/">https://www.rotaract2060.it/</a></p>
@@ -80,6 +80,6 @@
         </div>
     </div>
 
-    <script src="../JS/lateralSelection.js"></script>
+    <script src="../JS/selezioneLaterale.js"></script>
 </body>
 </html>
