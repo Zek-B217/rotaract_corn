@@ -48,23 +48,20 @@
 }
 
 .bottone{
-    background-color: var(--coloreSecondario);
+    background: linear-gradient(135deg, #e64b7d, #d13c6b);
     color: var(--colorePrimario);
-    border-color: var(--coloreSecondario);
-    border-radius: 10px;
-
-    -webkit-transition: background-color var(--btnAnimDelay) ease-in;
-    -ms-transition: background-color var(--btnAnimDelay) ease-in;
-    transition: background-color var(--btnAnimDelay) ease-in;
+    border: none;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
 }
 
 .bottone:hover{
-    background-color: var(--colorePrimario);
-    color: var(--coloreSecondario);
-
-    -webkit-transition: background-color var(--btnAnimDelay) ease-in;
-    -ms-transition: background-color var(--btnAnimDelay) ease-in;
-    transition: background-color var(--btnAnimDelay) ease-in;
+    background: linear-gradient(135deg, #d13c6b, #e64b7d);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(230,75,125,0.3);
 }
 
 #bottone_home{
@@ -167,17 +164,22 @@
     height: 500px;
 }
 
+
 @media screen and (max-width:1170px) {
+
     #bottone_home{
         font-size: 18px;
+        padding: 0px;
     }
 
     #bottone_desc{
         font-size: 18px;
+        padding: 0px;
     }
 }
 
 @media screen and (max-width:970px) {
+    
     #bottone_home{
         font-size: 16px;
     }
@@ -188,6 +190,7 @@
 }
 
 @media screen and (max-width:840px) {
+
     .descrizione_carosello{
         flex-direction: column;
     }
@@ -206,6 +209,7 @@
 }
 
 @media screen and (max-width:470px) {
+
     #bottone_home{
         font-size: 8px;
         height: 2vh;
