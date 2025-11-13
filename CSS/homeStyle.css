@@ -9,6 +9,10 @@
     height: auto;
 }
 
+.titolo{
+    font-size: 35px;
+}
+
 
 .container {
     position: relative;
@@ -33,7 +37,7 @@
 
 .centered-text {
     position: absolute;
-    top: 35%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -44,23 +48,20 @@
 }
 
 .bottone{
-    background-color: var(--coloreSecondario);
+    background: linear-gradient(135deg, #e64b7d, #d13c6b);
     color: var(--colorePrimario);
-    border-color: var(--coloreSecondario);
-    border-radius: 10px;
-
-    -webkit-transition: background-color var(--btnAnimDelay) ease-in;
-    -ms-transition: background-color var(--btnAnimDelay) ease-in;
-    transition: background-color var(--btnAnimDelay) ease-in;
+    border: none;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
 }
 
 .bottone:hover{
-    background-color: var(--colorePrimario);
-    color: var(--coloreSecondario);
-
-    -webkit-transition: background-color var(--btnAnimDelay) ease-in;
-    -ms-transition: background-color var(--btnAnimDelay) ease-in;
-    transition: background-color var(--btnAnimDelay) ease-in;
+    background: linear-gradient(135deg, #d13c6b, #e64b7d);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(230,75,125,0.3);
 }
 
 #bottone_home{
@@ -84,6 +85,12 @@
     text-align: center;
     justify-content: center;
     padding: 10px;
+}
+
+#bottone_desc{
+    width: 15vw;
+    height: 4vh;
+    font-size: 22px;
 }
 
 /*CSS per il carosello*/
@@ -157,7 +164,33 @@
     height: 500px;
 }
 
+
+@media screen and (max-width:1170px) {
+
+    #bottone_home{
+        font-size: 18px;
+        padding: 0px;
+    }
+
+    #bottone_desc{
+        font-size: 18px;
+        padding: 0px;
+    }
+}
+
+@media screen and (max-width:970px) {
+    
+    #bottone_home{
+        font-size: 16px;
+    }
+
+    #bottone_desc{
+        font-size: 16px;
+    }
+}
+
 @media screen and (max-width:840px) {
+
     .descrizione_carosello{
         flex-direction: column;
     }
@@ -165,4 +198,76 @@
         width: 100vw;
         height: 300px;
     }
+
+    #bottone_home{
+        font-size: 13px;
+    }
+
+    #bottone_desc{
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width:470px) {
+
+    #bottone_home{
+        font-size: 8px;
+        height: 2vh;
+    }
+
+    #bottone_desc{
+        font-size: 10px;
+    }
+    .titolo{
+        font-size: 15px;
+    }
+    
+}
+
+@media screen and (max-width:550px) {
+    .slider-container
+    {
+        width: 300px;
+        height: 300px;
+    }
+
+    .image-container
+    {
+        width: 1200px;
+        height: 300px;
+
+        left: -150px;
+    }
+
+    #slider-image-1:target ~ .image-container
+    {
+        left: -150px;
+        -webkit-transition: left 2s;
+        -moz-transition: left 2s;
+        -o-transition: left 2s;
+        transition: left 2s;
+    }
+
+    #slider-image-2:target ~ .image-container
+    {
+        left: -450px;
+        -webkit-transition: left 2s;
+        -moz-transition: left 2s;
+        -o-transition: left 2s;
+        transition: left 2s;
+    }
+    #slider-image-3:target ~ .image-container
+    {
+        left: -750px;
+        -webkit-transition: left 2s;
+        -moz-transition: left 2s;
+        -o-transition: left 2s;
+        transition: left 2s;
+    }
+
+    .slider-image{
+        width: 300px;
+        height: 300px;
+    }
+    
 }

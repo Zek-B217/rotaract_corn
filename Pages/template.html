@@ -7,6 +7,22 @@
     <link rel="stylesheet" href="../CSS/commonStyle.css">
 </head>
 <body>
+    <div id="oscuratore"></div>
+    
+    <div id="selezioneLaterale">
+        <button id="exitBtn" onclick="nascondiSelezioneLaterale()">X</button>
+
+        <div id="bottoniLaterali">
+            <a href="../index.html"><button>Home</button></a>
+            <a href="chiSiamo.html"><button>Chi siamo</button></a>
+            <a href="service.html"><button>Service</button></a>
+            <a href="calendario.php"><button>Eventi</button></a>
+            <a href="collaborazioni.html"><button>Collaborazioni</button></a>
+            <a href="contatti.php"><button>Contatti</button></a> 
+        </div>
+    </div>
+    
+
     <div id="header">
         <a class="logoContainer" href="../index.html"><img class="logo" src="../Media/logo.png"></a>
 
@@ -20,21 +36,10 @@
         </div>
 
         <!--Menù a linee responsive-->
-        <div id="menuHamburger">
+        <div id="menuHamburger" onclick="mostraSelezioneLaterale()">
             <div class="linea"></div>
             <div class="linea"></div>
             <div class="linea"></div>
-
-            <div class="dropdownMenu">
-                <div class="dropdownContent">
-                    <a href="../index.html"><button>Home</button></a>
-                    <a href="chiSiamo.html"><button>Chi siamo</button></a>
-                    <a href="service.html"><button>Service</button></a>
-                    <a href="calendario.html"><button>Eventi</button></a>
-                    <a href="collaborazioni.html"><button>Collaborazioni</button></a>
-                    <a href="contatti.php"><button>Contatti</button></a> 
-                </div>
-            </div>
         </div>
     </div>
 
@@ -63,5 +68,7 @@
             <a class="logoContainer" href="../index.html"><img class="logo" src="../Media/logo.png"></a>
         </div>
     </div>
+
+    <script src="../JS/selezioneLaterale.js"></script>
 </body>
 </html>
