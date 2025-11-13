@@ -152,8 +152,6 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    height: 200vh;
 }
 
 #sede{
@@ -312,45 +310,6 @@ body{
     color: var(--exitButtonHoverColor);
 }
 
-/*Menù a tendina disabilitato in favore di un menù di selezione a comparsa
-
-/*Mostra il menù
-#menuHamburger:hover > .dropdownMenu{
-    display: block;
-}
-
-#menuHamburger .dropdownContent{
-    /*Allinea il contenuto in colonna
-    display: flex;
-    flex-direction: column;
-
-    /*Posiziona il contenuto del menù in maniera che sia sotto all'icona
-    position: relative;
-    transform: translateY(calc(var(--hamburgerIconHeight) + 20px));
-    right: calc(var(--dropdownButtonWidth) - var(--hamburgerRightSpace));
-}
-
-#menuHamburger > .dropdownMenu button{
-    width: var(--dropdownButtonWidth);
-
-    border-style: solid;
-    border-width: 1px;
-
-    padding-top: 10px;
-    padding-bottom: 10px;
-
-    border-color: var(--secondaryColor);
-    color: var(--secondaryColor);
-    background-color: var(--primaryColor);
-}
-
-/*Nascondo il menù
-.dropdownMenu{
-    display: none;
-}*/
-
-/*== FINE MENU HAMBURGER ==*/
-
 .logo{
     /*Dimensioni*/
     max-height: var(--logoHeight);
@@ -361,11 +320,11 @@ h4{
 }
 
 /*Stile footer quando lo schermo è stretto*/
-@media screen and (max-width: 840px){
+@media screen and (max-width: 1040px){
     #sitiEsterni{
         flex-direction: column;
-
         position: static;
+        width: fit-content;
     }
 
     #footer{
@@ -375,8 +334,10 @@ h4{
     #footerContent{
         justify-content: space-evenly;
         flex-direction: column-reverse;
+        align-items: start;
 
         position: relative;
+        left: 5%;
 
         width: 50%;
     }
