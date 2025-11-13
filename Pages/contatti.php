@@ -151,7 +151,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           <label for="messaggio">Messaggio</label>
           <textarea id="messaggio" name="messaggio" required></textarea>
 
-          <button type="submit">INVIA</button>
+          <button type="submit" id=invia>INVIA</button>
         </form>
       </div>
 
