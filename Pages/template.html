@@ -7,18 +7,18 @@
     <link rel="stylesheet" href="../CSS/commonStyle.css">
 </head>
 <body>
-    <div id="oscuratore"></div>
+    <div id="obscurer"></div>
     
-    <div id="selezioneLaterale">
-        <button id="exitBtn" onclick="nascondiSelezioneLaterale()">X</button>
+    <div id="lateralSelection">
+        <button id="exitBtn" onclick="hideLateralSelection()">X</button>
 
-        <div id="bottoniLaterali">
+        <div id="lateralBtns">
             <a href="../index.html"><button>Home</button></a>
-            <a href="chiSiamo.html"><button>Chi siamo</button></a>
+            <a href="whoWeAre.php"><button>Chi siamo</button></a>
             <a href="service.html"><button>Service</button></a>
-            <a href="calendario.php"><button>Eventi</button></a>
-            <a href="collaborazioni.html"><button>Collaborazioni</button></a>
-            <a href="contatti.php"><button>Contatti</button></a> 
+            <a href="calendar.php"><button>Eventi</button></a>
+            <a href="collaborations.html"><button>Collaborazioni</button></a>
+            <a href="contacts.php"><button>Contatti</button></a> 
         </div>
     </div>
     
@@ -28,18 +28,18 @@
 
         <div id="buttons">
             <a href="../index.html"><button>Home</button></a>
-            <a href="chiSiamo.html"><button>Chi siamo</button></a>
+            <a href="whoWeAre.php"><button>Chi siamo</button></a>
             <a href="service.html"><button>Service</button></a>
-            <a href="calendario.html"><button>Eventi</button></a>
-            <a href="collaborazioni.html"><button>Collaborazioni</button></a>
-            <a href="contatti.php"><button>Contatti</button></a> 
+            <a href="calendar.html"><button>Eventi</button></a>
+            <a href="collaborations.html"><button>Collaborazioni</button></a>
+            <a href="contacts.php"><button>Contatti</button></a> 
         </div>
 
         <!--Menù a linee responsive-->
-        <div id="menuHamburger" onclick="mostraSelezioneLaterale()">
-            <div class="linea"></div>
-            <div class="linea"></div>
-            <div class="linea"></div>
+        <div id="menuHamburger" onclick="showLateralSelection()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
         </div>
     </div>
 
@@ -49,12 +49,12 @@
 
     <div id="footer">
         <div id="footerContent">
-            <div id="sede">
+            <div id="registeredOffice">
                 <h4>Sede legale:</h4>
                 <p>Piazza Dante 20, 38122 Trento (TN)</p>
             </div>
 
-            <div id="sitiEsterni">
+            <div id="externalWebsites">
                 <div>
                     <h4>Distretto 2060</h4>
                     <p><a href="https://www.rotaract2060.it/">https://www.rotaract2060.it/</a></p>
@@ -69,6 +69,6 @@
         </div>
     </div>
 
-    <script src="../JS/selezioneLaterale.js"></script>
+    <script src="../JS/lateralSelection.js"></script>
 </body>
 </html>

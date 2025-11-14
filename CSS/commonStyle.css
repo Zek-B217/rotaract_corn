@@ -4,7 +4,7 @@
     --hamburgerIconHeight: 40px;
     --dropdownButtonWidth: 200px;
     --hamburgerRightSpace: 50px;
-    --larghezzaSelezioneLaterale:40vw;
+    --lateralSelectionWidth:40vw;
 
     --footerLongHeight: calc(var(--headerHeight) * 4);
     --footerShortHeight: var(--headerHeight);
@@ -17,12 +17,12 @@
     /*Animazioni*/
     --headerButtonsLateralPadding: 1vw;
     --btnAnimDelay: 300ms;
-    --opacitaInizialeOscuratore: 0;
-    --opacitaFinaleOscuratore: 0.7;
-    --opacitaCorrenteOscuratore: var(--opacitaInizialeOscuratore);
-    --posizioneInizialeSelezioneLaterale: -40vw;
-    --posizioneFinaleSelezioneLaterale: 0;
-    --posizioneCorrenteSelezioneLaterale: var(--posizioneInizialeSelezioneLaterale);
+    --obscurerStartingOpacity: 0;
+    --obscurerFinalOpacity: 0.7;
+    --obscurerCurrentOpacity: var(--obscurerStartingOpacity);
+    --lateralSelectionStartingPosition: -40vw;
+    --lateralSelectionFinalPosition: 0;
+    --lateralSelectionCurrentPosition: var(--lateralSelectionStartingPosition);
 }
 
 body{
@@ -154,13 +154,13 @@ body{
     align-items: center;
 }
 
-#sede{
+#registeredOffice{
     /*Posizione*/
     position: absolute;
     left: 5%;
 }
 
-#sitiEsterni{
+#externalWebsites{
     /*Allineo contenuto*/
     display: flex;
     flex-direction: row;
@@ -175,7 +175,7 @@ body{
 }
 
 /*Link di colore nero*/
-#sitiEsterni a{
+#externalWebsites a{
     color: black;
 }
 
@@ -199,17 +199,17 @@ body{
 }
 
 /*Linee del menu hamburgher*/
-#menuHamburger > .linea{
+#menuHamburger > .line{
     display: block;
     height: 18%;
     background-color: var(--secondaryColor);
 }
 
-#selezioneLaterale{
+#lateralSelection{
     display: none;
 
     /*Dimensioni*/
-    width: var(--larghezzaSelezioneLaterale);
+    width: var(--lateralSelectionWidth);
     height: 100vh;
 
     /*Colore*/
@@ -219,7 +219,7 @@ body{
 
     /*Posizione iniziale*/
     position: fixed;
-    right: var(--posizioneCorrenteSelezioneLaterale);
+    right: var(--lateralSelectionCurrentPosition);
 
     /*Bordo*/
     border-left-style: solid;
@@ -227,7 +227,7 @@ body{
     border-left-color: var(--secondaryColor);
 }
 
-#bottoniLaterali {
+#lateralBtns {
     width: 100%;
 
     /*Allineo contenuto*/
@@ -236,11 +236,11 @@ body{
     align-items: center;
 }
 
-#bottoniLaterali a{
+#lateralBtns a{
     width: 100%;
 }
 
-#bottoniLaterali button{
+#lateralBtns button{
     /*Dimensioni*/
     width: 100%;
     height: 70px;
@@ -262,7 +262,7 @@ body{
     cursor: pointer;
 }
 
-#bottoniLaterali button:hover{
+#lateralBtns button:hover{
     background-color: var(--secondaryColor);
     color: var(--primaryColor);
 
@@ -272,7 +272,7 @@ body{
 }
 
 /*Scurisce la pagina quando compare la schermata di selezione laterale*/
-#oscuratore{
+#obscurer{
     /*Nascondo*/
     display: none;
 
@@ -286,7 +286,7 @@ body{
     
     /*Coloro di nero per scurire la pagina quando sarà mostrato con javascript*/
     background-color: black;
-    opacity: var(--opacitaCorrenteOscuratore);
+    opacity: var(--obscurerCurrentOpacity);
 }
 
 #exitBtn{
@@ -321,7 +321,7 @@ h4{
 
 /*Stile footer quando lo schermo è stretto*/
 @media screen and (max-width: 1040px){
-    #sitiEsterni{
+    #externalWebsites{
         flex-direction: column;
         position: static;
         width: fit-content;
@@ -342,7 +342,7 @@ h4{
         width: 50%;
     }
 
-    #sede{
+    #registeredOffice{
         position: static;
     }
 
@@ -366,7 +366,7 @@ h4{
 
 /*Stile selezione laterale quando lo schermo è basso*/
 @media screen and (max-height: 450px){
-    #bottoniLaterali button{
+    #lateralBtns button{
         font-size: 15px;
         height: 40px;
     }
