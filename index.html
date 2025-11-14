@@ -3,40 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Rotaract Trento</title>
+    <title>Template</title>
     <link rel="stylesheet" href="CSS/commonStyle.css">
     <link rel="stylesheet" href="CSS/homeStyle.css">
-    <script src="JS/slideshow.js"></script>
 </head>
 <body>
+    <div id="obscurer"></div>
+    
+    <div id="lateralSelection">
+        <button id="exitBtn" onclick="hideLateralSelection()">X</button>
+
+        <div id="lateralBtns">
+            <a href="index.html"><button>Home</button></a>
+            <a href="Pages/whoWeAre.php"><button>Chi siamo</button></a>
+            <a href="Pages/service.html"><button>Service</button></a>
+            <a href="Pages/calendar.php"><button>Eventi</button></a>
+            <a href="Pages/collaborations.html"><button>Collaborazioni</button></a>
+            <a href="Pages/contacts.php"><button>Contatti</button></a> 
+        </div>
+    </div>
+    
+
     <div id="header">
         <a class="logoContainer" href="index.html"><img class="logo" src="Media/logo.png"></a>
 
         <div id="buttons">
             <a href="index.html"><button>Home</button></a>
-            <a href="Pages/chiSiamo.html"><button>Chi siamo</button></a>
+            <a href="Pages/whoWeAre.php"><button>Chi siamo</button></a>
             <a href="Pages/service.html"><button>Service</button></a>
-            <a href="Pages/calendario.html"><button>Eventi</button></a>
-            <a href="Pages/collaborazioni.html"><button>Collaborazioni</button></a>
-            <a href="Pages/contatti.php"><button>Contatti</button></a> 
+            <a href="Pages/calendar.html"><button>Eventi</button></a>
+            <a href="Pages/collaborations.html"><button>Collaborazioni</button></a>
+            <a href="Pages/contacts.php"><button>Contatti</button></a> 
         </div>
 
         <!--Menù a linee responsive-->
-        <div id="menuHamburger">
-            <div class="linea"></div>
-            <div class="linea"></div>
-            <div class="linea"></div>
-
-            <div class="dropdownMenu">
-                <div class="dropdownContent">
-                    <a href="index.html"><button>Home</button></a>
-                    <a href="Pages/chiSiamo.html"><button>Chi siamo</button></a>
-                    <a href="Pages/service.html"><button>Service</button></a>
-                    <a href="Pages/calendario.html"><button>Eventi</button></a>
-                    <a href="Pages/collaborazioni.html"><button>Collaborazioni</button></a>
-                    <a href="Pages/contatti.php"><button>Contatti</button></a> 
-                </div>
-            </div>
+        <div id="menuHamburger" onclick="showLateralSelection()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
         </div>
     </div>
 
@@ -48,14 +52,14 @@
                <p class="title">
                 Distretto 2060
                </p>
-               <a href="Pages/calendario.html"><button class="btn" id="homeBtn">Scopri i nostri eventi</button></a>
+               <a href="Pages/calendar.html"><button class="btn" id="homeBtn">Scopri i nostri eventi</button></a>
             </span>
         </div>
     
         <div class="carouselDescription">
             <div class="rotaractDescription">
                 <p>Il Rotaract Club Trento nasce l’8 luglio 1985, promosso dal Rotary Club Trento e parte del Distretto 2060. In un periodo in cui il Rotaract in Italia si afferma come spazio di incontro e formazione per giovani studenti e professionisti, il club trentino si distingue da subito per entusiasmo, amicizia e voglia di fare. Le prime feste di beneficenza e le attività sociali segnano l’inizio di una tradizione che unisce impegno e convivialità, mentre i rapporti con club come Regensburg, Rovereto e Bolzano riflettono fin da allora una naturale apertura internazionale.</p>
-                <a href="Pages/chiSiamo.html"><button class="btn" id="descBtn">Chi siamo</button></a>
+                <a href="Pages/whoWeAre.php"><button class="btn" id="descBtn">Chi siamo</button></a>
             </div>
             <div class="sliderContainer">
                 <span id="sliderImage1"></span>
@@ -79,12 +83,12 @@
 
     <div id="footer">
         <div id="footerContent">
-            <div id="sede">
+            <div id="registeredOffice">
                 <h4>Sede legale:</h4>
                 <p>Piazza Dante 20, 38122 Trento (TN)</p>
             </div>
 
-            <div id="sitiEsterni">
+            <div id="externalWebsites">
                 <div>
                     <h4>Distretto 2060</h4>
                     <p><a href="https://www.rotaract2060.it/">https://www.rotaract2060.it/</a></p>
@@ -98,6 +102,7 @@
             <a class="logoContainer" href="index.html"><img class="logo" src="Media/logo.png"></a>
         </div>
     </div>
-    <!--Footer di pippo-->
+
+    <script src="JS/lateralSelection.js"></script>
 </body>
 </html>
