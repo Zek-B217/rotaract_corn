@@ -154,6 +154,11 @@ body{
     align-items: center;
 }
 
+#content p{
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+
 #registeredOffice{
     /*Posizione*/
     position: absolute;
