@@ -18,7 +18,7 @@
 /* ===========================
    SEZIONE INFO CONTATTI
    =========================== */
-.contact-info {
+.contactInfo {
   width: 100%;
   max-width: 900px;
   background-color: var(--primaryColor);
@@ -28,13 +28,13 @@
   text-align: center;
 }
 
-.contact-info h3 {
+.contactInfo h3 {
   color: var(--secondaryColor);
   font-size: 26px;
   margin-bottom: 30px;
 }
 
-.info-center {
+.infoCenter {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,7 +42,7 @@
 }
 
 /* Riga con indirizzo e social */
-.info-item {
+.infoItem {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -50,7 +50,7 @@
   font-size: 16px;
 }
 
-.info-item svg {
+.infoItem svg {
   width: 26px;
   height: 26px;
   fill: var(--secondaryColor);
@@ -59,7 +59,7 @@
 /* ===========================
    BOTTONI SOCIAL
    =========================== */
-.social-links {
+.socialLinks {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,7 +67,7 @@
   flex-wrap: wrap;
 }
 
-.social-links .social-btn {
+.socialLinks .socialBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -83,23 +83,23 @@
   transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
 }
 
-.social-links .social-btn svg {
+.socialLinks .socialBtn svg {
   width: 22px;
   height: 22px;
   fill: #fff;
 }
 
 /* Colori specifici */
-.social-links .facebook {
+.socialLinks .facebook {
   background-color: #E1306C;
 }
 
-.social-links .instagram {
+.socialLinks .instagram {
   background-color: #E1306C;
 }
 
 /* Effetti hover */
-.social-links .social-btn:hover {
+.socialLinks .socialBtn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
@@ -107,7 +107,7 @@
 /* ===========================
    MAPPA
    =========================== */
-.map-container {
+.mapContainer {
   margin-top: 30px;
   border-radius: 12px;
   overflow: hidden;
@@ -117,9 +117,9 @@
 /* ===========================
    FORM CONTATTI
    =========================== */
-.contact-form {
+.contactForm {
   width: 100%;
-  max-width: 900px; /* uguale a contact-info */
+  max-width: 900px; /* uguale a contactInfo */
   margin: 0 auto;
   padding: 40px 30px;
   background-color: #fff;
@@ -127,7 +127,7 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
-.contact-form h2 {
+.contactForm h2 {
   color: var(--secondaryColor);
   font-size: 28px;
   margin-bottom: 30px;
@@ -135,7 +135,7 @@
 }
 
 /* Messaggi */
-.message-box {
+.messageBox {
   text-align: center;
   margin-bottom: 20px;
 }
@@ -203,12 +203,12 @@ textarea {
    RESPONSIVE
    =========================== */
 @media (max-width: 900px) {
-  .contact-info,
-  .contact-form {
+  .contactInfo,
+  .contactForm {
     padding: 30px 20px;
   }
 
-  .social-links {
+  .socialLinks {
     flex-direction: column;
     gap: 15px;
   }

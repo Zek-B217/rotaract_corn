@@ -95,20 +95,20 @@ if($lunghezza % 1 != 0){
     </div>
 
     <div id="content">
-        <h1 class="titolo">Chi siamo</h1>
+        <h1 class="title">Chi siamo</h1>
     <div>
-        <h2 class="sottoTitolo">Attuale Consiglio Direttivo</h2>
+        <h2 class="subtitle">Attuale Consiglio Direttivo</h2>
         <div class="container">
             <div class="leftRow">
-                <p><span class="ruolo">Presidente: </span><span>Matteo Bellè</span></p>
-                <p><span class="ruolo">Vicepresidente: </span><span>Diletta Betti</span></p>
-                <p><span class="ruolo">Segretario:  </span><span>Elisabetta Tomasi</span></p>
+                <p><span class="role">Presidente: </span><span>Matteo Bellè</span></p>
+                <p><span class="role">Vicepresidente: </span><span>Diletta Betti</span></p>
+                <p><span class="role">Segretario:  </span><span>Elisabetta Tomasi</span></p>
             </div>
                 
             <div>
-                <p><span class="ruolo">Tesoriere: </span><span>Matteo Manara</span></p>
-                <p><span class="ruolo">Prefetto: </span><span >Alessandra Cassaro</span></p>
-                <p><span class="ruolo">Past-President: </span><span>Daniele Di Lucrezia</span></p>
+                <p><span class="role">Tesoriere: </span><span>Matteo Manara</span></p>
+                <p><span class="role">Prefetto: </span><span >Alessandra Cassaro</span></p>
+                <p><span class="role">Past-President: </span><span>Daniele Di Lucrezia</span></p>
             </div>
         </div>
         
@@ -117,7 +117,7 @@ if($lunghezza % 1 != 0){
     <br>
 
     <div>
-        <h2 class="sottoTitolo">Ex-presidenti</h2>
+        <h2 class="subtitle">Ex-presidenti</h2>
         <div class="container">
             <div class="leftRow">
                 <?php

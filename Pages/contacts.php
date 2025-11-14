@@ -65,11 +65,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div id="buttons">
             <a href="../index.html"><button>Home</button></a>
-            <a href="chiSiamo.html"><button>Chi siamo</button></a>
+            <a href="whoWeAre.php"><button>Chi siamo</button></a>
             <a href="service.html"><button>Service</button></a>
-            <a href="calendario.html"><button>Eventi</button></a>
-            <a href="collaborazioni.html"><button>Collaborazioni</button></a>
-            <a href="contatti.php"><button>Contatti</button></a> 
+            <a href="calendar.html"><button>Eventi</button></a>
+            <a href="collaborations.html"><button>Collaborazioni</button></a>
+            <a href="contacts.php"><button>Contatti</button></a> 
         </div>
 
         <!--Menù a linee responsive-->
@@ -81,11 +81,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <div class="dropdownMenu">
                 <div class="dropdownContent">
                     <a href="../index.html"><button>Home</button></a>
-                    <a href="chiSiamo.html"><button>Chi siamo</button></a>
+                    <a href="whoWeAre.php"><button>Chi siamo</button></a>
                     <a href="service.html"><button>Service</button></a>
-                    <a href="calendario.html"><button>Eventi</button></a>
-                    <a href="collaborazioni.html"><button>Collaborazioni</button></a>
-                    <a href="contatti.php"><button>Contatti</button></a> 
+                    <a href="calendar.html"><button>Eventi</button></a>
+                    <a href="collaborations.html"><button>Collaborazioni</button></a>
+                    <a href="contacts.php"><button>Contatti</button></a> 
                 </div>
             </div>
         </div>
@@ -95,22 +95,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <main class="container">
 
       <!-- 🔹 SEZIONE CONTATTI CLUB -->
-      <div class="contact-info">
+      <div class="contactInfo">
         <h3>Contatti del Rotaract Club Trento</h3>
 
-        <div class="info-center">
-        <div class="info-item">
+        <div class="infoCenter">
+        <div class="infoItem">
           <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/></svg>
           <p>Piazza Dante 20, 38122 Trento (TN)</p>
         </div>
 
-        <div class="social-links">
-          <a href="https://www.facebook.com/RotaractClubTrento" target="_blank" class="social-btn facebook">
+        <div class="socialLinks">
+          <a href="https://www.facebook.com/RotaractClubTrento" target="_blank" class="socialBtn facebook">
             <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5a3.5 3.5 0 0 1 3.8-3.8h2.7v3h-2c-.8 0-1.2.4-1.2 1.2V12H17l-.5 3h-2.2v7A10 10 0 0 0 22 12z"/></svg>
             Facebook
           </a>
 
-          <a href="https://www.instagram.com/rotaractclubtrento" target="_blank" class="social-btn instagram">
+          <a href="https://www.instagram.com/rotaractclubtrento" target="_blank" class="socialBtn instagram">
             <svg viewBox="0 0 24 24"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.6 0 3 1.4 3 3v10c0 1.6-1.4 3-3 3H7c-1.6 0-3-1.4-3-3V7c0-1.6 1.4-3 3-3h10zm-5 3.5A5.5 5.5 0 1 0 17.5 13 5.5 5.5 0 0 0 12 7.5zm0 9A3.5 3.5 0 1 1 15.5 13 3.5 3.5 0 0 1 12 16.5zm5.8-10.8a1.1 1.1 0 1 0 1.1 1.1 1.1 1.1 0 0 0-1.1-1.1z"/></svg>
             Instagram
           </a>
@@ -126,16 +126,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       </div>
 
       <!-- 🔹 FORM CONTATTI -->
-      <div class="contact-form">
+      <div class="contactForm">
         <h2>Scrivi in questo form per contattarci</h2>
 
         <?php if (isset($_SESSION['errore'])): ?>
-          <div class="message-box error">
+          <div class="messageBox error">
             <p><strong>❌ Errore:</strong> <?= $_SESSION['errore'] ?></p>
           </div>
           <?php unset($_SESSION['errore']); ?>
         <?php elseif (isset($_SESSION['successo'])): ?>
-          <div class="message-box success">
+          <div class="messageBox success">
             <p><strong>✅ <?= $_SESSION['successo'] ?></strong></p>
           </div>
           <?php unset($_SESSION['successo']); ?>
