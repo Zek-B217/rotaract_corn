@@ -67,11 +67,11 @@ if($lunghezza % 1 != 0){
 
         <div id="lateralBtns">
             <a href="../index.html"><button>Home</button></a>
-            <a href="whoWeAre.php"><button>Chi siamo</button></a>
+            <a href="whoWeAre.php"><button data-i18n="whoWeAre">Chi siamo</button></a>
             <a href="service.html"><button>Service</button></a>
-            <a href="calendar.php"><button>Eventi</button></a>
-            <a href="collaborations.html"><button>Collaborazioni</button></a>
-            <a href="contacts.php"><button>Contatti</button></a> 
+            <a href="calendar.php"><button data-i18n="events">Eventi</button></a>
+            <a href="collaborations.html"><button data-i18n="collab">Collaborazioni</button></a>
+            <a href="contacts.php"><button data-i18n="contacts">Contatti</button></a> 
         </div>
     </div>
     
@@ -81,11 +81,11 @@ if($lunghezza % 1 != 0){
 
         <div id="buttons">
             <a href="../index.html"><button>Home</button></a>
-            <a href="whoWeAre.php"><button>Chi siamo</button></a>
+            <a href="whoWeAre.php"><button data-i18n="whoWeAre">Chi siamo</button></a>
             <a href="service.html"><button>Service</button></a>
-            <a href="calendar.html"><button>Eventi</button></a>
-            <a href="collaborations.html"><button>Collaborazioni</button></a>
-            <a href="contacts.php"><button>Contatti</button></a> 
+            <a href="calendar.php"><button data-i18n="events">Eventi</button></a>
+            <a href="collaborations.html"><button data-i18n="collab">Collaborazioni</button></a>
+            <a href="contacts.php"><button data-i18n="contacts">Contatti</button></a> 
         </div>
 
         <!--Menù a linee responsive-->
@@ -97,20 +97,20 @@ if($lunghezza % 1 != 0){
     </div>
 
     <div id="content">
-        <h1 class="title">Chi siamo</h1>
+        <h1 class="title" data-i18n="whoWeAre">Chi siamo</h1>
         <div>
-            <h2 class="subtitle">Attuale Consiglio Direttivo</h2>
+            <h2 class="subtitle" data-i18n="actual">Attuale Consiglio Direttivo</h2>
             <div class="container">
                 <div class="leftRow">
-                    <p><span class="role">Presidente: </span><span>Matteo Bellè</span></p>
-                    <p><span class="role">Vicepresidente: </span><span>Diletta Betti</span></p>
-                    <p><span class="role">Segretario:  </span><span>Elisabetta Tomasi</span></p>
+                    <p><span class="role" data-i18n="pres">Presidente: </span><span>Matteo Bellè</span></p>
+                    <p><span class="role" data-i18n="vpres">Vicepresidente: </span><span>Diletta Betti</span></p>
+                    <p><span class="role" data-i18n="segr">Segretario:  </span><span>Elisabetta Tomasi</span></p>
                 </div>
                     
                 <div>
-                    <p><span class="role">Tesoriere: </span><span>Matteo Manara</span></p>
-                    <p><span class="role">Prefetto: </span><span >Alessandra Cassaro</span></p>
-                    <p><span class="role">Past-President: </span><span>Daniele Di Lucrezia</span></p>
+                    <p><span class="role" data-i18n="tes">Tesoriere: </span><span>Matteo Manara</span></p>
+                    <p><span class="role" data-i18n="pref">Prefetto: </span><span >Alessandra Cassaro</span></p>
+                    <p><span class="role" data-i18n="expres">Ex-presidente: </span><span>Daniele Di Lucrezia</span></p>
                 </div>
             </div>
         </div>
@@ -118,7 +118,7 @@ if($lunghezza % 1 != 0){
         <br>
 
         <div>
-            <h2 class="subtitle">Ex-presidenti</h2>
+            <h2 class="subtitle" data-i18n="express">Ex-presidenti</h2>
             <div class="container">
                 <div class="leftRow">
                     <?php
@@ -149,13 +149,13 @@ if($lunghezza % 1 != 0){
     <div id="footer">
         <div id="footerContent">
             <div id="registeredOffice">
-                <h4>Sede legale:</h4>
+                <h4 data-i18n="legalRes">Sede legale:</h4>
                 <p>Piazza Dante 20, 38122 Trento (TN)</p>
             </div>
 
             <div id="externalWebsites">
                 <div>
-                    <h4>Distretto 2060</h4>
+                    <h4 data-i18n="district">Distretto 2060</h4>
                     <p><a href="https://www.rotaract2060.it/">https://www.rotaract2060.it/</a></p>
                 </div>
 
