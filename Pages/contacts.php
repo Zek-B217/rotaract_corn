@@ -66,11 +66,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div id="lateralBtns">
             <a href="../index.html"><button>Home</button></a>
-            <a href="whoWeAre.php"><button>Chi siamo</button></a>
+            <a href="whoWeAre.php"><button data-i18n="whoWeAre">Chi siamo</button></a>
             <a href="service.html"><button>Service</button></a>
-            <a href="calendar.php"><button>Eventi</button></a>
-            <a href="collaborations.html"><button>Collaborazioni</button></a>
-            <a href="contacts.php"><button>Contatti</button></a> 
+            <a href="calendar.php"><button data-i18n="events">Eventi</button></a>
+            <a href="collaborations.html"><button data-i18n="collab">Collaborazioni</button></a>
+            <a href="contacts.php"><button data-i18n="contacts">Contatti</button></a> 
         </div>
     </div>
     
@@ -80,11 +80,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <div id="buttons">
             <a href="../index.html"><button>Home</button></a>
-            <a href="whoWeAre.php"><button>Chi siamo</button></a>
+            <a href="whoWeAre.php"><button data-i18n="whoWeAre">Chi siamo</button></a>
             <a href="service.html"><button>Service</button></a>
-            <a href="calendar.html"><button>Eventi</button></a>
-            <a href="collaborations.html"><button>Collaborazioni</button></a>
-            <a href="contacts.php"><button>Contatti</button></a> 
+            <a href="calendar.php"><button data-i18n="events">Eventi</button></a>
+            <a href="collaborations.html"><button data-i18n="collab">Collaborazioni</button></a>
+            <a href="contacts.php"><button data-i18n="contacts">Contatti</button></a> 
         </div>
 
         <!--Menù a linee responsive-->
@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <main class="container">
             <!-- 🔹 SEZIONE CONTATTI CLUB -->
             <div class="contactInfo">
-            <h3>Contatti del Rotaract Club Trento</h3>
+            <h3 data-i18n="contactTitle">Contatti del Rotaract Club Trento</h3>
 
             <div class="infoCenter">
             <div class="infoItem">
@@ -130,31 +130,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <!-- 🔹 FORM CONTATTI -->
             <div class="contactForm">
-            <h2>Scrivi in questo form per contattarci</h2>
+            <h2 data-i18n="write">Scrivi in questo form per contattarci</h2>
 
             <?php if (isset($_SESSION['errore'])): ?>
                 <div class="messageBox error">
-                <p><strong>❌ Errore:</strong> <?= $_SESSION['errore'] ?></p>
+                <p><strong data-i18n="error">❌ Errore:</strong> <?= $_SESSION['errore'] ?></p>
                 </div>
                 <?php unset($_SESSION['errore']); ?>
             <?php elseif (isset($_SESSION['successo'])): ?>
                 <div class="messageBox success">
-                <p><strong>✅ <?= $_SESSION['successo'] ?></strong></p>
+                <p><strong data-i18n="success">✅ <?= $_SESSION['successo'] ?></strong></p>
                 </div>
                 <?php unset($_SESSION['successo']); ?>
             <?php endif; ?>
 
             <form method="POST" action="">
-                <label for="nome">Nome</label>
+                <label for="nome" data-i18n="name">Nome</label>
                 <input type="text" id="nome" name="nome" required>
 
-                <label for="email">Email personale</label>
+                <label for="email" data-i18n="email">Email personale</label>
                 <input type="email" id="email" name="email" required>
 
-                <label for="messaggio">Messaggio</label>
+                <label for="messaggio" data-i18n="message">Messaggio</label>
                 <textarea id="messaggio" name="messaggio" required></textarea>
 
-                <button type="submit" id=invia>INVIA</button>
+                <button type="submit" id="invia" data-i18n="submit">INVIA</button>
             </form>
             </div>
         </main>   
@@ -163,13 +163,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div id="footer">
         <div id="footerContent">
             <div id="registeredOffice">
-                <h4>Sede legale:</h4>
+                <h4 data-i18n="legalRes">Sede legale:</h4>
                 <p>Piazza Dante 20, 38122 Trento (TN)</p>
             </div>
 
             <div id="externalWebsites">
                 <div>
-                    <h4>Distretto 2060</h4>
+                    <h4 data-i18n="district">Distretto 2060</h4>
                     <p><a href="https://www.rotaract2060.it/">https://www.rotaract2060.it/</a></p>
                 </div>
 
