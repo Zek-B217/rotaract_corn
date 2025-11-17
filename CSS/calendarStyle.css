@@ -1,0 +1,16 @@
+#calendarContainer{
+    height: 70vh;
+    width: 100vw;
+
+    padding: 2%;
+
+    display: flex;
+    justify-content: center;
+}
+
+#calendar{
+    border-width: 0;
+
+    width: 96%;
+    height: 100%;
+}
