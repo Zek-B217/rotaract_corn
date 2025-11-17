@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <a href="../index.html"><button>Home</button></a>
             <a href="whoWeAre.php"><button data-i18n="whoWeAre">Chi siamo</button></a>
             <a href="service.html"><button>Service</button></a>
-            <a href="calendar.php"><button data-i18n="events">Eventi</button></a>
+            <a href="calendar.html"><button data-i18n="events">Eventi</button></a>
             <a href="collaborations.html"><button data-i18n="collab">Collaborazioni</button></a>
             <a href="contacts.php"><button data-i18n="contacts">Contatti</button></a> 
         </div>
@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <a href="../index.html"><button>Home</button></a>
             <a href="whoWeAre.php"><button data-i18n="whoWeAre">Chi siamo</button></a>
             <a href="service.html"><button>Service</button></a>
-            <a href="calendar.php"><button data-i18n="events">Eventi</button></a>
+            <a href="calendar.html"><button data-i18n="events">Eventi</button></a>
             <a href="collaborations.html"><button data-i18n="collab">Collaborazioni</button></a>
             <a href="contacts.php"><button data-i18n="contacts">Contatti</button></a> 
         </div>
