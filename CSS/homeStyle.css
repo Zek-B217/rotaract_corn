@@ -73,7 +73,8 @@
 
 .carouselDescription{
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
+    padding: 20px;
 }
 
 .rotaractDescription{
@@ -84,7 +85,7 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-    padding: 10px;
+    padding: 30px;
 }
 
 #descBtn{
@@ -192,11 +193,12 @@
 @media screen and (max-width:840px) {
 
     .carouselDescription{
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
     .rotaractDescription{
         width: 100vw;
         height: 300px;
+        padding: 40px;
     }
 
     #homeBtn{
