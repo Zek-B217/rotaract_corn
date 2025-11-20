@@ -1,28 +1,131 @@
-:root{
-    --primaryColor: white;
+
+:root { 
+    --primaryColor: #ffffff; 
     --secondaryColor: #e2457c;
+    --textColor: #333333;
+    --cardColor: #fafafa;
 }
 
-#servicesList span{
-    font-weight: 900;
-    color: var(--secondaryColor);
+
+#content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-#servicesList li::marker{
-    color: var(--secondaryColor)
+#content h1{
+    color:var(--secondaryColor);
+    text-align: center;
+    margin-top: 30px;
+    font-size: xxx-large;
+    /*margin-bottom: ;*/
+    
+    
 }
 
-#textContainer{
+
+#textContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    padding-top: 3%;
-    padding-bottom: 3%;
-
     width: 60vw;
+    max-width: 850px;
+    margin-bottom: 30px;
+
+    gap: 2rem;
 }
 
-#textContainer > p {
+#textContainer p {
     text-align: center;
+    color: var(--textColor);
+    line-height: 1.65;
+    font-size: 1.05rem;
+}
+
+
+#servicesList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+
+.serviceItem {
+    color: var(--secondaryColor);
+    background: var(--cardColor);
+    padding: 1.8rem 2rem;
+    border-radius: 14px;
+
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+    transition: 0.25s ease;
+}
+
+
+.serviceItem:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.12);
+}
+
+
+.serviceItem h2 {
+    color: var(--secondaryColor);
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+}
+
+.serviceItem p {
+    text-align: center;
+    color: var(--textColor);
+    line-height: 1.6;
+}
+
+
+@media (max-width: 900px) {
+    #textContainer {
+        width: 80vw;
+    }
+}
+
+@media (max-width: 600px) {
+    #textContainer {
+        width: 90vw;
+    }
+
+    .serviceItem {
+        padding: 1.5rem;
+    }
+
+    .serviceItem h2 {
+        font-size: 1.3rem;
+    }
+}
+
+#introText {
+    background: var(--cardColor);
+    padding: 2rem 2.5rem;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.06);
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+#introText p {
+    text-align: center;
+    line-height: 1.55;
+    font-size: 1.1rem;
+    color: var(--textColor);
+}
+
+#textContainer p {
+    max-width: 750px;
+    line-height: 1.45;
+    font-size: 1.1rem;
+    text-align: center;   /* molto più elegante e leggibile */
 }

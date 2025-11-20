@@ -1,0 +1,215 @@
+/* Reset base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenitore principale */
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  padding: 60px 20px;
+}
+
+/* ===========================
+   SEZIONE INFO CONTATTI
+   =========================== */
+.contact-info {
+  width: 100%;
+  max-width: 900px;
+  background-color: var(--primaryColor);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.contact-info h3 {
+  color: var(--secondaryColor);
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+.info-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Riga con indirizzo e social */
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #333;
+  font-size: 16px;
+}
+
+.info-item svg {
+  width: 26px;
+  height: 26px;
+  fill: var(--secondaryColor);
+}
+
+/* ===========================
+   BOTTONI SOCIAL
+   =========================== */
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-links .social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.social-links .social-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+}
+
+/* Colori specifici */
+.social-links .facebook {
+  background-color: #E1306C;
+}
+
+.social-links .instagram {
+  background-color: #E1306C;
+}
+
+/* Effetti hover */
+.social-links .social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ===========================
+   MAPPA
+   =========================== */
+.map-container {
+  margin-top: 30px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ===========================
+   FORM CONTATTI
+   =========================== */
+.contact-form {
+  width: 100%;
+  max-width: 900px; /* uguale a contact-info */
+  margin: 0 auto;
+  padding: 40px 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+  color: var(--secondaryColor);
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Messaggi */
+.message-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.success {
+  color: #28a745;
+}
+
+.error {
+  color: red;
+}
+
+/* Etichette e campi */
+label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  resize: none;
+  transition: border 0.3s, box-shadow 0.3s;
+  background-color: #fff;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--secondaryColor);
+  box-shadow: 0 0 10px rgba(226, 69, 124, 0.3);
+  outline: none;
+}
+
+textarea {
+  height: 150px;
+}
+
+/* Pulsante INVIA */
+#invia {
+  background: linear-gradient(135deg, #e64b7d, #d13c6b);
+  color: #fff;
+  border: none;
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+#invia:hover {
+  background: linear-gradient(135deg, #d13c6b, #e64b7d);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(230, 75, 125, 0.3);
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 900px) {
+  .contact-info,
+  .contact-form {
+    padding: 30px 20px;
+  }
+
+  .social-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
