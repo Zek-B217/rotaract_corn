@@ -1,0 +1,58 @@
+:root{
+    --primaryColor: white;
+    --secondaryColor: #e2457c;
+    --backgroundColorGradientStart: #ffe6f0;
+    --backgroundColorGradientEnd: #fff;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--backgroundColorGradientStart) , var(--backgroundColorGradientEnd));
+    height: 98vh;
+    color: var(--secondaryColor);
+}
+
+#loginContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-color: var(--secondaryColor);
+    border-width: 2px;
+    border-radius: 8px;
+    border-style: solid;
+
+    background-color: var(--primaryColor);
+    padding: 50px;
+}
+
+#loginContainer label{
+    font-size: 20px;
+}
+
+#loginContainer button{
+    /*Colori & Stile*/
+    border-style: none;
+    color: var(--secondaryColor);
+    background-color: var(--primaryColor);
+    border-radius: 15px;
+
+    /*Testo*/
+    font-size: 18px;
+    white-space: nowrap;
+    font-weight: bolder;
+
+    /*Dimensioni*/
+    padding-left: var(--headerButtonsLateralPadding);
+    padding-right: var(--headerButtonsLateralPadding);
+    height: calc(var(--headerHeight) / 2.2);
+    
+    cursor: pointer; /*Quando ci passo sopra il cursore cambia stile*/
+}
+
+#passwordInput::value{
+    color: black;
+}
