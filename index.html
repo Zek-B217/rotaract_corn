@@ -27,9 +27,20 @@
     <div id="header">
         <a class="logoContainer" href="index.html"><img class="logo" src="Media/logo.png"></a>
 
+        <div class="dropdownBox">
+            <div class="hoverDropdownBox">
+                <img id="langImg" class="dropdownImg" src="Media/en.jpg">
+                <div class="dropdownContent">
+                    <button class="btn" onclick="setLang('it')">Italiano</button>
+                    <button class="btn" onclick="setLang('en')">English</button>
+                    <button class="btn" onclick="setLang('de')">Deutsch</button>
+                </div>
+            </div>
+        </div>
+
         <div id="buttons">
             <a href="index.html"><button>Home</button></a>
-            <a href="Pages/whoWeAre.php" data-i18n="whoWeAre"><button>Chi siamo</button></a>
+            <a href="Pages/whoWeAre.php"><button data-i18n="whoWeAre">Chi siamo</button></a> 
             <a href="Pages/service.html"><button>Service</button></a>
             <a href="Pages/calendar.html"><button data-i18n="events">Eventi</button></a>
             <a href="Pages/collaborations.html"><button data-i18n="collab">Collaborazioni</button></a>
@@ -48,9 +59,9 @@
         <div class="container">
             <img src="Media/trento.jpg" alt="immagine bg home" id="imgBgHome"/><br>
             <span class="centeredText">
-               <strong class="title">Rotaract Trento</strong><br>
+               <strong class="title" id="title">Rotaract Trento</strong><br>
                <p data-i18n="district">Distretto 2060</p>
-               <a href="Pages/calendar.html"><button class="btn" id="homeBtn" data-i18n="homeBtn">Scopri i nostri eventi</button></a>
+               <a href="Pages/calendar.html"><button class="btn" id="homeBtn" data-i18n="events">Eventi</button></a>
             </span>
         </div>
     
@@ -102,5 +113,6 @@
     </div>
 
     <script src="JS/lateralSelection.js"></script>
+    <script src="JS/translate.js"></script>
 </body>
 </html>

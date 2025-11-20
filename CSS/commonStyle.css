@@ -113,7 +113,7 @@ body{
 
     /*Posiziono i bottoni*/
     position: absolute;
-    right: 3vw;
+    right: 10vw;
 }
 
 #buttons button{
@@ -375,4 +375,46 @@ h4{
         font-size: 15px;
         height: 40px;
     }
+}
+
+
+/* ================= Bottone traduzione =================*/
+
+.dropdownContent{
+    display: none;
+    width: inherit;
+}
+
+.dropdownContent > button{
+    cursor: pointer;
+    font-size: 15px;
+    height:70px;
+    z-index: 2;
+}
+
+.dropdownImg{
+    cursor: pointer;
+    height: 100px;
+}
+
+.hoverDropdownBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: inherit;
+    margin-top: 10px;
+}
+
+.dropdownBox{
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    align-items: center;
+    position: absolute;
+    right: 3vw;
+}
+
+.hoverDropdownBox:hover .dropdownContent{
+    display: flex;
+    flex-direction: column;
 }

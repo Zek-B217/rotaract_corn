@@ -7,6 +7,7 @@ const translation = {
         "description": "Il Rotaract Club Trento nasce l’8 luglio 1985, promosso dal Rotary Club Trento e parte del Distretto 2060. In un periodo in cui il Rotaract in Italia si afferma come spazio di incontro e formazione per giovani studenti e professionisti, il club trentino si distingue da subito per entusiasmo, amicizia e voglia di fare. Le prime feste di beneficenza e le attività sociali segnano l’inizio di una tradizione che unisce impegno e convivialità, mentre i rapporti con club come Regensburg, Rovereto e Bolzano riflettono fin da allora una naturale apertura internazionale.",
         "legalRes": "Sede legale:",
         "district": "Distretto 2060",
+        "discoverEvents": "Scopri i nostri eventi",
         "actual": "Attuale Consiglio Direttivo",
         "pres": "Presidente: ",
         "vpres": "Vicepresidente: ",
@@ -48,6 +49,7 @@ const translation = {
         "description": "The Rotaract Club of Trento was founded on July 8, 1985, sponsored by the Rotary Club of Trento and part of District 2060. At a time when Rotaract was establishing itself in Italy as a meeting and training space for young students and professionals, the Trentino club immediately stood out for its enthusiasm, friendship, and enthusiasm. The first charity events and social activities marked the beginning of a tradition combining commitment and conviviality, while relationships with clubs such as Regensburg, Rovereto, and Bolzano reflected a natural international outreach.",
         "legalRes": "Legal residence:",
         "district": "2060 District",
+        "discoverEvents": "Discover our events",
         "actual": "Current Board of Directors",
         "pres": "President: ",
         "vpres": "Vice President: ",
@@ -89,6 +91,7 @@ const translation = {
         "description": "Der Rotaract Club Trient wurde am 8. Juli 1985 gegründet und wird vom Rotary Club Trient unterstützt. Er gehört zum Distrikt 2060. Zu einer Zeit, als sich Rotaract in Italien als Treffpunkt und Weiterbildungsstätte für junge Studierende und Berufstätige etablierte, zeichnete sich der Trentiner Club sofort durch seinen Enthusiasmus und seine herzliche Atmosphäre aus. Die ersten Wohltätigkeitsveranstaltungen und geselligen Aktivitäten markierten den Beginn einer Tradition, die Engagement und Geselligkeit vereint, während die Beziehungen zu Clubs wie Regensburg, Rovereto und Bozen eine natürliche internationale Ausrichtung widerspiegelten.",
         "legalRes": "Rechtlicher Wohnsitz:",
         "district": "2060 Bezirk",
+        "discoverEvents": "Entdecken Sie unsere Veranstaltungen",
         "actual": "Aktueller Vorstand",
         "pres": "Präsident: ",
         "vpres": "Vizepräsident: ",
@@ -124,19 +127,27 @@ const translation = {
     }
 };
 
-localStorage.setItem("lang", "it");
-
 function setLang(lang){
-    if(!(lang == "" && localStorage.getItem("lang") == "it")){
-        if(lang == ""){
-            lang = localStorage.getItem("lang");
+    const immagine = document.getElementById("langImg");
+
+    
+    if(lang == ""){
+        if(localStorage.getItem("lang") == ""){
+            localStorage.setItem("lang", "it");
         }else{
-            localStorage.setItem("lang", lang);
+            lang = localStorage.getItem("lang");
         }
-        document.querySelectorAll("[data-i18n]").forEach(el =>{
-            const key = el.dataset.i18n;
-            el.textContent = translation[lang][key];
-        });
+    }else{
+        localStorage.setItem("lang", lang);
     }
+
+    let path = "Media/"+lang+".jpg";
+
+    immagine.src = path;
+    document.querySelectorAll("[data-i18n]").forEach(el =>{
+        const key = el.dataset.i18n;
+        el.textContent = translation[lang][key];
+    });
+    
     
 }
