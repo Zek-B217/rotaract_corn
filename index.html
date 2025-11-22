@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="CSS/commonStyle.css">
     <link rel="stylesheet" href="CSS/homeStyle.css">
 </head>
-<body>
+<body onload="setLang('', false)">
     <div id="obscurer"></div>
     
     <div id="lateralSelection">
@@ -29,11 +29,11 @@
 
         <div class="dropdownBox">
             <div class="hoverDropdownBox">
-                <img id="langImg" class="dropdownImg" src="Media/en.jpg">
+                <img id="langImg" class="dropdownImg" src="Media/it.png">
                 <div class="dropdownContent">
-                    <button class="btn" onclick="setLang('it')">Italiano</button>
-                    <button class="btn" onclick="setLang('en')">English</button>
-                    <button class="btn" onclick="setLang('de')">Deutsch</button>
+                    <button class="btn" onclick="setLang('it', false)">Italiano</button>
+                    <button class="btn" onclick="setLang('en', false)">English</button>
+                    <button class="btn" onclick="setLang('de', false)">Deutsch</button>
                 </div>
             </div>
         </div>

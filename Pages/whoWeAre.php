@@ -94,7 +94,7 @@ $lenght = count($exPresidents);
     <link rel="stylesheet" href="../CSS/commonStyle.css">
     <link rel="stylesheet" href="../CSS/whoWeAreStyle.css">
 </head>
-<body>
+<body onload="setLang('', true)">
     <div id="obscurer"></div>
     
     <div id="lateralSelection">
@@ -113,6 +113,17 @@ $lenght = count($exPresidents);
 
     <div id="header">
         <a class="logoContainer" href="../index.html"><img class="logo" src="../Media/logo.png"></a>
+
+        <div class="dropdownBox">
+            <div class="hoverDropdownBox">
+                <img id="langImg" class="dropdownImg" src="../Media/it.png">
+                <div class="dropdownContent">
+                    <button class="btn" onclick="setLang('it', true)">Italiano</button>
+                    <button class="btn" onclick="setLang('en', true)">English</button>
+                    <button class="btn" onclick="setLang('de', true)">Deutsch</button>
+                </div>
+            </div>
+        </div>
 
         <div id="buttons">
             <a href="../index.html"><button>Home</button></a>
@@ -215,6 +226,7 @@ $lenght = count($exPresidents);
         </div>
     </div>
 
+    <script src="../JS/translate.js"></script>
     <script src="../JS/lateralSelection.js"></script>
 </body>
 </html>

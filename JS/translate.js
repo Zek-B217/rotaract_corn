@@ -13,7 +13,7 @@ const translation = {
         "vpres": "Vicepresidente: ",
         "segr": "Segretario: ",
         "tes": "Tesoriere: ",
-        "pres": "Prefetto: ",
+        "pref": "Prefetto: ",
         "expres": "Ex-presidente: ",
         "express": "Ex-presidenti",
         "rotCollab": "Collaborazioni con il Rotary",
@@ -39,7 +39,8 @@ const translation = {
         "name": "Nome",
         "email": "Email personale",
         "message": "Messaggio",
-        "submit": "INVIA"
+        "submit": "INVIA",
+        "pdf": "Qui il nostro periodico"
     },
     "en": {
         "whoWeAre": "Who we are",
@@ -55,7 +56,7 @@ const translation = {
         "vpres": "Vice President: ",
         "segr": "Secretary: ",
         "tes": "Treasurer: ",
-        "pres": "Prefect: ",
+        "pref": "Prefect: ",
         "expres": "Ex-president: ",
         "express": "Ex-presidents",
         "rotCollab": "Collaborations with Rotary",
@@ -81,7 +82,8 @@ const translation = {
         "name": "Name",
         "email": "Personal email",
         "message": "Message",
-        "submit": "SUBMIT"
+        "submit": "SUBMIT",
+        "pdf": "Here is our periodical"
     },
     "de": {
         "whoWeAre": "Wer wir sind",
@@ -97,7 +99,7 @@ const translation = {
         "vpres": "Vizepräsident: ",
         "segr": "Sekretär: ",
         "tes": "Schatzmeister: ",
-        "pres": "Präfekt: ",
+        "pref": "Präfekt: ",
         "expres": "Ex-Präsident: ",
         "express": "Ehemalige Präsidenten",
         "rotCollab": "Zusammenarbeit mit Rotary",
@@ -123,25 +125,31 @@ const translation = {
         "name": "Name",
         "email": "Persönliche E-Mail",
         "message": "Nachricht",
-        "submit": "EINREICHEN"
+        "submit": "EINREICHEN",
+        "pdf": "Hier unsere Zeitschrift"
     }
 };
 
-function setLang(lang){
+function setLang(lang, back){
     const immagine = document.getElementById("langImg");
 
     
     if(lang == ""){
         if(localStorage.getItem("lang") == ""){
             localStorage.setItem("lang", "it");
-        }else{
-            lang = localStorage.getItem("lang");
         }
+        
+        lang = localStorage.getItem("lang");
     }else{
         localStorage.setItem("lang", lang);
     }
 
-    let path = "Media/"+lang+".jpg";
+    let path = "";
+    if(back){
+        path += "../"
+    }
+
+    path += "Media/"+lang+".png";
 
     immagine.src = path;
     document.querySelectorAll("[data-i18n]").forEach(el =>{
