@@ -135,7 +135,7 @@ function setLang(lang, back){
 
     
     if(lang == ""){
-        if(localStorage.getItem("lang") == ""){
+        if(localStorage.getItem("lang") == null){
             localStorage.setItem("lang", "it");
         }
         
