@@ -2,7 +2,7 @@
 
 **Progetto scolastico a gruppi di studenti dell’Istituto Tecnico Tecnologico M.Buonarroti di Trento realizzato per il distretto 2060 del Rotaract**
 
-**URL Sito Pubblico: ** il sito non è ancora online visto che dev’essere scelto tra i siti presentati dalla nostra classe al Rotaract Trento.
+**URL Sito Pubblico:** il sito non è ancora online visto che dev’essere scelto tra i siti presentati dalla nostra classe al Rotaract Trento.
 
 ## Indice
 1. Installazione e Avvio
