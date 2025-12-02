@@ -67,8 +67,8 @@
     </div>
 
     <div id="content">
-        <h1 class="title" data-i18n="whoWeAre">Chi siamo</h1>
-        <div>
+        <h1 class="mainTitle" data-i18n="whoWeAre">Chi siamo</h1>
+        <div class="contDiv">
             <h2 class="subtitle" data-i18n="actual">Attuale Consiglio Direttivo</h2>
             <div class="container">
                 <div class="leftRow">
@@ -87,23 +87,26 @@
         
         <br>
 
-        <div>
+        <div class="contDiv">
             <h2 class="subtitle" data-i18n="express">Ex-presidenti</h2>
             <div>
             <?php
                 for($i=0; $i<$lenght;){
                     ?>
-                    <div class="container">
+                    <div class="container2">
                     <?php
                     $j=0;
                     while( $j<4 && $i<$lenght ){
                         ?>
                         <div class="presidentContent">
-                            <h3><?php
-                            echo $exPresidents[$i];
-                            ?></h3><br> <p><?php
-                            echo $exPresidentsDates[$i];
-                            ?></p> <br>
+                                <h3><?php
+                                echo $exPresidents[$i];
+                            
+                                ?></h3>
+                                <p class="date"><?php
+                                echo $exPresidentsDates[$i];
+                                ?></p>
+                            
                         </div>
                         <?php
                         $i++;
@@ -112,6 +115,7 @@
 
                     ?>
                 </div>
+                <br>
                 <?php
 
                 

@@ -1,33 +1,51 @@
-.title{
+.mainTitle{
     color: #e64b84;
     font-size: 2.5em;
-    text-decoration: underline;
 }
 
 .role{
     font-weight: bold;
     color: rgb(78, 78, 78);
+    
 }
 
 .subtitle{
+    
     color: #e64b84;
     font-size: 2em;
 }
 
+.contDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    position: relative;
+    right: 6px;
+    width:100vw;
+}
+.container2 {
     display: flex;
     flex-direction: row;
     gap: 10px;
 }
 .leftRow{
     text-align: right;
+    width: 50%;
+    
 }
+
 
 .presidentContent{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
     height: 150px;
     width: var(--collaborationWidth);
@@ -54,3 +72,10 @@
     font-weight: 500;
     width: 70%;
 }
+
+.presidentContent > .date{
+    position: relative;
+
+    bottom: 10px;
+}
+
