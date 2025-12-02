@@ -24,7 +24,7 @@ Queste istruzioni ti permetteranno di ottenere una copia funzionante del progett
 
 1.  **Attivare Apache da XAMPP**
 
-2.  ****Clona il repository nella cartella htdocs di XAMPP:**
+2.  **Clona il repository nella cartella htdocs di XAMPP:**
     ```bash
     git clone https://github.com/DaniPopCorn/rotaract_corn.git
     cd rotaract_corn
