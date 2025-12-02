@@ -175,11 +175,14 @@ $lenght = count($exPresidents);
                     while( $j<4 && $i<$lenght ){
                         ?>
                         <div class="presidentContent">
-                            <h3><?php
-                            echo $exPresidents[$i];
-                            ?></h3><br> <p><?php
-                            echo $exPresidentsDates[$i];
-                            ?></p> <br>
+                                <h3><?php
+                                echo $exPresidents[$i];
+                            
+                                ?></h3>
+                                <p class="date"><?php
+                                echo $exPresidentsDates[$i];
+                                ?></p>
+                            
                         </div>
                         <?php
                         $i++;
@@ -188,6 +191,7 @@ $lenght = count($exPresidents);
 
                     ?>
                 </div>
+                <br>
                 <?php
 
                 
