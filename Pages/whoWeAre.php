@@ -143,8 +143,8 @@ $lenght = count($exPresidents);
     </div>
 
     <div id="content">
-        <h1 class="title" data-i18n="whoWeAre">Chi siamo</h1>
-        <div>
+        <h1 class="mainTitle" data-i18n="whoWeAre">Chi siamo</h1>
+        <div class="contDiv">
             <h2 class="subtitle" data-i18n="actual">Attuale Consiglio Direttivo</h2>
             <div class="container">
                 <div class="leftRow">
@@ -163,13 +163,13 @@ $lenght = count($exPresidents);
         
         <br>
 
-        <div>
+        <div class="contDiv">
             <h2 class="subtitle" data-i18n="express">Ex-presidenti</h2>
             <div>
             <?php
                 for($i=0; $i<$lenght;){
                     ?>
-                    <div class="container">
+                    <div class="container2">
                     <?php
                     $j=0;
                     while( $j<4 && $i<$lenght ){
