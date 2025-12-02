@@ -2,14 +2,17 @@
     color: #e64b84;
     font-size: 2.5em;
     text-decoration: underline;
+
 }
 
 .role{
     font-weight: bold;
     color: rgb(78, 78, 78);
+    
 }
 
 .subtitle{
+    
     color: #e64b84;
     font-size: 2em;
 }
@@ -21,5 +24,43 @@
 }
 .leftRow{
     text-align: right;
+}
+
+.presidentContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 150px;
+    width: var(--collaborationWidth);
+
+    border-color: var(--secondaryColor);
+    border-width: 1.5px;
+    border-radius: 5px;
+    border-style: solid;
+
+    background-color: var(--primaryColor);
+    box-shadow: 2px 2px 20px -2px rgba(230,75,125,0.3);
+
+    width: 100%;
+}
+
+.presidentContent h3{
+    color: var(--secondaryColor);
+    width: 90%;
+    text-align: center;
+}
+
+.presidentContent p{
+    text-align: center;
+    font-weight: 500;
+    width: 70%;
+}
+
+.presidentContent > .date{
+    position: relative;
+
+    bottom: 10px;
 }
 

@@ -1,53 +1,88 @@
 <?php
 
-$exPresidenti= ["Alessandro Condini (1985-1986)",
-    "Alessandro Condini (1986-1987)",
-    "Annarosa Molinari (1987-1988)",
-    "Paola Matassoni (1988-1989)",
-    "Giorgio Bertoldi (1989-1990)",
-    "Giorgio Bertoldi (1990-1991)",
-    "Edoardo De Abbondi (1991 - 1992)",
-    "Vittorio Dusini (1992-1993)",
-    "Claudia Eccher (1993-1994)",
-    "Marco Franzinelli (1994-1995)",
-    "Claudia Eccher (1995-1996)",
-    "Giovanna Orlando (1996-1997)",
-    "Sonia Petteni (1997-1998)",
-    "Vittorio Cristanelli (1998-1999)",
-    "Riccardo Sampaolesi (1999-2000)",
-    "Alessia De Abbondi (2000-2001)",
-    "Lavinia Sartori (2001-2002)",
-    "Francesca Jerace (2002-2003)",
-    "Guglielmo Reina (2003-2004)",
-    "Maria Emanuela De Abbondi (2004-2005)",
-    "Sara Filippi (2005-2006)",
-    "Fabiola Jezza (2006-2007)",
-    "Alessandro Pallaoro (2007-2008)",
-    "Claire Albano (2008-2009)",
-    "Arianna Bertagnolli (2009-2010)",
-    "Thomas Zobele (2010-2011)",
-    "Andrea Codroico (2011-2012)",
-    "Stefano Lorenzini (2012-2013)",
-    "Biagio Andrea Algieri (2014-2015)",
-    "Davide H. Ciminelli (2015-2016)",
-    "Oscar Pallaoro (2016-2017)",
-    "Costance Giovannini (2017-2018)",
-    "Annalisa De Pretis (2018-2019)",
-    "Elisabetta Toller (2019-2020)",
-    "Federica Berlanda (2020-2021)",
-    "Jessica De Ponto (2021-2022)",
-    "Elisabetta Tomasi (2022-2023)",
-    "Lucia del Torre (2023-2024)",
-    "Daniele Di Lucrezia (2024-2025)",
-    "Matteo Bellè (2025-2026)"
+$exPresidents= ["Alessandro Condini",
+    "Alessandro Condini",
+    "Annarosa Molinari",
+    "Paola Matassoni",
+    "Giorgio Bertoldi",
+    "Giorgio Bertoldi",
+    "Edoardo De Abbondi",
+    "Vittorio Dusini",
+    "Claudia Eccher",
+    "Marco Franzinelli",
+    "Claudia Eccher",
+    "Giovanna Orlando",
+    "Sonia Petteni",
+    "Vittorio Cristanelli",
+    "Riccardo Sampaolesi",
+    "Alessia De Abbondi",
+    "Lavinia Sartori",
+    "Francesca Jerace",
+    "Guglielmo Reina",
+    "Maria Emanuela De Abbondi",
+    "Sara Filippi",
+    "Fabiola Jezza",
+    "Alessandro Pallaoro",
+    "Claire Albano",
+    "Arianna Bertagnolli",
+    "Thomas Zobele",
+    "Andrea Codroico",
+    "Stefano Lorenzini",
+    "Biagio Andrea Algieri",
+    "Davide H. Ciminelli",
+    "Oscar Pallaoro",
+    "Costance Giovannini",
+    "Annalisa De Pretis",
+    "Elisabetta Toller",
+    "Federica Berlanda",
+    "Jessica De Ponto",
+    "Elisabetta Tomasi",
+    "Lucia del Torre",
+    "Daniele Di Lucrezia"
 ];
-$lunghezza = count($exPresidenti);
-$lengAsse = $lunghezza/2;
-$extra = false;
-if($lunghezza % 1 != 0){
-    $lengAsse=$lengAsse-0.5;
-    $extra= true;
-}
+
+$exPresidentsDates= [
+    "(1985-1986)",
+    "(1986-1987)",
+    "(1987-1988)",
+    "(1988-1989)",
+    "(1989-1990)",
+    "(1990-1991)",
+    "(1991-1992)",
+    "(1992-1993)",
+    "(1993-1994)",
+    "(1994-1995)",
+    "(1995-1996)",
+    "(1996-1997)",
+    "(1997-1998)",
+    "(1998-1999)",
+    "(1999-2000)",
+    "(2000-2001)",
+    "(2001-2002)",
+    "(2002-2003)",
+    "(2003-2004)",
+    "(2004-2005)",
+    "(2005-2006)",
+    "(2006-2007)",
+    "(2007-2008)",
+    "(2008-2009)",
+    "(2009-2010)",
+    "(2010-2011)",
+    "(2011-2012)",
+    "(2012-2013)",
+    "(2014-2015)",
+    "(2015-2016)",
+    "(2016-2017)",
+    "(2017-2018)",
+    "(2018-2019)",
+    "(2019-2020)",
+    "(2020-2021)",
+    "(2021-2022)",
+    "(2022-2023)",
+    "(2023-2024)",
+    "(2024-2025)"
+];
+$lenght = count($exPresidents);
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +94,7 @@ if($lunghezza % 1 != 0){
     <link rel="stylesheet" href="../CSS/commonStyle.css">
     <link rel="stylesheet" href="../CSS/whoWeAreStyle.css">
 </head>
-<body>
+<body onload="setLang('', true)">
     <div id="obscurer"></div>
     
     <div id="lateralSelection">
@@ -78,6 +113,17 @@ if($lunghezza % 1 != 0){
 
     <div id="header">
         <a class="logoContainer" href="../index.html"><img class="logo" src="../Media/logo.png"></a>
+
+        <div class="dropdownBox">
+            <div class="hoverDropdownBox">
+                <img id="langImg" class="dropdownImg" src="../Media/it.png">
+                <div class="dropdownContent">
+                    <button class="btn" onclick="setLang('it', true)">Italiano</button>
+                    <button class="btn" onclick="setLang('en', true)">English</button>
+                    <button class="btn" onclick="setLang('de', true)">Deutsch</button>
+                </div>
+            </div>
+        </div>
 
         <div id="buttons">
             <a href="../index.html"><button>Home</button></a>
@@ -119,30 +165,46 @@ if($lunghezza % 1 != 0){
 
         <div>
             <h2 class="subtitle" data-i18n="express">Ex-presidenti</h2>
-            <div class="container">
-                <div class="leftRow">
+            <div>
+            <?php
+                for($i=0; $i<$lenght;){
+                    ?>
+                    <div class="container">
                     <?php
-                        for ($i=0; $i < $lengAsse; $i++) { 
+                    $j=0;
+                    while( $j<4 && $i<$lenght ){
+                        ?>
+                        <div class="presidentContent">
+                                <h3><?php
+                                echo $exPresidents[$i];
                             
-                            echo $exPresidenti[$i];
-                            ?><br><?php
-                        };
-                        if($extra){
-                            echo $exPresidenti[$lengAsse+1];
-                            ?><br><?php
-                        };
-                    ?>
+                                ?></h3>
+                                <p class="date"><?php
+                                echo $exPresidentsDates[$i];
+                                ?></p>
+                            
+                        </div>
+                        <?php
+                        $i++;
+                        $j++;
+                    };
 
-                </div>
-                <div>
-                    <?php
-                        for ($i=0; $i < $lengAsse; $i++) { 
-                            echo $exPresidenti[$i+$lunghezza-$lengAsse];
-                            ?><br><?php
-                        }
                     ?>
                 </div>
+                <br>
+                <?php
+
+                
+            }
+
+
+
+            ?>
+
             </div>
+            
+            
+            
         </div>   
     </div>
 
@@ -168,6 +230,7 @@ if($lunghezza % 1 != 0){
         </div>
     </div>
 
+    <script src="../JS/translate.js"></script>
     <script src="../JS/lateralSelection.js"></script>
 </body>
 </html>

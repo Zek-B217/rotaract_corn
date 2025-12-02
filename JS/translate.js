@@ -7,12 +7,13 @@ const translation = {
         "description": "Il Rotaract Club Trento nasce l’8 luglio 1985, promosso dal Rotary Club Trento e parte del Distretto 2060. In un periodo in cui il Rotaract in Italia si afferma come spazio di incontro e formazione per giovani studenti e professionisti, il club trentino si distingue da subito per entusiasmo, amicizia e voglia di fare. Le prime feste di beneficenza e le attività sociali segnano l’inizio di una tradizione che unisce impegno e convivialità, mentre i rapporti con club come Regensburg, Rovereto e Bolzano riflettono fin da allora una naturale apertura internazionale.",
         "legalRes": "Sede legale:",
         "district": "Distretto 2060",
+        "discoverEvents": "Scopri i nostri eventi",
         "actual": "Attuale Consiglio Direttivo",
         "pres": "Presidente: ",
         "vpres": "Vicepresidente: ",
         "segr": "Segretario: ",
         "tes": "Tesoriere: ",
-        "pres": "Prefetto: ",
+        "pref": "Prefetto: ",
         "expres": "Ex-presidente: ",
         "express": "Ex-presidenti",
         "rotCollab": "Collaborazioni con il Rotary",
@@ -38,7 +39,8 @@ const translation = {
         "name": "Nome",
         "email": "Email personale",
         "message": "Messaggio",
-        "submit": "INVIA"
+        "submit": "INVIA",
+        "pdf": "Qui il nostro periodico"
     },
     "en": {
         "whoWeAre": "Who we are",
@@ -48,12 +50,13 @@ const translation = {
         "description": "The Rotaract Club of Trento was founded on July 8, 1985, sponsored by the Rotary Club of Trento and part of District 2060. At a time when Rotaract was establishing itself in Italy as a meeting and training space for young students and professionals, the Trentino club immediately stood out for its enthusiasm, friendship, and enthusiasm. The first charity events and social activities marked the beginning of a tradition combining commitment and conviviality, while relationships with clubs such as Regensburg, Rovereto, and Bolzano reflected a natural international outreach.",
         "legalRes": "Legal residence:",
         "district": "2060 District",
+        "discoverEvents": "Discover our events",
         "actual": "Current Board of Directors",
         "pres": "President: ",
         "vpres": "Vice President: ",
         "segr": "Secretary: ",
         "tes": "Treasurer: ",
-        "pres": "Prefect: ",
+        "pref": "Prefect: ",
         "expres": "Ex-president: ",
         "express": "Ex-presidents",
         "rotCollab": "Collaborations with Rotary",
@@ -79,7 +82,8 @@ const translation = {
         "name": "Name",
         "email": "Personal email",
         "message": "Message",
-        "submit": "SUBMIT"
+        "submit": "SUBMIT",
+        "pdf": "Here is our periodical"
     },
     "de": {
         "whoWeAre": "Wer wir sind",
@@ -89,12 +93,13 @@ const translation = {
         "description": "Der Rotaract Club Trient wurde am 8. Juli 1985 gegründet und wird vom Rotary Club Trient unterstützt. Er gehört zum Distrikt 2060. Zu einer Zeit, als sich Rotaract in Italien als Treffpunkt und Weiterbildungsstätte für junge Studierende und Berufstätige etablierte, zeichnete sich der Trentiner Club sofort durch seinen Enthusiasmus und seine herzliche Atmosphäre aus. Die ersten Wohltätigkeitsveranstaltungen und geselligen Aktivitäten markierten den Beginn einer Tradition, die Engagement und Geselligkeit vereint, während die Beziehungen zu Clubs wie Regensburg, Rovereto und Bozen eine natürliche internationale Ausrichtung widerspiegelten.",
         "legalRes": "Rechtlicher Wohnsitz:",
         "district": "2060 Bezirk",
+        "discoverEvents": "Entdecken Sie unsere Veranstaltungen",
         "actual": "Aktueller Vorstand",
         "pres": "Präsident: ",
         "vpres": "Vizepräsident: ",
         "segr": "Sekretär: ",
         "tes": "Schatzmeister: ",
-        "pres": "Präfekt: ",
+        "pref": "Präfekt: ",
         "expres": "Ex-Präsident: ",
         "express": "Ehemalige Präsidenten",
         "rotCollab": "Zusammenarbeit mit Rotary",
@@ -120,23 +125,37 @@ const translation = {
         "name": "Name",
         "email": "Persönliche E-Mail",
         "message": "Nachricht",
-        "submit": "EINREICHEN"
+        "submit": "EINREICHEN",
+        "pdf": "Hier unsere Zeitschrift"
     }
 };
 
-localStorage.setItem("lang", "it");
+function setLang(lang, back){
+    const immagine = document.getElementById("langImg");
 
-function setLang(lang){
-    if(!(lang == "" && localStorage.getItem("lang") == "it")){
-        if(lang == ""){
-            lang = localStorage.getItem("lang");
-        }else{
-            localStorage.setItem("lang", lang);
+    
+    if(lang == ""){
+        if(localStorage.getItem("lang") == null){
+            localStorage.setItem("lang", "it");
         }
-        document.querySelectorAll("[data-i18n]").forEach(el =>{
-            const key = el.dataset.i18n;
-            el.textContent = translation[lang][key];
-        });
+        
+        lang = localStorage.getItem("lang");
+    }else{
+        localStorage.setItem("lang", lang);
     }
+
+    let path = "";
+    if(back){
+        path += "../"
+    }
+
+    path += "Media/"+lang+".png";
+
+    immagine.src = path;
+    document.querySelectorAll("[data-i18n]").forEach(el =>{
+        const key = el.dataset.i18n;
+        el.textContent = translation[lang][key];
+    });
+    
     
 }

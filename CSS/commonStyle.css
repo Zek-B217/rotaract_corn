@@ -35,6 +35,8 @@ body{
     margin: 0;
     min-height: 100vh;
 
+    font-family: "Didot", "Bodoni MT", "Times New Roman", serif;
+
     /*Colore sfondo*/
     background: linear-gradient(135deg, var(--backgroundColorGradientStart) , var(--backgroundColorGradientEnd));
 }
@@ -61,6 +63,24 @@ body{
 
     /*Porto l'header davanti al contenuto*/
     z-index: 1;
+}
+
+/*Stile dei bottoni*/
+.btn{
+    background: linear-gradient(135deg, #e64b7d, #d13c6b);
+    color: var(--primaryColor);
+    border: none;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.btn:hover{
+    background: linear-gradient(135deg, #d13c6b, #e64b7d);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(230,75,125,0.3);
 }
 
 /*Allinea immagine del logo al centro del contenitore*/
@@ -113,7 +133,7 @@ body{
 
     /*Posiziono i bottoni*/
     position: absolute;
-    right: 3vw;
+    right: 10vw;
 }
 
 #buttons button{
@@ -357,6 +377,47 @@ h4{
 
 }
 
+/* ================= Bottone traduzione =================*/
+
+.dropdownContent{
+    display: none;
+    width: inherit;
+}
+
+.dropdownContent > button{
+    cursor: pointer;
+    font-size: 15px;
+    height:70px;
+    z-index: 2;
+}
+
+.dropdownImg{
+    cursor: pointer;
+    height: 100px;
+}
+
+.hoverDropdownBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: inherit;
+    margin-top: 10px;
+}
+
+.dropdownBox{
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    align-items: center;
+    position: absolute;
+    right: 1vw;
+}
+
+.hoverDropdownBox:hover .dropdownContent{
+    display: flex;
+    flex-direction: column;
+}
+
 /*Stile header quando lo schermo è stretto*/
 @media screen and (max-width: 900px){
     #menuHamburger{
@@ -366,6 +427,10 @@ h4{
 
     #buttons{
         display: none;
+    }
+
+    .dropdownBox{
+        right: 18vw;
     }
 }
 

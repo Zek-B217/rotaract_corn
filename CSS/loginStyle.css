@@ -1,0 +1,75 @@
+:root{
+    --primaryColor: white;
+    --secondaryColor: #e2457c;
+    --backgroundColorGradientStart: #ffe6f0;
+    --backgroundColorGradientEnd: #fff;
+    --loginBtnWidth: 130px;
+    --btnAnimDelay: 300ms;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--backgroundColorGradientStart) , var(--backgroundColorGradientEnd));
+    height: 98vh;
+    color: var(--secondaryColor);
+}
+
+#loginContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-color: var(--secondaryColor);
+    border-width: 2px;
+    border-radius: 8px;
+    border-style: solid;
+
+    background-color: var(--primaryColor);
+    padding: 50px;
+}
+
+#loginContainer > form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#loginContainer label{
+    font-size: 20px;
+}
+
+#loginContainer button{
+    /*Colori & Stile*/
+    border-style: none;
+    color: var(--secondaryColor);
+    background-color: var(--primaryColor);
+    border-radius: 15px;
+
+    width: var(--loginBtnWidth);
+
+    font-size: 15px;
+    font-weight: 900;
+
+    cursor: pointer; /*Quando ci passo sopra il cursore cambia stile*/
+}
+
+/*Quando ci passo sopra col mouse il bottone cambia colore*/
+#loginContainer button:hover{
+    background-color: var(--secondaryColor);
+    color: var(--primaryColor);
+
+    -webkit-transition: background-color var(--btnAnimDelay) ease-in;
+    -ms-transition: background-color var(--btnAnimDelay) ease-in;
+    transition: background-color var(--btnAnimDelay) ease-in;
+}
+
+#loginContainer p{
+    cursor: pointer;
+}
+
+#passwordInput::value{
+    color: black;
+}
