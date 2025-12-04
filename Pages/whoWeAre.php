@@ -1,88 +1,21 @@
 <?php
+    require "../PHP/constants.php";
 
-$exPresidents= ["Alessandro Condini",
-    "Alessandro Condini",
-    "Annarosa Molinari",
-    "Paola Matassoni",
-    "Giorgio Bertoldi",
-    "Giorgio Bertoldi",
-    "Edoardo De Abbondi",
-    "Vittorio Dusini",
-    "Claudia Eccher",
-    "Marco Franzinelli",
-    "Claudia Eccher",
-    "Giovanna Orlando",
-    "Sonia Petteni",
-    "Vittorio Cristanelli",
-    "Riccardo Sampaolesi",
-    "Alessia De Abbondi",
-    "Lavinia Sartori",
-    "Francesca Jerace",
-    "Guglielmo Reina",
-    "Maria Emanuela De Abbondi",
-    "Sara Filippi",
-    "Fabiola Jezza",
-    "Alessandro Pallaoro",
-    "Claire Albano",
-    "Arianna Bertagnolli",
-    "Thomas Zobele",
-    "Andrea Codroico",
-    "Stefano Lorenzini",
-    "Biagio Andrea Algieri",
-    "Davide H. Ciminelli",
-    "Oscar Pallaoro",
-    "Costance Giovannini",
-    "Annalisa De Pretis",
-    "Elisabetta Toller",
-    "Federica Berlanda",
-    "Jessica De Ponto",
-    "Elisabetta Tomasi",
-    "Lucia del Torre",
-    "Daniele Di Lucrezia"
-];
+    $json = json_decode(file_get_contents("../$PRESIDENTS_FILE"),true);
 
-$exPresidentsDates= [
-    "(1985-1986)",
-    "(1986-1987)",
-    "(1987-1988)",
-    "(1988-1989)",
-    "(1989-1990)",
-    "(1990-1991)",
-    "(1991-1992)",
-    "(1992-1993)",
-    "(1993-1994)",
-    "(1994-1995)",
-    "(1995-1996)",
-    "(1996-1997)",
-    "(1997-1998)",
-    "(1998-1999)",
-    "(1999-2000)",
-    "(2000-2001)",
-    "(2001-2002)",
-    "(2002-2003)",
-    "(2003-2004)",
-    "(2004-2005)",
-    "(2005-2006)",
-    "(2006-2007)",
-    "(2007-2008)",
-    "(2008-2009)",
-    "(2009-2010)",
-    "(2010-2011)",
-    "(2011-2012)",
-    "(2012-2013)",
-    "(2014-2015)",
-    "(2015-2016)",
-    "(2016-2017)",
-    "(2017-2018)",
-    "(2018-2019)",
-    "(2019-2020)",
-    "(2020-2021)",
-    "(2021-2022)",
-    "(2022-2023)",
-    "(2023-2024)",
-    "(2024-2025)"
-];
-$lenght = count($exPresidents);
+    $exPresidents = $json[$PRESIDENTS];
+
+    $exPresidentsDates = $json[$PRESIDENT_DATES];
+    $lenght = count($exPresidents);
+
+    $consiglioDirettivo = [
+        "pres" => "Matteo Bellè",
+        "vpres" => "Diletta Betti",
+        "segr" => "Elisabetta Tomasi",
+        "tes" => "Matteo Manara",
+        "pref" => "Alessandra Cassaro",
+        "expres" => "Daniele Di Lucrezia"
+    ]
 ?>
 
 <!DOCTYPE html>
@@ -143,33 +76,33 @@ $lenght = count($exPresidents);
     </div>
 
     <div id="content">
-        <h1 class="title" data-i18n="whoWeAre">Chi siamo</h1>
-        <div>
+        <h1 class="mainTitle" data-i18n="whoWeAre">Chi siamo</h1>
+        <div class="contDiv">
             <h2 class="subtitle" data-i18n="actual">Attuale Consiglio Direttivo</h2>
             <div class="container">
                 <div class="leftRow">
-                    <p><span class="role" data-i18n="pres">Presidente: </span><span>Matteo Bellè</span></p>
-                    <p><span class="role" data-i18n="vpres">Vicepresidente: </span><span>Diletta Betti</span></p>
-                    <p><span class="role" data-i18n="segr">Segretario:  </span><span>Elisabetta Tomasi</span></p>
+                    <p><span class="role" data-i18n="pres">Presidente: </span><span><?php echo $consiglioDirettivo["pres"];  ?></span></p>
+                    <p><span class="role" data-i18n="vpres">Vicepresidente: </span><span><?php echo $consiglioDirettivo["vpres"];  ?></span></p>
+                    <p><span class="role" data-i18n="segr">Segretario:  </span><span><?php echo $consiglioDirettivo["segr"];  ?></span></p>
                 </div>
                     
                 <div>
-                    <p><span class="role" data-i18n="tes">Tesoriere: </span><span>Matteo Manara</span></p>
-                    <p><span class="role" data-i18n="pref">Prefetto: </span><span >Alessandra Cassaro</span></p>
-                    <p><span class="role" data-i18n="expres">Ex-presidente: </span><span>Daniele Di Lucrezia</span></p>
+                    <p><span class="role" data-i18n="tes">Tesoriere: </span><span><?php echo $consiglioDirettivo["tes"];  ?></span></p>
+                    <p><span class="role" data-i18n="pref">Prefetto: </span><span ><?php echo $consiglioDirettivo["pref"];  ?></span></p>
+                    <p><span class="role" data-i18n="expres">Ex-presidente: </span><span><?php echo $consiglioDirettivo["expres"];  ?></span></p>
                 </div>
             </div>
         </div>
         
         <br>
 
-        <div>
+        <div class="contDiv">
             <h2 class="subtitle" data-i18n="express">Ex-presidenti</h2>
             <div>
             <?php
                 for($i=0; $i<$lenght;){
                     ?>
-                    <div class="container">
+                    <div class="container2">
                     <?php
                     $j=0;
                     while( $j<4 && $i<$lenght ){

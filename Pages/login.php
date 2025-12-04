@@ -1,9 +1,28 @@
 <?php
-    require "PHP/constants.php";
+    require "../PHP/constants.php";
 
     session_start();
     if (isset($_SESSION[$IS_LOGGED])){
-        header("Location: ../admin.php");
+        if ($_SESSION[$IS_LOGGED]){
+            header("Location: ../admin.php");
+        } else {
+            echo "Fallito. Mi riferisco a te, non al login";
+        }
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        $json = json_decode(file_get_contents("../$CONFIG_FILE"),true);
+
+        $inputPassword = $_POST[$PASSWORD];
+
+        $savedPassword = $json[$PASSWORD];
+
+        if (password_verify($inputPassword, $savedPassword)) {
+            $_SESSION[$IS_LOGGED] = true;
+        } else {
+            $_SESSION[$IS_LOGGED] = false;
+        }
+        header("Location: login.php");
     }
 ?>
 
@@ -25,8 +44,12 @@
                 <p onclick="togglePasswordVisibility()">Mostra password</p>
             </div>
             <br>
-            <button type="submit">Accedi</button>
+            <button id="loginBtn" type="submit">Accedi</button>
         </form>
+
+        MANCA L'ERRORE A PASSWORD SBAGLIATA!!!
+
+        <a href="../index.html"><button id="homeBtn">Torna alla Home</button></a> 
     </div>
 
     <script>
