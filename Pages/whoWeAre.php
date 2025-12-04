@@ -7,6 +7,15 @@
 
     $exPresidentsDates = $json[$PRESIDENT_DATES];
     $lenght = count($exPresidents);
+
+    $consiglioDirettivo = [
+        "pres" => "Matteo Bellè",
+        "vpres" => "Diletta Betti",
+        "segr" => "Elisabetta Tomasi",
+        "tes" => "Matteo Manara",
+        "pref" => "Alessandra Cassaro",
+        "expres" => "Daniele Di Lucrezia"
+    ]
 ?>
 
 <!DOCTYPE html>
@@ -72,15 +81,15 @@
             <h2 class="subtitle" data-i18n="actual">Attuale Consiglio Direttivo</h2>
             <div class="container">
                 <div class="leftRow">
-                    <p><span class="role" data-i18n="pres">Presidente: </span><span>Matteo Bellè</span></p>
-                    <p><span class="role" data-i18n="vpres">Vicepresidente: </span><span>Diletta Betti</span></p>
-                    <p><span class="role" data-i18n="segr">Segretario:  </span><span>Elisabetta Tomasi</span></p>
+                    <p><span class="role" data-i18n="pres">Presidente: </span><span><?php echo $consiglioDirettivo["pres"];  ?></span></p>
+                    <p><span class="role" data-i18n="vpres">Vicepresidente: </span><span><?php echo $consiglioDirettivo["vpres"];  ?></span></p>
+                    <p><span class="role" data-i18n="segr">Segretario:  </span><span><?php echo $consiglioDirettivo["segr"];  ?></span></p>
                 </div>
                     
                 <div>
-                    <p><span class="role" data-i18n="tes">Tesoriere: </span><span>Matteo Manara</span></p>
-                    <p><span class="role" data-i18n="pref">Prefetto: </span><span >Alessandra Cassaro</span></p>
-                    <p><span class="role" data-i18n="expres">Ex-presidente: </span><span>Daniele Di Lucrezia</span></p>
+                    <p><span class="role" data-i18n="tes">Tesoriere: </span><span><?php echo $consiglioDirettivo["tes"];  ?></span></p>
+                    <p><span class="role" data-i18n="pref">Prefetto: </span><span ><?php echo $consiglioDirettivo["pref"];  ?></span></p>
+                    <p><span class="role" data-i18n="expres">Ex-presidente: </span><span><?php echo $consiglioDirettivo["expres"];  ?></span></p>
                 </div>
             </div>
         </div>

@@ -46,7 +46,7 @@
     </div>
 
     <div id="content">
-        <iframe src="../Media/PDF/CV.pdf" width="100%" height="600px"></iframe>
+        <iframe src="../Media/PDF/CV.pdf" width="70%" height="600px"></iframe>
     </div>
 
     <div id="footer">
