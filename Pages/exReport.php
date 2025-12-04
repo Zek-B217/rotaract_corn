@@ -1,4 +1,18 @@
+<?php
+$folders = '../Media/PDF/';
+$elements = scandir($folders);
+$elementsPdf = array_diff($elements, array('.', '..'));
 
+$newArray = array();
+foreach ($elementsPdf as $pdf) {
+    $newArray[] = $pdf;
+}
+$elementsPdf = $newArray;
+
+$numPdf = count($elementsPdf);
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,6 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Template</title>
     <link rel="stylesheet" href="../CSS/commonStyle.css">
+    <link rel="stylesheet" href="../CSS/whoWeAreStyle.css">
 </head>
 <body>
     <div id="obscurer"></div>
@@ -46,7 +61,37 @@
     </div>
 
     <div id="content">
-        <iframe src="../Media/PDF/CV.pdf" width="100%" height="600px"></iframe>
+        <br>
+        <h1>Vecchi bollettini</h1>
+        <?php
+        if ($numPdf > 0) {
+            for($i=0; $i<$numPdf; $i++)
+            {
+                ?>
+                <div>
+                <?php
+                for($j=0; $j<4; $j++){
+                    $i++;
+
+                    ?>
+                    <form action="<?php echo "../Media/PDF/" . $elementsPdf[$i-1];?>" method="get">
+                        <button>Vecchi bollettini</button>
+                    </form>
+                    
+                    <?php
+                    if($numPdf==$i){
+                        $j=4;
+                    }
+
+                }
+                ?>
+                </div>
+                <?php
+            }
+            
+        } else {
+            echo '<p>Nessun bollettino disponibile.</p>';
+        }?>
     </div>
 
     <div id="footer">
