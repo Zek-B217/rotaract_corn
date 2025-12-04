@@ -1,5 +1,6 @@
 <?php
     require "../PHP/constants.php";
+
     session_start();
     if (isset($_SESSION[$IS_LOGGED])){
         if ($_SESSION[$IS_LOGGED]){
@@ -43,8 +44,12 @@
                 <p onclick="togglePasswordVisibility()">Mostra password</p>
             </div>
             <br>
-            <button type="submit">Accedi</button>
+            <button id="loginBtn" type="submit">Accedi</button>
         </form>
+
+        MANCA L'ERRORE A PASSWORD SBAGLIATA!!!
+
+        <a href="../index.html"><button id="homeBtn">Torna alla Home</button></a> 
     </div>
 
     <script>

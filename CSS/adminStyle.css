@@ -1,6 +1,7 @@
 :root{
     --primaryColor: white;
     --secondaryColor: #e2457c;
+    --headerHeight: 120px;
 }
 
 #title{
@@ -9,3 +10,56 @@
 
     color: var(--secondaryColor);
 }
+
+#mainContent{
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100vw;
+    height: 10vh;
+
+    top: var(--headerHeight);
+}
+
+.editableElementContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    height: 100%;
+    width: 100%;
+}
+.editableElementContainer h2 {
+    width: 15vw;
+    text-align: center;
+}
+
+.descriptionContainer{
+    border-color: black;
+    border-style: solid;
+    
+    width: 50%;
+    text-align: center;
+}
+
+/*=== ARROW ICONS ===*/
+.arrow {
+    border: solid black;
+    border-width: 0 5px 5px 0;
+    display: inline-block;
+    padding: 7px;
+  }
+  
+.right {
+transform: rotate(-45deg);
+-webkit-transform: rotate(-45deg);
+}
+
+.down {
+transform: rotate(45deg);
+-webkit-transform: rotate(45deg);
+}
+/*=== ARROW ICONS END ===*/

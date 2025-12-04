@@ -1,7 +1,7 @@
 <?php
     require "../PHP/constants.php";
 
-    $json = json_decode(file_get_contents("../$CONFIG_FILE"),true);
+    $json = json_decode(file_get_contents("../$PRESIDENTS_FILE"),true);
 
     $exPresidents = $json[$PRESIDENTS];
 

@@ -1,12 +1,11 @@
 <?php
     require "PHP/constants.php";
 
+    session_set_cookie_params(0); //distruggi la sessione all'uscita dal browser
     session_start();
     if (!isset($_SESSION[$IS_LOGGED]) || !$_SESSION[$IS_LOGGED]){
         header("Location: PHP/logout.php"); //Redirigo al logout in maniera da ripulire la sessione
     }
-
-    echo ("IS LOGGED: -$_SESSION[$IS_LOGGED]-");
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +20,7 @@
 </head>
 <body>
     <div id="header">
-        <a class="logoContainer"><img class="logo" src="Media/logo.png"></a>
+        <a class="logoContainer" href="index.html"><img class="logo" src="Media/logo.png"></a>
 
         <h1 id="title">GESTIONE PAGINE</h1>
 

@@ -5,6 +5,7 @@
     --backgroundColorGradientEnd: #fff;
     --loginBtnWidth: 130px;
     --btnAnimDelay: 300ms;
+    --homeBtnWidth: 300px;
 }
 
 body{
@@ -41,19 +42,28 @@ body{
     font-size: 20px;
 }
 
-#loginContainer button{
+button{
     /*Colori & Stile*/
     border-style: none;
     color: var(--secondaryColor);
     background-color: var(--primaryColor);
     border-radius: 15px;
 
-    width: var(--loginBtnWidth);
-
     font-size: 15px;
     font-weight: 900;
 
     cursor: pointer; /*Quando ci passo sopra il cursore cambia stile*/
+}
+
+#loginBtn{
+    width: var(--loginBtnWidth);
+}
+
+#homeBtn{
+    position: relative;
+
+    top: 20px;
+    width: var(--homeBtnWidth);
 }
 
 /*Quando ci passo sopra col mouse il bottone cambia colore*/
