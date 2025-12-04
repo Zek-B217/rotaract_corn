@@ -2,9 +2,11 @@
     require "PHP/constants.php";
 
     session_start();
-    if (!isset($_SESSION[$IS_LOGGED])){
-        header("Location: ../Pages/login.php");
+    if (!isset($_SESSION[$IS_LOGGED]) || !$_SESSION[$IS_LOGGED]){
+        header("Location: PHP/logout.php"); //Redirigo al logout in maniera da ripulire la sessione
     }
+
+    echo ("IS LOGGED: -$_SESSION[$IS_LOGGED]-");
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +26,10 @@
         <h1 id="title">GESTIONE PAGINE</h1>
 
         <div id="buttons">
-            <button id="logoutBtn">Logout</button>
+            <form action="PHP/logout.php" method="get">
+                <button id="logoutBtn" type="submit">Logout</button>
+            </form>
+            
         </div>
     </div>
 </body>
