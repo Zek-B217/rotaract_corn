@@ -5,6 +5,7 @@
     session_start();
     if (!isset($_SESSION[$IS_LOGGED]) || !$_SESSION[$IS_LOGGED]){
         header("Location: PHP/logout.php"); //Redirigo al logout in maniera da ripulire la sessione
+        exit;
     }
 ?>
 
@@ -28,8 +29,167 @@
             <form action="PHP/logout.php" method="get">
                 <button id="logoutBtn" type="submit">Logout</button>
             </form>
-            
         </div>
     </div>
+
+    <div id="mainContent">
+        <div class="editableElementContainer">
+            <div class="sectionContainer">
+                <div class="arrow right"></div>
+                <h2>Consiglio Direttivo</h2>
+                <div class="descriptionContainer">
+                    <p>Modifica il consigio direttivo o lo storico dei presidenti</p>
+                </div>
+            </div>
+
+            <div class="modificationContainer">
+                <div class="verticalLineContainer">
+                    <div class="linePoint"></div>
+                    <div class="lineBody"></div>
+                </div>
+                <div class="editableContent">
+                    <p>Ciao</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="editableElementContainer">
+            <div class="sectionContainer">
+                <div class="arrow right"></div>
+                <h2>Social</h2>
+                <div class="descriptionContainer">
+                    <p>Cambia i link alle pagine social e i contatti</p>
+                </div>
+            </div>
+
+            <div class="modificationContainer">
+                <div class="verticalLineContainer">
+                    <div class="linePoint"></div>
+                    <div class="lineBody"></div>
+                </div>
+                <div class="editableContent">
+                    <p>Ciao</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="editableElementContainer">
+            <div class="sectionContainer">
+                <div class="arrow right"></div>
+                <h2>Bollettino</h2>
+                <div class="descriptionContainer">
+                    <p>Aggiungi/rimuovi il PDF di un bollettino</p>
+                </div>
+            </div>
+
+            <div class="modificationContainer">
+                <div class="verticalLineContainer">
+                    <div class="linePoint"></div>
+                    <div class="lineBody"></div>
+                </div>
+                <div class="editableContent">
+                    <p>Ciao</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="editableElementContainer">
+            <div class="sectionContainer">
+                <div class="arrow right"></div>
+                <h2>Collaborazioni</h2>
+                <div class="descriptionContainer">
+                    <p>Modifica le collaborazioni nella pagina "collaborazioni"</p>
+                </div>
+            </div>
+
+            <div class="modificationContainer">
+                <div class="verticalLineContainer">
+                    <div class="linePoint"></div>
+                    <div class="lineBody"></div>
+                </div>
+
+                <div class="editableContent">
+                    <p>Ciao</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="editableElementContainer">
+            <div class="sectionContainer">
+                <div class="arrow right"></div>
+                <h2>Testi e Immagini</h2>
+                <div class="descriptionContainer">
+                    <p>Modifica i testi o cambia le immagini di tutte le pagine</p>
+                </div>
+            </div>
+
+            <div class="modificationContainer">
+                <div class="verticalLineContainer">
+                    <div class="linePoint"></div>
+                    <div class="lineBody"></div>
+                </div>
+                <div class="editableContent">
+                    <div class="editableElementContainer">
+                        <div class="sectionContainer">
+                            <div class="arrow right"></div>
+                            <h2>Pagina 1</h2>
+                        </div>
+
+                        <div class="modificationContainer">
+                            <div class="verticalLineContainer">
+                                <div class="linePoint"></div>
+                                <div class="lineBody"></div>
+                            </div>
+                            <div class="editableContent">
+                                <p>Ciao</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="editableElementContainer">
+                        <div class="sectionContainer">
+                            <div class="arrow right"></div>
+                            <h2>Pagina 2</h2>
+                        </div>
+
+                        <div class="modificationContainer">
+                            <div class="verticalLineContainer">
+                                <div class="linePoint"></div>
+                                <div class="lineBody"></div>
+                            </div>
+                            <div class="editableContent">
+                                <p>Ciao</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="editableElementContainer">
+                        <div class="sectionContainer">
+                            <div class="arrow right"></div>
+                            <h2>Pagina 3</h2>
+                        </div>
+
+                        <div class="modificationContainer">
+                            <div class="verticalLineContainer">
+                                <div class="linePoint"></div>
+                                <div class="lineBody"></div>
+                            </div>
+                            <div class="editableContent">
+                                <p>Ciao</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <form action="Pages/changePassword.php" method="get">
+            <button id="passwordBtn" type="submit">Cambia Password</button>
+        </form>
+    </div>
+
+    <script src="JS/adminSections.js"></script>
 </body>
 </html>

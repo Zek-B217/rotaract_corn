@@ -1,6 +1,7 @@
 :root{
     --primaryColor: white;
     --secondaryColor: #e2457c;
+    --passwordButtonHoverColor: #e6aabf;
     --headerHeight: 120px;
 }
 
@@ -12,42 +13,131 @@
 }
 
 #mainContent{
-    position: absolute;
-
     display: flex;
     align-items: center;
     flex-direction: column;
 
-    width: 100vw;
-    height: 10vh;
+    gap: 20px;
 
-    top: var(--headerHeight);
+    width: 100vw;
+
+    padding: 20px;
+}
+
+#passwordBtn{
+    background-color: transparent;
+    color: var(--secondaryColor);
+    border-style: hidden;
+
+    position: relative;
+    top: 20px;
+
+    width: 30vw;
+    height: 70px;
+
+    font-weight: bolder;
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+#passwordBtn:hover{
+    color: var(--passwordButtonHoverColor);
 }
 
 .editableElementContainer{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
 
-    height: 100%;
+    width: 80%;
+}
+
+.sectionContainer{
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+
     width: 100%;
 }
+
+.modificationContainer{
+    display: none;
+
+    margin-top: 10px;
+
+    background-color: aqua;
+
+    height: fit-content;
+    width: 100%;
+}
+
+.modificationContainer > .editableContent {
+    margin-left: auto;
+
+    width: 90%;
+}
+
+.editableContent{
+    height: fit-content;
+}
+
+.verticalLineContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+
+    transform: translateX(3px);
+}
+
+.linePoint{
+    width: 10px;
+    height: 10px;
+    background-color: var(--secondaryColor);
+
+    rotate: -45deg;
+}
+
+.lineBody{
+    width: 4px;
+    height: 100%;
+    background-color: var(--secondaryColor);
+}
+
 .editableElementContainer h2 {
+    color: var(--secondaryColor);
     width: 15vw;
     text-align: center;
+
+    position: relative;
+    left: 15%;
 }
 
 .descriptionContainer{
-    border-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--primaryColor);
+    color: var(--secondaryColor);
+
+    border-color: var(--secondaryColor);
     border-style: solid;
     
     width: 50%;
-    text-align: center;
+    height: 70px;
+
+    margin-left: auto;
+
+    font-size: 20px;
 }
 
 /*=== ARROW ICONS ===*/
 .arrow {
-    border: solid black;
+    border: solid var(--secondaryColor);
     border-width: 0 5px 5px 0;
     display: inline-block;
     padding: 7px;
@@ -63,3 +153,7 @@ transform: rotate(45deg);
 -webkit-transform: rotate(45deg);
 }
 /*=== ARROW ICONS END ===*/
+
+.showModifications {
+    display: flex !important; /* !important ha la priorità */
+}
