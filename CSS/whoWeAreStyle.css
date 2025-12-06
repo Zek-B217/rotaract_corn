@@ -6,7 +6,6 @@
 .role{
     font-weight: bold;
     color: rgb(78, 78, 78);
-    
 }
 
 .subtitle{
@@ -29,6 +28,12 @@
     right: 6px;
     width:100vw;
 }
+
+.container{
+    font-size: 22px;
+    color: var(--secondaryColor);
+}
+
 .container2 {
     display: flex;
     flex-direction: row;

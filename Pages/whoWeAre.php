@@ -1,21 +1,11 @@
 <?php
     require "../PHP/constants.php";
 
-    $json = json_decode(file_get_contents("../$PRESIDENTS_FILE"),true);
-
-    $exPresidents = $json[$PRESIDENTS];
-
-    $exPresidentsDates = $json[$PRESIDENT_DATES];
+    $jsonContent = json_decode(file_get_contents("../$PRESIDENTS_FILE"),true);
+    $exPresidents = $jsonContent[$EX_PRESIDENTS];
     $lenght = count($exPresidents);
 
-    $consiglioDirettivo = [
-        "pres" => "Matteo Bellè",
-        "vpres" => "Diletta Betti",
-        "segr" => "Elisabetta Tomasi",
-        "tes" => "Matteo Manara",
-        "pref" => "Alessandra Cassaro",
-        "expres" => "Daniele Di Lucrezia"
-    ]
+    $directors = $jsonContent[$DIRECTORS];
 ?>
 
 <!DOCTYPE html>
@@ -81,15 +71,15 @@
             <h2 class="subtitle" data-i18n="actual">Attuale Consiglio Direttivo</h2>
             <div class="container">
                 <div class="leftRow">
-                    <p><span class="role" data-i18n="pres">Presidente: </span><span><?php echo $consiglioDirettivo["pres"];  ?></span></p>
-                    <p><span class="role" data-i18n="vpres">Vicepresidente: </span><span><?php echo $consiglioDirettivo["vpres"];  ?></span></p>
-                    <p><span class="role" data-i18n="segr">Segretario:  </span><span><?php echo $consiglioDirettivo["segr"];  ?></span></p>
+                    <p><span class="role" data-i18n="pres">Presidente: </span><span><?php echo $directors["pres"];  ?></span></p>
+                    <p><span class="role" data-i18n="vpres">Vicepresidente: </span><span><?php echo $directors["vpres"];  ?></span></p>
+                    <p><span class="role" data-i18n="segr">Segretario:  </span><span><?php echo $directors["segr"];  ?></span></p>
                 </div>
                     
                 <div>
-                    <p><span class="role" data-i18n="tes">Tesoriere: </span><span><?php echo $consiglioDirettivo["tes"];  ?></span></p>
-                    <p><span class="role" data-i18n="pref">Prefetto: </span><span ><?php echo $consiglioDirettivo["pref"];  ?></span></p>
-                    <p><span class="role" data-i18n="expres">Ex-presidente: </span><span><?php echo $consiglioDirettivo["expres"];  ?></span></p>
+                    <p><span class="role" data-i18n="tes">Tesoriere: </span><span><?php echo $directors["tes"];  ?></span></p>
+                    <p><span class="role" data-i18n="pref">Prefetto: </span><span ><?php echo $directors["pref"];  ?></span></p>
+                    <p><span class="role" data-i18n="expres">Ex-presidente: </span><span><?php echo $directors["expres"];  ?></span></p>
                 </div>
             </div>
         </div>
@@ -100,25 +90,25 @@
             <h2 class="subtitle" data-i18n="express">Ex-presidenti</h2>
             <div>
             <?php
-                for($i=0; $i<$lenght;){
+                for($i=$lenght-1; $i>=0;){
                     ?>
                     <div class="container2">
                     <?php
                     $j=0;
-                    while( $j<4 && $i<$lenght ){
+                    while( $j<4 && $i>=0 ){
                         ?>
                         <div class="presidentContent">
                                 <h3><?php
-                                echo $exPresidents[$i];
+                                echo $exPresidents[$i][$PRESIDENT_NAME];
                             
                                 ?></h3>
                                 <p class="date"><?php
-                                echo $exPresidentsDates[$i];
+                                echo $exPresidents[$i][$PRESIDENT_DATE];
                                 ?></p>
                             
                         </div>
                         <?php
-                        $i++;
+                        $i--;
                         $j++;
                     };
 
