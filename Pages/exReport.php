@@ -21,7 +21,7 @@ $numPdf = count($elementsPdf);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Template</title>
     <link rel="stylesheet" href="../CSS/commonStyle.css">
-    <link rel="stylesheet" href="../CSS/whoWeAreStyle.css">
+    <link rel="stylesheet" href="../CSS/whoWeAre&exReportStyle.css">
 </head>
 <body>
     <div id="obscurer"></div>
@@ -62,20 +62,20 @@ $numPdf = count($elementsPdf);
 
     <div id="content">
         <br>
-        <h1>Vecchi bollettini</h1>
+        <h1 class="mainTitle">Vecchi bollettini</h1>
         <?php
         if ($numPdf > 0) {
             for($i=0; $i<$numPdf; $i++)
             {
                 ?>
-                <div>
+                <div class="container2">
                 <?php
                 for($j=0; $j<4; $j++){
                     $i++;
 
                     ?>
                     <form action="<?php echo "../Media/PDF/" . $elementsPdf[$i-1];?>" method="get">
-                        <button>Vecchi bollettini</button>
+                        <button class="reportButtons"><?php echo $elementsPdf[$i-1]?></button>
                     </form>
                     
                     <?php
