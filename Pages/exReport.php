@@ -21,7 +21,7 @@ $numPdf = count($elementsPdf);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Template</title>
     <link rel="stylesheet" href="../CSS/commonStyle.css">
-    <link rel="stylesheet" href="../CSS/whoWeAreStyle.css">
+    <link rel="stylesheet" href="../CSS/whoWeAre&exReportStyle.css">
 </head>
 <body>
     <div id="obscurer"></div>
