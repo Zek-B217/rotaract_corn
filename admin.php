@@ -26,6 +26,26 @@
 
     //Collaborations
     $collaborations = json_decode(file_get_contents($COLLABORATIONS_FILE), true)[$COLLABORATIONS];
+
+    //Texts
+    $texts = [
+        "it" => loadTexts($IT_TEXTS_FILE),
+        "en" => loadTexts($EN_TEXTS_FILE),
+        "de" => loadTexts($DE_TEXTS_FILE)
+    ];
+    $italianTexts = $texts["it"];
+    $commonKeys = [
+        $TXT_HOME,
+        $TXT_WHO_WE_ARE,
+        $TXT_SERVICE,
+        $TXT_EVENTS,
+        $TXT_COLLAB,
+        $TXT_CONTACTS,
+        $TXT_LEGAL_RES,
+        $TXT_ADDRESS,
+        $TXT_DISTRICT,
+        $TXT_ROTARY_TRENTO
+    ];
 ?>
 
 <!DOCTYPE html>
@@ -259,11 +279,16 @@
                     <div class="linePoint"></div>
                     <div class="lineBody"></div>
                 </div>
-                <div class="editableContent">
+                <div id="editablePages" class="editableContent">
+                    <br>
+                    <p><span>Pagine</span></p>
+                    <br>
+                    <br>
+
                     <div class="editableElementContainer">
                         <div class="sectionContainer">
                             <div class="arrow right"></div>
-                            <h2>Home</h2>
+                            <p>In comune (Header e Footer)</p>
                         </div>
 
                         <div class="modificationContainer">
@@ -272,7 +297,38 @@
                                 <div class="lineBody"></div>
                             </div>
                             <div class="editableContent">
-                                <p>Ciao</p>
+                                <?php 
+                                    $textKeys = $commonKeys;
+
+                                    foreach ($textKeys as $key) {
+                                    ?>
+                                        <div class="editableElementContainer ">
+                                            <div class="sectionContainer">
+                                                <div class="arrow right"></div>
+                                                <p><?php echo $italianTexts[$key];?></p>
+                                            </div>
+
+                                            <div class="modificationContainer">
+                                                <div class="verticalLineContainer">
+                                                    <div class="linePoint"></div>
+                                                    <div class="lineBody"></div>
+                                                </div>
+                                                <div class="editableContent">
+                                                    <?php foreach ($texts as $language => $languageTexts) {
+                                                        ?>
+                                                        <div>
+                                                            <p><span><?php echo "$language: ";?></span><?php echo $languageTexts[$key];?></p>
+                                                            <button>Modifica</button>
+                                                        </div>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -280,7 +336,7 @@
                     <div class="editableElementContainer">
                         <div class="sectionContainer">
                             <div class="arrow right"></div>
-                            <h2>Chi siamo</h2>
+                            <p><?php echo $italianTexts[$TXT_HOME];?></p>
                         </div>
 
                         <div class="modificationContainer">
@@ -289,7 +345,38 @@
                                 <div class="lineBody"></div>
                             </div>
                             <div class="editableContent">
-                                <p>Ciao</p>
+                                <?php 
+                                    $textKeys = getTextKeysFromPage("index.php", $commonKeys);
+
+                                    foreach ($textKeys as $key) {
+                                    ?>
+                                        <div class="editableElementContainer ">
+                                            <div class="sectionContainer">
+                                                <div class="arrow right"></div>
+                                                <p><?php echo $italianTexts[$key];?></p>
+                                            </div>
+
+                                            <div class="modificationContainer">
+                                                <div class="verticalLineContainer">
+                                                    <div class="linePoint"></div>
+                                                    <div class="lineBody"></div>
+                                                </div>
+                                                <div class="editableContent">
+                                                    <?php foreach ($texts as $language => $languageTexts) {
+                                                        ?>
+                                                        <div>
+                                                            <p><span><?php echo "$language: ";?></span><?php echo $languageTexts[$key];?></p>
+                                                            <button>Modifica</button>
+                                                        </div>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -297,7 +384,7 @@
                     <div class="editableElementContainer">
                         <div class="sectionContainer">
                             <div class="arrow right"></div>
-                            <h2>Service</h2>
+                            <p><?php echo $italianTexts[$TXT_WHO_WE_ARE];?></p>
                         </div>
 
                         <div class="modificationContainer">
@@ -306,7 +393,38 @@
                                 <div class="lineBody"></div>
                             </div>
                             <div class="editableContent">
-                                <p>Ciao</p>
+                                <?php 
+                                    $textKeys = getTextKeysFromPage("Pages/whoWeAre.php", $commonKeys);
+
+                                    foreach ($textKeys as $key) {
+                                    ?>
+                                        <div class="editableElementContainer ">
+                                            <div class="sectionContainer">
+                                                <div class="arrow right"></div>
+                                                <p><?php echo $italianTexts[$key];?></p>
+                                            </div>
+
+                                            <div class="modificationContainer">
+                                                <div class="verticalLineContainer">
+                                                    <div class="linePoint"></div>
+                                                    <div class="lineBody"></div>
+                                                </div>
+                                                <div class="editableContent">
+                                                    <?php foreach ($texts as $language => $languageTexts) {
+                                                        ?>
+                                                        <div>
+                                                            <p><span><?php echo "$language: ";?></span><?php echo $languageTexts[$key];?></p>
+                                                            <button>Modifica</button>
+                                                        </div>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -314,7 +432,7 @@
                     <div class="editableElementContainer">
                         <div class="sectionContainer">
                             <div class="arrow right"></div>
-                            <h2>Eventi</h2>
+                            <p><?php echo $italianTexts[$TXT_SERVICE];?></p>
                         </div>
 
                         <div class="modificationContainer">
@@ -323,7 +441,38 @@
                                 <div class="lineBody"></div>
                             </div>
                             <div class="editableContent">
-                                <p>Ciao</p>
+                                <?php 
+                                    $textKeys = getTextKeysFromPage("Pages/service.php", $commonKeys);
+
+                                    foreach ($textKeys as $key) {
+                                    ?>
+                                        <div class="editableElementContainer ">
+                                            <div class="sectionContainer">
+                                                <div class="arrow right"></div>
+                                                <p><?php echo $italianTexts[$key];?></p>
+                                            </div>
+
+                                            <div class="modificationContainer">
+                                                <div class="verticalLineContainer">
+                                                    <div class="linePoint"></div>
+                                                    <div class="lineBody"></div>
+                                                </div>
+                                                <div class="editableContent">
+                                                    <?php foreach ($texts as $language => $languageTexts) {
+                                                        ?>
+                                                        <div>
+                                                            <p><span><?php echo "$language: ";?></span><?php echo $languageTexts[$key];?></p>
+                                                            <button>Modifica</button>
+                                                        </div>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -331,16 +480,47 @@
                     <div class="editableElementContainer">
                         <div class="sectionContainer">
                             <div class="arrow right"></div>
-                            <h2>Collaborazioni</h2>
+                            <p><?php echo $italianTexts[$TXT_COLLAB];?></p>
                         </div>
 
-                        <div class="modificationContainer">
+                       <div class="modificationContainer">
                             <div class="verticalLineContainer">
                                 <div class="linePoint"></div>
                                 <div class="lineBody"></div>
                             </div>
                             <div class="editableContent">
-                                <p>Ciao</p>
+                                <?php 
+                                    $textKeys = getTextKeysFromPage("Pages/collaborations.php", $commonKeys);
+
+                                    foreach ($textKeys as $key) {
+                                    ?>
+                                        <div class="editableElementContainer ">
+                                            <div class="sectionContainer">
+                                                <div class="arrow right"></div>
+                                                <p><?php echo $italianTexts[$key];?></p>
+                                            </div>
+
+                                            <div class="modificationContainer">
+                                                <div class="verticalLineContainer">
+                                                    <div class="linePoint"></div>
+                                                    <div class="lineBody"></div>
+                                                </div>
+                                                <div class="editableContent">
+                                                    <?php foreach ($texts as $language => $languageTexts) {
+                                                        ?>
+                                                        <div>
+                                                            <p><span><?php echo "$language: ";?></span><?php echo $languageTexts[$key];?></p>
+                                                            <button>Modifica</button>
+                                                        </div>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -348,7 +528,7 @@
                     <div class="editableElementContainer">
                         <div class="sectionContainer">
                             <div class="arrow right"></div>
-                            <h2>Contatti</h2>
+                            <p><?php echo $italianTexts[$TXT_CONTACTS];?></p>
                         </div>
 
                         <div class="modificationContainer">
@@ -357,7 +537,38 @@
                                 <div class="lineBody"></div>
                             </div>
                             <div class="editableContent">
-                                <p>Ciao</p>
+                                <?php 
+                                    $textKeys = getTextKeysFromPage("Pages/contacts.php", $commonKeys);
+
+                                    foreach ($textKeys as $key) {
+                                    ?>
+                                        <div class="editableElementContainer ">
+                                            <div class="sectionContainer">
+                                                <div class="arrow right"></div>
+                                                <p><?php echo $italianTexts[$key];?></p>
+                                            </div>
+
+                                            <div class="modificationContainer">
+                                                <div class="verticalLineContainer">
+                                                    <div class="linePoint"></div>
+                                                    <div class="lineBody"></div>
+                                                </div>
+                                                <div class="editableContent">
+                                                    <?php foreach ($texts as $language => $languageTexts) {
+                                                        ?>
+                                                        <div>
+                                                            <p><span><?php echo "$language: ";?></span><?php echo $languageTexts[$key];?></p>
+                                                            <button>Modifica</button>
+                                                        </div>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -365,7 +576,7 @@
                     <div class="editableElementContainer">
                         <div class="sectionContainer">
                             <div class="arrow right"></div>
-                            <h2>Bollettino</h2>
+                            <p><?php echo $italianTexts[$TXT_EX_TITLE];?></p>
                         </div>
 
                         <div class="modificationContainer">
@@ -374,7 +585,38 @@
                                 <div class="lineBody"></div>
                             </div>
                             <div class="editableContent">
-                                <p>Ciao</p>
+                                <?php 
+                                    $textKeys = getTextKeysFromPage("Pages/exReport.php", $commonKeys);
+
+                                    foreach ($textKeys as $key) {
+                                    ?>
+                                        <div class="editableElementContainer ">
+                                            <div class="sectionContainer">
+                                                <div class="arrow right"></div>
+                                                <p><?php echo $italianTexts[$key];?></p>
+                                            </div>
+
+                                            <div class="modificationContainer">
+                                                <div class="verticalLineContainer">
+                                                    <div class="linePoint"></div>
+                                                    <div class="lineBody"></div>
+                                                </div>
+                                                <div class="editableContent">
+                                                    <?php foreach ($texts as $language => $languageTexts) {
+                                                        ?>
+                                                        <div>
+                                                            <p><span><?php echo "$language: ";?></span><?php echo $languageTexts[$key];?></p>
+                                                            <button>Modifica</button>
+                                                        </div>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -393,6 +635,6 @@
         </form>
     </div>
 
-    <script src="JS/adminSections.js"></script>
+    <script src="JS/adminScript.js"></script>
 </body>
 </html>

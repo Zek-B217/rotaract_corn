@@ -333,3 +333,33 @@ transform: rotate(45deg);
     height: 50px;
 }
 /*=== COLLABORATIONS END ===*/
+
+/*=== PAGES ===*/
+#editablePages button{
+    height: 40px;
+}
+
+#editablePages .editableElementContainer {
+    width: 100% !important;
+}
+
+#editablePages .sectionContainer > p{
+    position: relative;
+    left: 5%;
+    width: 100%;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+#editablePages .editableContent > div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#editablePages .editableContent > div > p{
+    width: 80%;
+}
+/*=== PAGES END ===*/

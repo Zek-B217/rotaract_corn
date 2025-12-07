@@ -62,3 +62,29 @@
 
         return "Media/$imageName.png";
     }
+
+    function getTextKeysFromPage($page, $removeArr) {
+        require "constants.php";
+        $content = file_get_contents($page);
+
+        //Regex
+        $pattern = '/\$texts\[\s*(\$[a-zA-Z0-9_]+)\s*\]/';
+        $keys = [];
+        //$matches[1] contiene i nomi delle variabili tra parentesi quadre
+        if (preg_match_all($pattern, $content, $matches)) {
+            $foundVars = array_unique($matches[1]);
+
+            foreach ($foundVars as $varNameWithDollar) {
+                $varName = substr($varNameWithDollar, 1);
+
+                // $$VAR legge il valore della variabile corrispondente al valore della variabile
+                //Esempio: $CIAO = 5, $VAR = "CIAO", $$VAR => 5
+                global $$varName;
+                $keys[] = $$varName;
+            }
+        }
+
+        $keys = array_diff($keys, $removeArr);
+
+        return $keys;
+    }
