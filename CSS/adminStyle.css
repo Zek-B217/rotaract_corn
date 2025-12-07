@@ -25,6 +25,26 @@
     padding: 20px;
 }
 
+#mainContent button{
+    color: var(--secondaryColor);
+    font-weight: 600;
+
+    background-color: transparent;
+    border-width: 2px;
+    border-color: var(--secondaryColor);
+
+    cursor: pointer;
+}
+
+#mainContent button:hover{
+    background-color: var(--primaryColor);
+}
+
+#mainContent a{
+    color: inherit;
+    text-decoration-color: black;
+}
+
 #mainContent span{
     color: var(--secondaryColor);
 }
@@ -223,19 +243,6 @@ transform: rotate(45deg);
 
 .grid button{
     height: 100%;
-
-    color: var(--secondaryColor);
-    font-weight: 600;
-
-    background-color: transparent;
-    border-width: 2px;
-    border-color: var(--secondaryColor);
-
-    cursor: pointer;
-}
-
-.grid button:hover{
-    background-color: var(--primaryColor);
 }
 /*=== GRID END ===*/
 
@@ -290,19 +297,6 @@ transform: rotate(45deg);
 .role button{
     height: 100%;
     width: var(--presidentsBtnsWidth);
-
-    color: var(--secondaryColor);
-    font-weight: 600;
-
-    background-color: transparent;
-    border-width: 2px;
-    border-color: var(--secondaryColor);
-
-    cursor: pointer;
-}
-
-.role button:hover{
-    background-color: var(--primaryColor);
 }
 /*=== PRESIDENTS END ===*/
 
@@ -321,28 +315,21 @@ transform: rotate(45deg);
 #currentBulletinContainer > button{
     height: 50px;
     width: var(--presidentsBtnsWidth);
-
-    color: var(--secondaryColor);
-    font-weight: 600;
-
-    background-color: transparent;
-    border-width: 2px;
-    border-color: var(--secondaryColor);
-
-    cursor: pointer;
-}
-
-#currentBulletinContainer button:hover{
-    background-color: var(--primaryColor);
 }
 
 #pdfGrid > div > div{
     height: 100%;
 }
-
-#pdfGrid a, #currentBulletinContainer a{
-    color: inherit;
-
-    text-decoration-color: black;
-}
 /*=== BULLETIN END ===*/
+
+/*=== COLLABORATIONS ===*/
+#collaborationsContainer > div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#collaborationsContainer button{
+    height: 50px;
+}
+/*=== COLLABORATIONS END ===*/

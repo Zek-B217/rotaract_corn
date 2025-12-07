@@ -1,3 +1,9 @@
+<?php
+    require "../PHP/constants.php";
+
+    $collaborations = json_decode(file_get_contents("../$COLLABORATIONS_FILE"),true)[$COLLABORATIONS];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,35 +69,16 @@
             <h2 id="subtitle" data-i18n="actCollab">Collaborazioni attive:</h2>
         
             <div id="collaborationContainer">
-                <a href="https://trento.rotary2060.org/">
-                <div class="collaboration">
-                    <h3>Rotary Club Trento:</h3>
-                    <p data-i18n="site">visita sito</p>
-                </div></a>
-
-                <a href="https://trentinonord.rotary2060.org/">
-                <div class="collaboration">
-                    <h3>Rotary Club Trentino-Nord:</h3>
-                    <p data-i18n="site">visita sito</p>
-                </div></a>
-
-                <a href="https://valsugana.rotary2060.org/index.php">
-                <div class="collaboration">
-                    <h3>Rotary Club Valsugana:</h3>
-                    <p data-i18n="site">visita sito</p>
-                </div></a>
-
-                <a href="https://www.innerwheel.it/club/iwc0063">
-                <div class="collaboration">
-                    <h3>Innerwheel Trento:</h3>
-                    <p data-i18n="site">visita sito</p>
-                </div></a>
-
-                <a href="https://www.in	nerwheel.it/club/iwc185">
-                <div class="collaboration">
-                    <h3>Innerwheel Trento-Castello:</h3>
-                    <p data-i18n="site">visita sito</p>
-                </div></a>
+                <?php foreach ($collaborations as $collaboration) {
+                    ?>
+                        <a href="<?php echo $collaboration[$COLLABORATION_LINK];?>" target="_blank">
+                        <div class="collaboration">
+                            <h3><?php echo $collaboration[$COLLABORATION_NAME];?>:</h3>
+                            <p data-i18n="site">visita sito</p>
+                        </div></a>
+                    <?php
+                    }
+                ?>
             </div>
         </div>
     </div>

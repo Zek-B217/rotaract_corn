@@ -8,6 +8,9 @@
     $EX_PRESIDENTS = "exPresidents";
     $DIRECTORS = "directors";
     $CURRENT_BULLETIN = "currentBulletin";
+    $COLLABORATIONS = "collaborations";
+    $COLLABORATION_NAME = "name";
+    $COLLABORATION_LINK = "link";
 
     //Director roles
     $ROLE_PRESIDENT = "pres";
@@ -20,4 +23,5 @@
     /*FILE PATHS*/
     $CONFIG_FILE = "JSON/config.json";
     $PRESIDENTS_FILE = "JSON/presidents.json";
+    $COLLABORATIONS_FILE = "JSON/collaborations.json";
     $PDF_BULLETIN_FOLDER = "Media/PDF";
