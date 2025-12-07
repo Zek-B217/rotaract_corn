@@ -1,6 +1,6 @@
 <?php
     require "PHP/constants.php";
-    require "PHP/fileFunctions.php";
+    require "PHP/functions.php";
 
     session_set_cookie_params(0); //distruggi la sessione all'uscita dal browser
     session_start();

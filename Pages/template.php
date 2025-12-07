@@ -13,24 +13,18 @@
     $textsFileName = setLanguage();
     $texts = loadTexts("../$textsFileName");
     $langImg = "../".getLanguageImage($textsFileName);
-    $selectedBulletin = "../$PDF_BULLETIN_FOLDER/" . json_decode(file_get_contents("../$CONFIG_FILE"), true)[$CURRENT_BULLETIN];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $texts[$TXT_SERVICE]; ?></title>
-
+    <title><?php echo $texts[$TXT_EVENTS]; ?></title>
     <link rel="stylesheet" href="../CSS/commonStyle.css">
-    <link rel="stylesheet" href="../CSS/serviceStyle.css">
 </head>
-
-<body>
+<body onload="setLang('', true)">
     <div id="obscurer"></div>
-
+    
     <div id="lateralSelection">
         <button id="exitBtn" onclick="hideLateralSelection()">X</button>
 
@@ -40,15 +34,13 @@
             <a href="service.php"><button><?php echo $texts[$TXT_SERVICE]; ?></button></a>
             <a href="calendar.php"><button><?php echo $texts[$TXT_EVENTS]; ?></button></a>
             <a href="collaborations.php"><button><?php echo $texts[$TXT_COLLAB]; ?></button></a>
-            <a href="contacts.php"><button><?php echo $texts[$TXT_CONTACTS]; ?></button></a>
+            <a href="contacts.php"><button><?php echo $texts[$TXT_CONTACTS]; ?></button></a> 
         </div>
     </div>
-
     
+
     <div id="header">
-        <a class="logoContainer" href="../index.php">
-            <img class="logo" src="../Media/logo.png">
-        </a>
+        <a class="logoContainer" href="../index.php"><img class="logo" src="../Media/logo.png"></a>
 
         <div class="dropdownBox">
             <div class="hoverDropdownBox">
@@ -69,7 +61,7 @@
             <a href="service.php"><button><?php echo $texts[$TXT_SERVICE]; ?></button></a>
             <a href="calendar.php"><button><?php echo $texts[$TXT_EVENTS]; ?></button></a>
             <a href="collaborations.php"><button><?php echo $texts[$TXT_COLLAB]; ?></button></a>
-            <a href="contacts.php"><button><?php echo $texts[$TXT_CONTACTS]; ?></button></a>
+            <a href="contacts.php"><button><?php echo $texts[$TXT_CONTACTS]; ?></button></a> 
         </div>
 
         <div id="menuHamburger" onclick="showLateralSelection()">
@@ -79,79 +71,11 @@
         </div>
     </div>
 
-
     <div id="content">
-
-        <h1><?php echo $texts[$TXT_SERVICE]; ?></h1>
-        <div id="textContainer">
-
-            <div id="servicesList">
-                <div class="serviceItem">
-                    <p>
-                        <?php echo $texts[$TXT_SERVICE_DESC]; ?>
-                    </p>
-                
-                    <p>
-                        <?php echo $texts[$TXT_FIVE_WAYS]; ?>
-                    </p>
-                </div>
-                <div class="serviceItem">
-                    <h2><?php echo $texts[$TXT_WAY1]; ?></h2>
-                    <p>
-                        <?php echo $texts[$TXT_WAY1_DESC]; ?>
-                    </p>
-                </div>
-
-                <div class="serviceItem">
-                    <h2><?php echo $texts[$TXT_WAY2]; ?></h2>
-                    <p>
-                        <?php echo $texts[$TXT_WAY2_DESC]; ?>
-                    </p>
-                </div>
-
-                <div class="serviceItem">
-                    <h2><?php echo $texts[$TXT_WAY3]; ?></h2>
-                    <p>
-                        <?php echo $texts[$TXT_WAY3_DESC]; ?>
-                    </p>
-                </div>
-
-                <div class="serviceItem">
-                    <h2><?php echo $texts[$TXT_WAY4]; ?></h2>
-                    <p>
-                        <?php echo $texts[$TXT_WAY4_DESC]; ?>
-                    </p>
-                </div>
-
-                <div class="serviceItem">
-                    <h2><?php echo $texts[$TXT_WAY5]; ?></h2>
-                    <p>
-                        <?php echo $texts[$TXT_WAY5_DESC]; ?>
-                    </p>
-                </div>
-
-            </div> 
-        </div>
-
-        <div id="pdf">
-            <h1><?php echo $texts[$TXT_PDF_TEXT]; ?></h1>
-            <?php if (is_file($selectedBulletin)){
-                ?>
-                    <iframe src="<?php echo $selectedBulletin;?>" width="100%" height="600px"></iframe>
-                <?php
-                }
-            ?>
-            <form action="exReport.php" method="get">
-                <button id="btnReports"><?php echo $texts[$TXT_VIEW_ALL_BULLETINS]; ?></button>
-            </form>
-        </div>
-        <br>
-        <br>
-    </div> 
+    </div>
 
     <div id="footer">
         <div id="footerContent">
-
             <div id="registeredOffice">
                 <h4><?php echo $texts[$TXT_LEGAL_RES]; ?></h4>
                 <p><?php echo $texts[$TXT_ADDRESS]; ?></p>
@@ -168,15 +92,10 @@
                     <p><a href="https://trento.rotary2060.org/">https://trento.rotary2060.org/</a></p>
                 </div>
             </div>
-
-            <a class="logoContainer" href="../index.php">
-                <img class="logo" src="../Media/logo.png">
-            </a>
-
+            <a class="logoContainer" href="../index.php"><img class="logo" src="../Media/logo.png"></a>
         </div>
     </div>
-
+    
     <script src="../JS/lateralSelection.js"></script>
 </body>
-
 </html>

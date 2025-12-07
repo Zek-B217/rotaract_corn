@@ -1,3 +1,20 @@
+<?php
+    require "PHP/constants.php";
+    require "PHP/functions.php";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        if (isset($_POST["lang"])){
+            setLanguage($_POST["lang"]);
+        }
+        header("Refresh:0");
+        exit;
+    }
+
+    $textsFileName = setLanguage();
+    $texts = loadTexts($textsFileName);
+    $langImg = getLanguageImage($textsFileName);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,19 +24,19 @@
     <link rel="stylesheet" href="CSS/commonStyle.css">
     <link rel="stylesheet" href="CSS/homeStyle.css">
 </head>
-<body onload="setLang('', false)">
+<body>
     <div id="obscurer"></div>
     
     <div id="lateralSelection">
         <button id="exitBtn" onclick="hideLateralSelection()">X</button>
 
         <div id="lateralBtns">
-            <a href="index.php"><button>Home</button></a>
-            <a href="Pages/whoWeAre.php"><button data-i18n="whoWeAre">Chi siamo</button></a>
-            <a href="Pages/service.php"><button>Service</button></a>
-            <a href="Pages/calendar.php"><button data-i18n="events">Eventi</button></a>
-            <a href="Pages/collaborations.php"><button data-i18n="collab">Collaborazioni</button></a>
-            <a href="Pages/contacts.php"><button data-i18n="contacts">Contatti</button></a> 
+            <a href="index.php"><button><?php echo $texts[$TXT_HOME]; ?></button></a>
+            <a href="Pages/whoWeAre.php"><button><?php echo $texts[$TXT_WHO_WE_ARE]; ?></button></a>
+            <a href="Pages/service.php"><button><?php echo $texts[$TXT_SERVICE]; ?></button></a>
+            <a href="Pages/calendar.php"><button><?php echo $texts[$TXT_EVENTS]; ?></button></a>
+            <a href="Pages/collaborations.php"><button><?php echo $texts[$TXT_COLLAB]; ?></button></a>
+            <a href="Pages/contacts.php"><button><?php echo $texts[$TXT_CONTACTS]; ?></button></a> 
         </div>
     </div>
     
@@ -29,25 +46,26 @@
 
         <div class="dropdownBox">
             <div class="hoverDropdownBox">
-                <img id="langImg" class="dropdownImg" src="Media/it.png">
+                <img id="langImg" class="dropdownImg" src="<?php echo $langImg;?>">
                 <div class="dropdownContent">
-                    <button class="btn" onclick="setLang('it', false)">Italiano</button>
-                    <button class="btn" onclick="setLang('en', false)">English</button>
-                    <button class="btn" onclick="setLang('de', false)">Deutsch</button>
+                    <form action="" method="POST">
+                        <input type="submit" name="lang" value="<?php echo $ITALIAN;?>" class="btn"></input>
+                        <input type="submit" name="lang" value="<?php echo $ENGLISH;?>" class="btn"></input>
+                        <input type="submit" name="lang" value="<?php echo $GERMAN;?>" class="btn"></input>
+                    </form>
                 </div>
             </div>
         </div>
 
         <div id="buttons">
-            <a href="index.php"><button>Home</button></a>
-            <a href="Pages/whoWeAre.php"><button data-i18n="whoWeAre">Chi siamo</button></a> 
-            <a href="Pages/service.php"><button>Service</button></a>
-            <a href="Pages/calendar.php"><button data-i18n="events">Eventi</button></a>
-            <a href="Pages/collaborations.php"><button data-i18n="collab">Collaborazioni</button></a>
-            <a href="Pages/contacts.php"><button data-i18n="contacts">Contatti</button></a> 
+            <a href="index.php"><button><?php echo $texts[$TXT_HOME]; ?></button></a>
+            <a href="Pages/whoWeAre.php"><button><?php echo $texts[$TXT_WHO_WE_ARE]; ?></button></a> 
+            <a href="Pages/service.php"><button><?php echo $texts[$TXT_SERVICE]; ?></button></a>
+            <a href="Pages/calendar.php"><button><?php echo $texts[$TXT_EVENTS]; ?></button></a>
+            <a href="Pages/collaborations.php"><button><?php echo $texts[$TXT_COLLAB]; ?></button></a>
+            <a href="Pages/contacts.php"><button><?php echo $texts[$TXT_CONTACTS]; ?></button></a> 
         </div>
 
-        <!--Menù a linee responsive-->
         <div id="menuHamburger" onclick="showLateralSelection()">
             <div class="line"></div>
             <div class="line"></div>
@@ -59,16 +77,16 @@
         <div class="container">
             <img src="Media/trento.jpg" alt="immagine bg home" id="imgBgHome"/><br>
             <span class="centeredText">
-               <strong class="title" id="title">Rotaract Trento</strong><br>
-               <p data-i18n="district">Distretto 2060</p>
-               <a href="Pages/calendar.php"><button class="btn" id="homeBtn" data-i18n="events">Eventi</button></a>
+               <strong class="title" id="title"><?php echo $texts[$TXT_MAIN_TITLE]; ?></strong><br>
+               <p><?php echo $texts[$TXT_DISTRICT]; ?></p>
+               <a href="Pages/calendar.php"><button class="btn" id="homeBtn"><?php echo $texts[$TXT_EVENTS]; ?></button></a>
             </span>
         </div>
     
         <div class="carouselDescription">
             <div class="rotaractDescription">
-                <p data-i18n="description">Il Rotaract Club Trento nasce l’8 luglio 1985, promosso dal Rotary Club Trento e parte del Distretto 2060. In un periodo in cui il Rotaract in Italia si afferma come spazio di incontro e formazione per giovani studenti e professionisti, il club trentino si distingue da subito per entusiasmo, amicizia e voglia di fare. Le prime feste di beneficenza e le attività sociali segnano l’inizio di una tradizione che unisce impegno e convivialità, mentre i rapporti con club come Regensburg, Rovereto e Bolzano riflettono fin da allora una naturale apertura internazionale.</p>
-                <a href="Pages/whoWeAre.php"><button class="btn" id="descBtn" data-i18n="whoWeAre">Chi siamo</button></a>
+                <p><?php echo $texts[$TXT_DESCRIPTION]; ?></p>
+                <a href="Pages/whoWeAre.php"><button class="btn" id="descBtn"><?php echo $texts[$TXT_WHO_WE_ARE]; ?></button></a>
             </div>
             <div class="sliderContainer">
                 <span id="sliderImage1"></span>
@@ -93,18 +111,18 @@
     <div id="footer">
         <div id="footerContent">
             <div id="registeredOffice">
-                <h4 data-i18n="legalRes">Sede legale:</h4>
-                <p>Piazza Dante 20, 38122 Trento (TN)</p>
+                <h4><?php echo $texts[$TXT_LEGAL_RES]; ?></h4>
+                <p><?php echo $texts[$TXT_ADDRESS]; ?></p>
             </div>
 
             <div id="externalWebsites">
                 <div>
-                    <h4 data-i18n="district">Distretto 2060</h4>
+                    <h4><?php echo $texts[$TXT_DISTRICT]; ?></h4>
                     <p><a href="https://www.rotaract2060.it/">https://www.rotaract2060.it/</a></p>
                 </div>
 
                 <div>
-                    <h4>Rotary Trento</h4>
+                    <h4><?php echo $texts[$TXT_ROTARY_TRENTO]; ?></h4>
                     <p><a href="https://trento.rotary2060.org/">https://trento.rotary2060.org/</a></p>
                 </div>
             </div>
@@ -113,6 +131,5 @@
     </div>
 
     <script src="JS/lateralSelection.js"></script>
-    <script src="JS/translate.js"></script>
 </body>
 </html>

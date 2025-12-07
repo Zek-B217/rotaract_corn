@@ -30,7 +30,7 @@
     "way4": "Azione Internazionale:",
     "way4Desc": "lo spirito rotaractiano ci spinge oltre i confini con progetti come “United for Ukraine” abbiamo sostenuto i rifugiati di guerra, rafforzando la rete di cooperazione e solidarietà internazionale.",
     "way5": "Azione Nuove Generazioni:",
-    "way5Desc": "guardiamo al futuro con progetti educativi tra cui la “Festa del Neonato” assieme agli “Amici della Neonatologia di Trento”, il reparto di Neonatologia dell’Ospedale Santa Chiara nonché l'Associazione “Diabete Giovanile del Trentino”  promuovendo la cultura del prendersi cura.",
+    "way5Desc": "guardiamo al futuro con progetti educativi tra cui la “Festa del Neonato” assieme agli “Amici della Neonatologia di Trento”, il reparto di Neonatologia dell’Ospedale Santa Chiara nonché l'Associazione “Diabete Giovanile del Trentino”  promuovendo la cultura del prendersi cura.",
     "contactTitle": "Contatti del Rotaract Club Trento",
     "write": "Scrivi in questo form per contattarci",
     "error": "❌ Errore: controlla che tutti i campi siano stati compliati correttamente",
@@ -39,5 +39,16 @@
     "email": "Email personale",
     "message": "Messaggio",
     "submit": "INVIA",
-    "pdf": "Qui il nostro periodico"
+    "pdf": "Qui il nostro periodico",
+    "home": "Home",
+    "service": "Service",
+    "mainTitle": "Rotaract Trento",
+    "address": "Piazza Dante 20, 38122 Trento (TN)",
+    "rotaryTrento": "Rotary Trento",
+    "privacyAccept": "Accetto l’",
+    "privacyLink": "Informativa sulla Privacy",
+    "exTitle": "Ex bollettini",
+    "oldBulletins": "Vecchi bollettini",
+    "noBulletins": "Nessun bollettino disponibile.",
+    "viewAllBulletins": "Vedi tutti i bollettini"
 }

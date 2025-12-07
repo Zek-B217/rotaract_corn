@@ -1,15 +1,25 @@
 <?php
-require "../PHP/constants.php";
-require "../PHP/fileFunctions.php";
+    require "../PHP/constants.php";
+    require "../PHP/functions.php";
 
-$folders = '../Media/PDF/';
-$elements = scandir($folders);
+    $folders = '../Media/PDF/';
+    $elements = scandir($folders);
 
-$elementsPdf = filterPdf($elements);
+    $elementsPdf = filterPdf($elements);
 
-$numPdf = count($elementsPdf);
+    $numPdf = count($elementsPdf);
+    
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        if (isset($_POST["lang"])){
+            setLanguage($_POST["lang"]);
+        }
+        header("Refresh:0");
+        exit;
+    }
 
-
+    $textsFileName = setLanguage();
+    $texts = loadTexts("../$textsFileName");
+    $langImg = "../".getLanguageImage($textsFileName);
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +27,7 @@ $numPdf = count($elementsPdf);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ex bollettini</title>
+    <title><?php echo $texts[$TXT_EX_TITLE]; ?></title>
     <link rel="stylesheet" href="../CSS/commonStyle.css">
     <link rel="stylesheet" href="../CSS/whoWeAre&exReportStyle.css">
 </head>
@@ -28,12 +38,12 @@ $numPdf = count($elementsPdf);
         <button id="exitBtn" onclick="hideLateralSelection()">X</button>
 
         <div id="lateralBtns">
-            <a href="../index.php"><button>Home</button></a>
-            <a href="whoWeAre.php"><button>Chi siamo</button></a>
-            <a href="service.php"><button>Service</button></a>
-            <a href="calendar.php"><button>Eventi</button></a>
-            <a href="collaborations.php"><button>Collaborazioni</button></a>
-            <a href="contacts.php"><button>Contatti</button></a> 
+            <a href="../index.php"><button><?php echo $texts[$TXT_HOME]; ?></button></a>
+            <a href="whoWeAre.php"><button><?php echo $texts[$TXT_WHO_WE_ARE]; ?></button></a>
+            <a href="service.php"><button><?php echo $texts[$TXT_SERVICE]; ?></button></a>
+            <a href="calendar.php"><button><?php echo $texts[$TXT_EVENTS]; ?></button></a>
+            <a href="collaborations.php"><button><?php echo $texts[$TXT_COLLAB]; ?></button></a>
+            <a href="contacts.php"><button><?php echo $texts[$TXT_CONTACTS]; ?></button></a> 
         </div>
     </div>
     
@@ -45,25 +55,26 @@ $numPdf = count($elementsPdf);
 
         <div class="dropdownBox">
             <div class="hoverDropdownBox">
-                <img id="langImg" class="dropdownImg" src="../Media/it.png">
+                <img id="langImg" class="dropdownImg" src="<?php echo $langImg;?>">
                 <div class="dropdownContent">
-                    <button class="btn" onclick="setLang('it', true)">Italiano</button>
-                    <button class="btn" onclick="setLang('en', true)">English</button>
-                    <button class="btn" onclick="setLang('de', true)">Deutsch</button>
+                    <form action="" method="POST">
+                        <input type="submit" name="lang" value="<?php echo $ITALIAN;?>" class="btn"></input>
+                        <input type="submit" name="lang" value="<?php echo $ENGLISH;?>" class="btn"></input>
+                        <input type="submit" name="lang" value="<?php echo $GERMAN;?>" class="btn"></input>
+                    </form>
                 </div>
             </div>
         </div>
 
         <div id="buttons">
-            <a href="../index.php"><button>Home</button></a>
-            <a href="whoWeAre.php"><button data-i18n="whoWeAre">Chi siamo</button></a>
-            <a href="service.php"><button>Service</button></a>
-            <a href="calendar.php"><button data-i18n="events">Eventi</button></a>
-            <a href="collaborations.php"><button data-i18n="collab">Collaborazioni</button></a>
-            <a href="contacts.php"><button data-i18n="contacts">Contatti</button></a>
+            <a href="../index.php"><button><?php echo $texts[$TXT_HOME]; ?></button></a>
+            <a href="whoWeAre.php"><button><?php echo $texts[$TXT_WHO_WE_ARE]; ?></button></a>
+            <a href="service.php"><button><?php echo $texts[$TXT_SERVICE]; ?></button></a>
+            <a href="calendar.php"><button><?php echo $texts[$TXT_EVENTS]; ?></button></a>
+            <a href="collaborations.php"><button><?php echo $texts[$TXT_COLLAB]; ?></button></a>
+            <a href="contacts.php"><button><?php echo $texts[$TXT_CONTACTS]; ?></button></a>
         </div>
 
-        <!-- MENÙ HAMBURGER -->
         <div id="menuHamburger" onclick="showLateralSelection()">
             <div class="line"></div>
             <div class="line"></div>
@@ -73,7 +84,7 @@ $numPdf = count($elementsPdf);
 
     <div id="content">
         <br>
-        <h1 class="mainTitle">Vecchi bollettini</h1>
+        <h1 class="mainTitle"><?php echo $texts[$TXT_OLD_BULLETINS]; ?></h1>
         <?php
         if ($numPdf > 0) {
             for($i=0; $i<$numPdf; $i++)
@@ -101,25 +112,25 @@ $numPdf = count($elementsPdf);
             }
             
         } else {
-            echo '<p>Nessun bollettino disponibile.</p>';
+            echo '<p>' . $texts[$TXT_NO_BULLETINS] . '</p>'; 
         }?>
     </div>
 
     <div id="footer">
         <div id="footerContent">
             <div id="registeredOffice">
-                <h4>Sede legale:</h4>
-                <p>Piazza Dante 20, 38122 Trento (TN)</p>
+                <h4><?php echo $texts[$TXT_LEGAL_RES]; ?></h4>
+                <p><?php echo $texts[$TXT_ADDRESS]; ?></p>
             </div>
 
             <div id="externalWebsites">
                 <div>
-                    <h4>Distretto 2060</h4>
+                    <h4><?php echo $texts[$TXT_DISTRICT]; ?></h4>
                     <p><a href="https://www.rotaract2060.it/">https://www.rotaract2060.it/</a></p>
                 </div>
 
                 <div>
-                    <h4>Rotary Trento</h4>
+                    <h4><?php echo $texts[$TXT_ROTARY_TRENTO]; ?></h4>
                     <p><a href="https://trento.rotary2060.org/">https://trento.rotary2060.org/</a></p>
                 </div>
             </div>

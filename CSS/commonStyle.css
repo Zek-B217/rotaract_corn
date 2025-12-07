@@ -95,6 +95,10 @@ body{
     left: 5%;
 }
 
+#header > .dropdownBox{
+    width: 100px;
+}
+
 #footer{
     /*Non rimuovere. Serve a dimensionare correttamente l'immagine del logo*/
     position: relative;
@@ -384,7 +388,7 @@ h4{
     width: inherit;
 }
 
-.dropdownContent > button{
+.dropdownContent > button, .dropdownContent input {
     cursor: pointer;
     font-size: 15px;
     height:70px;
@@ -419,7 +423,7 @@ h4{
 }
 
 /*Stile header quando lo schermo è stretto*/
-@media screen and (max-width: 900px){
+@media screen and (max-width: 1000px){
     #menuHamburger{
         /*Mostro il menù*/
         display: flex;

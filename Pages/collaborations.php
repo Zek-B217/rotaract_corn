@@ -1,6 +1,18 @@
 <?php
     require "../PHP/constants.php";
+    require "../PHP/functions.php";
 
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        if (isset($_POST["lang"])){
+            setLanguage($_POST["lang"]);
+        }
+        header("Refresh:0");
+        exit;
+    }
+
+    $textsFileName = setLanguage();
+    $texts = loadTexts("../$textsFileName");
+    $langImg = "../".getLanguageImage($textsFileName);
     $collaborations = json_decode(file_get_contents("../$COLLABORATIONS_FILE"),true)[$COLLABORATIONS];
 ?>
 
@@ -9,23 +21,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="collab">Collaborazioni</title>
+    <title><?php echo $texts[$TXT_COLLAB]; ?></title>
     <link rel="stylesheet" href="../CSS/commonStyle.css">
     <link rel="stylesheet" href="../CSS/collaborationsStyle.css">
 </head>
-<body  onload="setLang('', true)">
+<body>
     <div id="obscurer"></div>
     
     <div id="lateralSelection">
         <button id="exitBtn" onclick="hideLateralSelection()">X</button>
 
         <div id="lateralBtns">
-            <a href="../index.php"><button>Home</button></a>
-            <a href="whoWeAre.php"><button data-i18n="whoWeAre">Chi siamo</button></a>
-            <a href="service.php"><button>Service</button></a>
-            <a href="calendar.php"><button data-i18n="events">Eventi</button></a>
-            <a href="collaborations.php"><button data-i18n="collab">Collaborazioni</button></a>
-            <a href="contacts.php"><button data-i18n="contacts">Contatti</button></a> 
+            <a href="../index.php"><button><?php echo $texts[$TXT_HOME]; ?></button></a>
+            <a href="whoWeAre.php"><button><?php echo $texts[$TXT_WHO_WE_ARE]; ?></button></a>
+            <a href="service.php"><button><?php echo $texts[$TXT_SERVICE]; ?></button></a>
+            <a href="calendar.php"><button><?php echo $texts[$TXT_EVENTS]; ?></button></a>
+            <a href="collaborations.php"><button><?php echo $texts[$TXT_COLLAB]; ?></button></a>
+            <a href="contacts.php"><button><?php echo $texts[$TXT_CONTACTS]; ?></button></a> 
         </div>
     </div>
     
@@ -35,25 +47,26 @@
 
         <div class="dropdownBox">
             <div class="hoverDropdownBox">
-                <img id="langImg" class="dropdownImg" src="../Media/it.png">
+                <img id="langImg" class="dropdownImg" src="<?php echo $langImg;?>">
                 <div class="dropdownContent">
-                    <button class="btn" onclick="setLang('it', true)">Italiano</button>
-                    <button class="btn" onclick="setLang('en', true)">English</button>
-                    <button class="btn" onclick="setLang('de', true)">Deutsch</button>
+                    <form action="" method="POST">
+                        <input type="submit" name="lang" value="<?php echo $ITALIAN;?>" class="btn"></input>
+                        <input type="submit" name="lang" value="<?php echo $ENGLISH;?>" class="btn"></input>
+                        <input type="submit" name="lang" value="<?php echo $GERMAN;?>" class="btn"></input>
+                    </form>
                 </div>
             </div>
         </div>
 
         <div id="buttons">
-            <a href="../index.php"><button>Home</button></a>
-            <a href="whoWeAre.php"><button data-i18n="whoWeAre">Chi siamo</button></a>
-            <a href="service.php"><button>Service</button></a>
-            <a href="calendar.php"><button data-i18n="events">Eventi</button></a>
-            <a href="collaborations.php"><button data-i18n="collab">Collaborazioni</button></a>
-            <a href="contacts.php"><button data-i18n="contacts">Contatti</button></a> 
+            <a href="../index.php"><button><?php echo $texts[$TXT_HOME]; ?></button></a>
+            <a href="whoWeAre.php"><button><?php echo $texts[$TXT_WHO_WE_ARE]; ?></button></a>
+            <a href="service.php"><button><?php echo $texts[$TXT_SERVICE]; ?></button></a>
+            <a href="calendar.php"><button><?php echo $texts[$TXT_EVENTS]; ?></button></a>
+            <a href="collaborations.php"><button><?php echo $texts[$TXT_COLLAB]; ?></button></a>
+            <a href="contacts.php"><button><?php echo $texts[$TXT_CONTACTS]; ?></button></a> 
         </div>
 
-        <!--Menù a linee responsive-->
         <div id="menuHamburger" onclick="showLateralSelection()">
             <div class="line"></div>
             <div class="line"></div>
@@ -63,10 +76,9 @@
 
     <div id="content">
         <div id="mainContainer">
-            <h1 id="title" data-i18n="rotCollab">Collaborazioni con il Rotary</h1>
-            <!--PHP-->
-            <p data-i18n="descCollab">Essere a stretto contatto con i Rotary Club ci permette di partecipare a progetti di rilevanza nazionale e internazionale nei campi sociale, sanitario, educativo e ambientale. Il Rotaract Club Trento nasce e cresce con il sostegno dei suoi club patrocinatori, Rotary Club Trento e Rotary Club Trentino Nord, collaborando anche con il Rotary Club Valsugana e con le Inner Wheel Trento e Trento Castello realizzando insieme iniziative di service, formazione e solidarietà, in sinergia con realtà del territorio per promuovendo un impatto attento alla comunità.</p>
-            <h2 id="subtitle" data-i18n="actCollab">Collaborazioni attive:</h2>
+            <h1 id="title"><?php echo $texts[$TXT_ROT_COLLAB]; ?></h1>
+            <p><?php echo $texts[$TXT_DESC_COLLAB]; ?></p>
+            <h2 id="subtitle"><?php echo $texts[$TXT_ACT_COLLAB]; ?></h2>
         
             <div id="collaborationContainer">
                 <?php foreach ($collaborations as $collaboration) {
@@ -74,7 +86,7 @@
                         <a href="<?php echo $collaboration[$COLLABORATION_LINK];?>" target="_blank">
                         <div class="collaboration">
                             <h3><?php echo $collaboration[$COLLABORATION_NAME];?>:</h3>
-                            <p data-i18n="site">visita sito</p>
+                            <p><?php echo $texts[$TXT_SITE]; ?></p>
                         </div></a>
                     <?php
                     }
@@ -86,18 +98,18 @@
     <div id="footer">
         <div id="footerContent">
             <div id="registeredOffice">
-                <h4 data-i18n="legalRes">Sede legale:</h4>
-                <p>Piazza Dante 20, 38122 Trento (TN)</p>
+                <h4><?php echo $texts[$TXT_LEGAL_RES]; ?></h4>
+                <p><?php echo $texts[$TXT_ADDRESS]; ?></p>
             </div>
 
             <div id="externalWebsites">
                 <div>
-                    <h4 data-i18n="district">Distretto 2060</h4>
+                    <h4><?php echo $texts[$TXT_DISTRICT]; ?></h4>
                     <p><a href="https://www.rotaract2060.it/">https://www.rotaract2060.it/</a></p>
                 </div>
 
                 <div>
-                    <h4>Rotary Trento</h4>
+                    <h4><?php echo $texts[$TXT_ROTARY_TRENTO]; ?></h4>
                     <p><a href="https://trento.rotary2060.org/">https://trento.rotary2060.org/</a></p>
                 </div>
             </div>
@@ -105,7 +117,6 @@
         </div>
     </div>
 
-    <script src="../JS/translate.js"></script>
     <script src="../JS/lateralSelection.js"></script>
 </body>
 </html>
