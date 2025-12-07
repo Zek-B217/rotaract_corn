@@ -82,12 +82,24 @@
         "(2024-2025)"
     ];
 
-    $jsonArray = ["password" => password_hash("Admin", PASSWORD_DEFAULT), "presidents" => $exPresidents, "presidentDates" => $exPresidentsDates];
+    $presidents = array();
+    for ($i=0; $i < sizeof($exPresidents); $i++) { 
+        $presidents[] = ["name" => $exPresidents[$i], "date" => $exPresidentsDates[$i]];
+    }
 
-    $json = json_encode($jsonArray, JSON_PRETTY_PRINT);
+    $json = json_encode(["exPresidents" => $presidents, "directors" => [
+        "pres" => "Matteo Bellè",
+        "vpres" => "Diletta Betti",
+        "segr" => "Elisabetta Tomasi",
+        "tes" => "Matteo Manara",
+        "pref" => "Alessandra Cassaro",
+        "expres" => "Daniele Di Lucrezia"
+    ]], JSON_PRETTY_PRINT);
 
-    $file = fopen("configFile.json", "w");
+    $file = fopen("JSON/presidents.json", "w");
 
     fwrite($file,$json);
 
     fclose($file);
+
+    echo "Fatto";

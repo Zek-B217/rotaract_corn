@@ -1,7 +1,9 @@
 :root{
     --primaryColor: white;
     --secondaryColor: #e2457c;
+    --passwordButtonHoverColor: #e6aabf;
     --headerHeight: 120px;
+    --presidentsBtnsWidth: 210px;
 }
 
 #title{
@@ -12,42 +14,150 @@
 }
 
 #mainContent{
-    position: absolute;
-
     display: flex;
     align-items: center;
     flex-direction: column;
 
-    width: 100vw;
-    height: 10vh;
+    gap: 20px;
 
-    top: var(--headerHeight);
+    width: 100vw;
+
+    padding: 20px;
+}
+
+#passwordBtn{
+    background-color: transparent;
+    color: var(--secondaryColor);
+    border-style: hidden;
+
+    position: absolute;
+    top: 20px;
+
+    width: fit-content;
+    height: 70px;
+    margin-left: 5vw;
+
+    font-weight: bolder;
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+#saveBtn{
+    background-color: transparent;
+    color: var(--secondaryColor);
+    border-style: hidden;
+
+    position: absolute;
+    margin-left: auto;
+    top: 20px;
+    right: 0;
+
+    width: fit-content;
+    height: 70px;
+    margin-right: 5vw;
+
+    font-weight: bolder;
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+#saveBtn:hover{
+    color: var(--passwordButtonHoverColor);
+}
+
+#passwordBtn:hover{
+    color: var(--passwordButtonHoverColor);
 }
 
 .editableElementContainer{
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: start;
 
-    height: 100%;
+    width: 80%;
+}
+
+.sectionContainer{
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+
     width: 100%;
 }
+
+.modificationContainer{
+    display: none;
+
+    margin-top: 10px;
+
+    height: fit-content;
+    width: 92%;
+}
+
+.modificationContainer > .editableContent {
+    margin-left: auto;
+
+    width: 90%;
+}
+
+.verticalLineContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+
+    transform: translateX(3px);
+}
+
+.linePoint{
+    width: 10px;
+    height: 10px;
+    background-color: var(--secondaryColor);
+
+    rotate: -45deg;
+}
+
+.lineBody{
+    width: 4px;
+    height: 100%;
+    background-color: var(--secondaryColor);
+}
+
 .editableElementContainer h2 {
+    color: var(--secondaryColor);
     width: 15vw;
     text-align: center;
+
+    position: relative;
+    left: 15%;
 }
 
 .descriptionContainer{
-    border-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--primaryColor);
+    color: var(--secondaryColor);
+
+    border-color: var(--secondaryColor);
     border-style: solid;
     
     width: 50%;
-    text-align: center;
+    height: 70px;
+
+    margin-left: auto;
+
+    font-size: 20px;
 }
 
 /*=== ARROW ICONS ===*/
 .arrow {
-    border: solid black;
+    border: solid var(--secondaryColor);
     border-width: 0 5px 5px 0;
     display: inline-block;
     padding: 7px;
@@ -63,3 +173,120 @@ transform: rotate(45deg);
 -webkit-transform: rotate(45deg);
 }
 /*=== ARROW ICONS END ===*/
+
+.showModifications {
+    display: flex !important; /* !important ha la priorità */
+}
+
+
+.editableContent p{
+    color: var(--secondaryColor);
+    font-size: 25px;
+}
+
+.editableContent{
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/*=== PRESIDENTS ===*/
+#exPresidentsGrid{
+    display: grid;
+
+    grid-template-columns: auto auto;
+    column-gap: 10%;
+    row-gap: 10px;
+
+    overflow: hidden;
+}
+
+#exPresidentsGrid > div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 35px;
+}
+
+#exPresidentsGrid button{
+    height: 100%;
+    width: 27%;
+
+    color: var(--secondaryColor);
+    font-weight: 600;
+
+    background-color: transparent;
+    border-width: 2px;
+    border-color: var(--secondaryColor);
+
+    cursor: pointer;
+}
+
+#exPresidentsGrid button:hover{
+    background-color: var(--primaryColor);
+}
+
+#presidentBtns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100%;
+    width: var(--presidentsBtnsWidth);
+}
+
+#presidentBtns > button{
+    height: 100%;
+    width: auto;
+}
+
+#addExPresBtn{
+    height: 50px;
+    width: 150px;
+
+    color: var(--secondaryColor);
+    font-weight: 600;
+
+    background-color: transparent;
+    border-width: 2px;
+    border-color: var(--secondaryColor);
+
+    cursor: pointer;
+
+    margin: 20px auto 0 auto;
+}
+
+#addExPresBtn:hover{
+    background-color: var(--primaryColor);
+}
+
+.role{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 30px;
+}
+
+.role button{
+    height: 100%;
+    width: var(--presidentsBtnsWidth);
+
+    color: var(--secondaryColor);
+    font-weight: 600;
+
+    background-color: transparent;
+    border-width: 2px;
+    border-color: var(--secondaryColor);
+
+    cursor: pointer;
+}
+
+.role button:hover{
+    background-color: var(--primaryColor);
+}
+/*=== PRESIDENTS END ===*/
