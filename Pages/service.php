@@ -1,3 +1,9 @@
+<?php
+    require "../PHP/constants.php";
+
+    $selectedBulletin = "../$PDF_BULLETIN_FOLDER/" . json_decode(file_get_contents("../$CONFIG_FILE"), true)[$CURRENT_BULLETIN];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,18 +25,18 @@
         <button id="exitBtn" onclick="hideLateralSelection()">X</button>
 
         <div id="lateralBtns">
-            <a href="../index.html"><button>Home</button></a>
+            <a href="../index.php"><button>Home</button></a>
             <a href="whoWeAre.php"><button data-i18n="whoWeAre">Chi siamo</button></a>
-            <a href="service.html"><button>Service</button></a>
-            <a href="calendar.html"><button data-i18n="events">Eventi</button></a>
-            <a href="collaborations.html"><button data-i18n="collab">Collaborazioni</button></a>
+            <a href="service.php"><button>Service</button></a>
+            <a href="calendar.php"><button data-i18n="events">Eventi</button></a>
+            <a href="collaborations.php"><button data-i18n="collab">Collaborazioni</button></a>
             <a href="contacts.php"><button data-i18n="contacts">Contatti</button></a>
         </div>
     </div>
 
     
     <div id="header">
-        <a class="logoContainer" href="../index.html">
+        <a class="logoContainer" href="../index.php">
             <img class="logo" src="../Media/logo.png">
         </a>
 
@@ -46,11 +52,11 @@
         </div>
 
         <div id="buttons">
-            <a href="../index.html"><button>Home</button></a>
+            <a href="../index.php"><button>Home</button></a>
             <a href="whoWeAre.php"><button data-i18n="whoWeAre">Chi siamo</button></a>
-            <a href="service.html"><button>Service</button></a>
-            <a href="calendar.html"><button data-i18n="events">Eventi</button></a>
-            <a href="collaborations.html"><button data-i18n="collab">Collaborazioni</button></a>
+            <a href="service.php"><button>Service</button></a>
+            <a href="calendar.php"><button data-i18n="events">Eventi</button></a>
+            <a href="collaborations.php"><button data-i18n="collab">Collaborazioni</button></a>
             <a href="contacts.php"><button data-i18n="contacts">Contatti</button></a>
         </div>
 
@@ -118,9 +124,14 @@
 
         <div id="pdf">
             <h1 data-i18n="pdf">Qui il nostro bollettino</h1>
-            <iframe src="../Media/PDF/CV.pdf" width="100%" height="600px"></iframe>
+            <?php if (is_file($selectedBulletin)){
+                ?>
+                    <iframe src="<?php echo $selectedBulletin;?>" width="100%" height="600px"></iframe>
+                <?php
+                }
+            ?>
             <form action="exReport.php" method="get">
-                <button id="btnReports">Vecchi bollettini</button>
+                <button id="btnReports">Vedi tutti i bollettini</button>
             </form>
         </div>
         <br>
@@ -147,7 +158,7 @@
                 </div>
             </div>
 
-            <a class="logoContainer" href="../index.html">
+            <a class="logoContainer" href="../index.php">
                 <img class="logo" src="../Media/logo.png">
             </a>
 

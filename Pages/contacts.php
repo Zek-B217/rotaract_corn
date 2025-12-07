@@ -68,18 +68,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <button id="exitBtn" onclick="hideLateralSelection()">X</button>
 
         <div id="lateralBtns">
-            <a href="../index.html"><button>Home</button></a>
+            <a href="../index.php"><button>Home</button></a>
             <a href="whoWeAre.php"><button data-i18n="whoWeAre">Chi siamo</button></a>
-            <a href="service.html"><button>Service</button></a>
-            <a href="calendar.html"><button data-i18n="events">Eventi</button></a>
-            <a href="collaborations.html"><button data-i18n="collab">Collaborazioni</button></a>
+            <a href="service.php"><button>Service</button></a>
+            <a href="calendar.php"><button data-i18n="events">Eventi</button></a>
+            <a href="collaborations.php"><button data-i18n="collab">Collaborazioni</button></a>
             <a href="contacts.php"><button data-i18n="contacts">Contatti</button></a> 
         </div>
     </div>
     
 
     <div id="header">
-        <a class="logoContainer" href="../index.html"><img class="logo" src="../Media/logo.png"></a>
+        <a class="logoContainer" href="../index.php"><img class="logo" src="../Media/logo.png"></a>
 
         <div class="dropdownBox">
             <div class="hoverDropdownBox">
@@ -93,11 +93,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
 
         <div id="buttons">
-            <a href="../index.html"><button>Home</button></a>
+            <a href="../index.php"><button>Home</button></a>
             <a href="whoWeAre.php"><button data-i18n="whoWeAre">Chi siamo</button></a>
-            <a href="service.html"><button>Service</button></a>
-            <a href="calendar.html"><button data-i18n="events">Eventi</button></a>
-            <a href="collaborations.html"><button data-i18n="collab">Collaborazioni</button></a>
+            <a href="service.php"><button>Service</button></a>
+            <a href="calendar.php"><button data-i18n="events">Eventi</button></a>
+            <a href="collaborations.php"><button data-i18n="collab">Collaborazioni</button></a>
             <a href="contacts.php"><button data-i18n="contacts">Contatti</button></a> 
         </div>
 
@@ -200,7 +200,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
             </div>
 
-            <a class="logoContainer" href="../index.html">
+            <a class="logoContainer" href="../index.php">
                 <img class="logo" src="../Media/logo.png">
             </a>
         </div>

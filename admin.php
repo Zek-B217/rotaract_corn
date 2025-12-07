@@ -1,5 +1,6 @@
 <?php
     require "PHP/constants.php";
+    require "PHP/fileFunctions.php";
 
     session_set_cookie_params(0); //distruggi la sessione all'uscita dal browser
     session_start();
@@ -8,10 +9,20 @@
         exit;
     }
 
+    //Presidents
     $presidentsJsonContent = json_decode(file_get_contents($PRESIDENTS_FILE), true);
     $presidents = $presidentsJsonContent[$EX_PRESIDENTS];
     $directors = $presidentsJsonContent[$DIRECTORS];
     $numPresidents = sizeof($presidents);
+
+    //PDF
+    $bulletinPdfs = filterPdf(scandir($PDF_BULLETIN_FOLDER));
+    $selectedBulletin = json_decode(file_get_contents("$CONFIG_FILE"), true)[$CURRENT_BULLETIN];
+    $validBulletin = true;
+    if (!is_file("$PDF_BULLETIN_FOLDER/" . $selectedBulletin)){
+        $selectedBulletin = "Nessun bollettino selezionato";
+        $validBulletin = false;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -54,10 +65,12 @@
                 </div>
                 <div class="editableContent">
                     <br>
-                    <p>Attuale Direzione</p><br><br>
+                    <p><span>Attuale Direzione</span></p>
+                    <br>
+                    <br>
 
                     <div class="role">
-                        <p>Presidente:    <?php echo $directors[$ROLE_PRESIDENT]?></p>
+                        <p><span>Presidente: </span><?php echo $directors[$ROLE_PRESIDENT]?></p>
                         <div id="presidentBtns">
                             <button>Modifica</button>
                             <button>Cambia presidente</button>
@@ -65,40 +78,42 @@
                     </div>
 
                     <div class="role">
-                        <p>Vicepresidente: <?php echo $directors[$ROLE_VICE_PRESIDENT]?></p>
+                        <p><span>Vicepresidente: </span><?php echo $directors[$ROLE_VICE_PRESIDENT]?></p>
                         <button>Modifica</button>
                     </div>
 
                     <div class="role">
-                        <p>Segretario: <?php echo $directors[$ROLE_SECRETARY]?></p>
+                        <p><span>Segretario: </span><?php echo $directors[$ROLE_SECRETARY]?></p>
                         <button>Modifica</button>
                     </div>
 
                     <div class="role">
-                        <p>Tesoriere: <?php echo $directors[$ROLE_TREASURE]?></p>
+                        <p><span>Tesoriere: </span><?php echo $directors[$ROLE_TREASURE]?></p>
                         <button>Modifica</button>
                     </div>
 
                     <div class="role">
-                        <p>Prefetto: <?php echo $directors[$ROLE_PRESIDENT]?></p>
+                        <p><span>Prefetto: </span><?php echo $directors[$ROLE_PRESIDENT]?></p>
                         <button>Modifica</button>
                     </div>
 
                     <div class="role">
-                        <p>Ex-Presidente: <?php echo $directors[$ROLE_EX_PRESIDENT]?></p>
+                        <p><span>Ex-Presidente: </span><?php echo $directors[$ROLE_EX_PRESIDENT]?></p>
                         <button>Modifica</button>
                     </div>
                     
                     <br>
+                    <p><span>Ex-Presidenti</span></p>
+                    <br>
+                    <br>
 
-                    <p>Ex-Presidenti</p><br><br>
-                    <div id="exPresidentsGrid">
+                    <div class="grid">
                         <?php
                         for ($i = $numPresidents - 1; $i >= 0; $i--){
                             $currentPresident = $presidents[$i];
                             ?>
                         <div>
-                            <p><?php echo ($numPresidents - $i) . ". " . $currentPresident[$PRESIDENT_NAME] ?></p>
+                            <p><?php echo "<span>".($numPresidents - $i) . ".</span> " . $currentPresident[$PRESIDENT_NAME] ?></p>
                             <button>Rimuovi</button>
                         </div>
                             <?php
@@ -106,29 +121,9 @@
                         ?>
                     </div>
 
-                    <button id="addExPresBtn">Aggiungi</button>
+                    <button class="addBtn">Aggiungi</button>
 
                     <br>
-                </div>
-            </div>
-        </div>
-
-        <div class="editableElementContainer">
-            <div class="sectionContainer">
-                <div class="arrow right"></div>
-                <h2>Social</h2>
-                <div class="descriptionContainer">
-                    <p>Cambia i link alle pagine social e i contatti</p>
-                </div>
-            </div>
-
-            <div class="modificationContainer">
-                <div class="verticalLineContainer">
-                    <div class="linePoint"></div>
-                    <div class="lineBody"></div>
-                </div>
-                <div class="editableContent">
-                    <p>Ciao</p>
                 </div>
             </div>
         </div>
@@ -148,7 +143,51 @@
                     <div class="lineBody"></div>
                 </div>
                 <div class="editableContent">
-                    <p>Ciao</p>
+                    <br>
+                    <p><span>Lista bollettini pubblicati</span></p>
+                    <br>
+                    <br>
+
+                    <div id="currentBulletinContainer">
+                        <p><span>Bollettino attualmente selezionato: </span>
+                            <?php if ($validBulletin){
+                                ?>
+                                <a href="<?php echo "$PDF_BULLETIN_FOLDER/" . $selectedBulletin;?>" target="_blank">
+                                <?php
+                                }  
+                            ?>
+                                <?php echo $selectedBulletin;?>
+                            <?php if ($validBulletin){
+                                ?>
+                                </a>
+                                <?php
+                                }  
+                            ?>
+                        </p>
+                        <button>Cambia</button>
+                    </div>
+                    <div id="pdfGrid" class="grid">
+                        <?php
+                        for ($i=0; $i < sizeof($bulletinPdfs); $i++) { 
+                            ?>
+                            <div>
+                                <p><span><?php echo $i + 1 . ". ";?></span>
+                                    <a href="<?php echo "$PDF_BULLETIN_FOLDER/" . $bulletinPdfs[$i];?>" target="_blank">
+                                        <?php echo $bulletinPdfs[$i];?>
+                                    </a>
+                                </p>
+                                <div>
+                                    <button>Rinomina</button>
+                                    <button>Rimuovi</button>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                    </div>
+
+                    <button class="addBtn">Aggiungi</button>
+                    <br>
                 </div>
             </div>
         </div>
@@ -313,7 +352,7 @@
     </div>
 
     <div id="footer">
-        <form action="" method="get">
+        <form action="Pages/changePassword.php" method="get">
             <button id="passwordBtn" type="submit">Cambia Password</button>
         </form>
 

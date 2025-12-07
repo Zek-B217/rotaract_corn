@@ -52,7 +52,7 @@
 
         <p id="error"><?php echo $error;?></p>
 
-        <a href="../index.html"><button id="homeBtn">Torna alla Home</button></a> 
+        <a href="../index.php"><button id="homeBtn">Torna alla Home</button></a> 
     </div>
 
     <script src="../JS/passwordManagement.js"></script>

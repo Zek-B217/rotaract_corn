@@ -1,13 +1,11 @@
 <?php
+require "../PHP/constants.php";
+require "../PHP/fileFunctions.php";
+
 $folders = '../Media/PDF/';
 $elements = scandir($folders);
-$elementsPdf = array_diff($elements, array('.', '..'));
 
-$newArray = array();
-foreach ($elementsPdf as $pdf) {
-    $newArray[] = $pdf;
-}
-$elementsPdf = $newArray;
+$elementsPdf = filterPdf($elements);
 
 $numPdf = count($elementsPdf);
 
@@ -19,7 +17,7 @@ $numPdf = count($elementsPdf);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template</title>
+    <title>Ex bollettini</title>
     <link rel="stylesheet" href="../CSS/commonStyle.css">
     <link rel="stylesheet" href="../CSS/whoWeAre&exReportStyle.css">
 </head>
@@ -30,29 +28,42 @@ $numPdf = count($elementsPdf);
         <button id="exitBtn" onclick="hideLateralSelection()">X</button>
 
         <div id="lateralBtns">
-            <a href="../index.html"><button>Home</button></a>
+            <a href="../index.php"><button>Home</button></a>
             <a href="whoWeAre.php"><button>Chi siamo</button></a>
-            <a href="service.html"><button>Service</button></a>
-            <a href="calendar.html"><button>Eventi</button></a>
-            <a href="collaborations.html"><button>Collaborazioni</button></a>
+            <a href="service.php"><button>Service</button></a>
+            <a href="calendar.php"><button>Eventi</button></a>
+            <a href="collaborations.php"><button>Collaborazioni</button></a>
             <a href="contacts.php"><button>Contatti</button></a> 
         </div>
     </div>
     
 
     <div id="header">
-        <a class="logoContainer" href="../index.html"><img class="logo" src="../Media/logo.png"></a>
+        <a class="logoContainer" href="../index.php">
+            <img class="logo" src="../Media/logo.png">
+        </a>
 
-        <div id="buttons">
-            <a href="../index.html"><button>Home</button></a>
-            <a href="whoWeAre.php"><button>Chi siamo</button></a>
-            <a href="service.html"><button>Service</button></a>
-            <a href="calendar.html"><button>Eventi</button></a>
-            <a href="collaborations.html"><button>Collaborazioni</button></a>
-            <a href="contacts.php"><button>Contatti</button></a> 
+        <div class="dropdownBox">
+            <div class="hoverDropdownBox">
+                <img id="langImg" class="dropdownImg" src="../Media/it.png">
+                <div class="dropdownContent">
+                    <button class="btn" onclick="setLang('it', true)">Italiano</button>
+                    <button class="btn" onclick="setLang('en', true)">English</button>
+                    <button class="btn" onclick="setLang('de', true)">Deutsch</button>
+                </div>
+            </div>
         </div>
 
-        <!--Menù a linee responsive-->
+        <div id="buttons">
+            <a href="../index.php"><button>Home</button></a>
+            <a href="whoWeAre.php"><button data-i18n="whoWeAre">Chi siamo</button></a>
+            <a href="service.php"><button>Service</button></a>
+            <a href="calendar.php"><button data-i18n="events">Eventi</button></a>
+            <a href="collaborations.php"><button data-i18n="collab">Collaborazioni</button></a>
+            <a href="contacts.php"><button data-i18n="contacts">Contatti</button></a>
+        </div>
+
+        <!-- MENÙ HAMBURGER -->
         <div id="menuHamburger" onclick="showLateralSelection()">
             <div class="line"></div>
             <div class="line"></div>
@@ -74,7 +85,7 @@ $numPdf = count($elementsPdf);
                     $i++;
 
                     ?>
-                    <form action="<?php echo "../Media/PDF/" . $elementsPdf[$i-1];?>" method="get">
+                    <form action="<?php echo "../$PDF_BULLETIN_FOLDER/" . $elementsPdf[$i-1];?>" method="get">
                         <button class="reportButtons"><?php echo $elementsPdf[$i-1]?></button>
                     </form>
                     
@@ -112,7 +123,7 @@ $numPdf = count($elementsPdf);
                     <p><a href="https://trento.rotary2060.org/">https://trento.rotary2060.org/</a></p>
                 </div>
             </div>
-            <a class="logoContainer" href="../index.html"><img class="logo" src="../Media/logo.png"></a>
+            <a class="logoContainer" href="../index.php"><img class="logo" src="../Media/logo.png"></a>
         </div>
     </div>
 

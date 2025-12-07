@@ -40,7 +40,7 @@ const translation = {
         "email": "Email personale",
         "message": "Messaggio",
         "submit": "INVIA",
-        "pdf": "Qui il nostro periodico"
+        "pdf": "Qui il nostro bollettino"
     },
     "en": {
         "whoWeAre": "Who we are",
@@ -83,7 +83,7 @@ const translation = {
         "email": "Personal email",
         "message": "Message",
         "submit": "SUBMIT",
-        "pdf": "Here is our periodical"
+        "pdf": "Here is our bulletin"
     },
     "de": {
         "whoWeAre": "Wer wir sind",
@@ -126,7 +126,7 @@ const translation = {
         "email": "Persönliche E-Mail",
         "message": "Nachricht",
         "submit": "EINREICHEN",
-        "pdf": "Hier unsere Zeitschrift"
+        "pdf": "Hier unsere Bulletin"
     }
 };
 
