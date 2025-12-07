@@ -17,6 +17,8 @@
     $COLLABORATION_NAME = "name";
     $COLLABORATION_LINK = "link";
     $LANGUAGE_COOKIE = "lang";
+    $CAROUSEL_IMAGES = "carouselImgs";
+    $HOME_IMAGE = "homeImg";
 
     //Director roles
     $ROLE_PRESIDENT = "pres";
@@ -30,10 +32,11 @@
     $CONFIG_FILE = "JSON/config.json";
     $PRESIDENTS_FILE = "JSON/presidents.json";
     $COLLABORATIONS_FILE = "JSON/collaborations.json";
-    $PDF_BULLETIN_FOLDER = "Media/PDF";
     $IT_TEXTS_FILE = "JSON/it.json";
     $EN_TEXTS_FILE = "JSON/en.json";
     $DE_TEXTS_FILE = "JSON/de.json";
+    $PDF_BULLETIN_FOLDER = "Media/PDF";
+    $CAROUSEL_IMAGES_FOLDER = "Media/carousel";
 
     /*TEXT KEYS*/
     $TXT_HOME = "home";

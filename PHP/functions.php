@@ -1,11 +1,17 @@
 <?php
     function filterPDF($fileArray) {
+        return filterFiles($fileArray, ["pdf"]);
+    }
+
+    function filterFiles($fileArray, $extensions){
         $fileArray = array_diff($fileArray, array('.', '..'));
 
         $newArray = array();
-        foreach ($fileArray as $pdf) {
-            if (strtolower(pathinfo($pdf, PATHINFO_EXTENSION)) === "pdf"){
-                $newArray[] = $pdf;
+        foreach ($fileArray as $file) {
+            foreach ($extensions as $extension) {
+                if (strtolower(pathinfo($file, PATHINFO_EXTENSION)) === $extension){
+                    $newArray[] = $file;
+                }
             }
         }
 

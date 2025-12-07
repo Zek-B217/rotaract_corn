@@ -10,9 +10,16 @@
         exit;
     }
 
+    $configJson = json_decode(file_get_contents($CONFIG_FILE),true);
+
     $textsFileName = setLanguage();
     $texts = loadTexts($textsFileName);
     $langImg = getLanguageImage($textsFileName);
+
+    $carouselImages = $configJson[$CAROUSEL_IMAGES];
+    $carouselLength = sizeof($carouselImages);
+
+    $homeImg = $configJson[$HOME_IMAGE];
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +82,7 @@
 
     <div id="content">
         <div class="container">
-            <img src="Media/trento.jpg" alt="immagine bg home" id="imgBgHome"/><br>
+            <img src="<?php echo "Media/$homeImg";?>" alt="immagine bg home" id="imgBgHome"/><br>
             <span class="centeredText">
                <strong class="title" id="title"><?php echo $texts[$TXT_MAIN_TITLE]; ?></strong><br>
                <p><?php echo $texts[$TXT_DISTRICT]; ?></p>
@@ -89,18 +96,27 @@
                 <a href="Pages/whoWeAre.php"><button class="btn" id="descBtn"><?php echo $texts[$TXT_WHO_WE_ARE]; ?></button></a>
             </div>
             <div class="sliderContainer">
-                <span id="sliderImage1"></span>
-                <span id="sliderImage2"></span>
-                <span id="sliderImage3"></span>
+                <?php for ($i=0; $i < $carouselLength; $i++) {
+                    ?>
+                        <span id="<?php echo "sliderImage" . $i + 1;?>"></span>
+                    <?php
+                    }
+                ?>
                 <div class="imageContainer">
-                    <img src="Media/carosello1.jpg" class="sliderImage" />
-                    <img src="Media/carosello2.jpg" class="sliderImage" />
-                    <img src="Media/carosello3.jpg" class="sliderImage" />
+                    <?php for ($i=0; $i < $carouselLength; $i++) {
+                        ?>
+                            <img src="<?php echo "$CAROUSEL_IMAGES_FOLDER/".$carouselImages[$i];?>" class="sliderImage" />
+                        <?php
+                        }
+                    ?>
                 </div>
                 <div class="btnContainer">
-                    <a href="#sliderImage1" class="sliderChange"></a>
-                    <a href="#sliderImage2" class="sliderChange"></a>
-                    <a href="#sliderImage3" class="sliderChange"></a>
+                    <?php for ($i=0; $i < $carouselLength; $i++) {
+                        ?>
+                            <a href="<?php echo "#sliderImage" . $i + 1;?>" class="sliderChange"></a>
+                        <?php
+                        }
+                    ?>
                 </div>
             </div>
         </div>

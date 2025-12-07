@@ -3,7 +3,12 @@
     --secondaryColor: #e2457c;
     --passwordButtonHoverColor: #e6aabf;
     --headerHeight: 120px;
-    --presidentsBtnsWidth: 210px;
+    --presidentsBtnsWidth: 215px;
+}
+
+/*Nascondo il bottone predefinito. Creare un bottone con un javascript che clicchi l'input*/
+input[type=file]{
+    display: none;
 }
 
 #title{
@@ -32,6 +37,8 @@
     background-color: transparent;
     border-width: 2px;
     border-color: var(--secondaryColor);
+
+    padding: 2px 8px;
 
     cursor: pointer;
 }
@@ -179,6 +186,12 @@
     font-size: 20px;
 }
 
+.centerForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /*=== ARROW ICONS ===*/
 .arrow {
     border: solid var(--secondaryColor);
@@ -241,7 +254,7 @@ transform: rotate(45deg);
     text-overflow: ellipsis; 
 }
 
-.grid button{
+.grid button {
     height: 100%;
 }
 /*=== GRID END ===*/
@@ -307,17 +320,29 @@ transform: rotate(45deg);
     align-items: center;
 }
 
-#currentBulletinContainer > p{
+#currentBulletinContainer p{
     overflow-wrap: anywhere;
-    width: 75%;
+    width: 67%;
 }
 
-#currentBulletinContainer > button{
+#currentBulletinContainer button{
     height: 50px;
-    width: var(--presidentsBtnsWidth);
+    width: 50%;
 }
 
-#pdfGrid > div > div{
+#currentBulletinContainer input[type=number]{
+    width: 10%;
+}
+
+#currentBulletinContainer > div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    width: 300px;
+}
+
+#pdfGrid > div > form{
     height: 100%;
 }
 /*=== BULLETIN END ===*/
@@ -363,3 +388,16 @@ transform: rotate(45deg);
     width: 80%;
 }
 /*=== PAGES END ===*/
+
+/*=== IMAGES ===*/
+#editableHomeImg{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+form {
+    background-color: aquamarine;
+}
+
+/*=== IMAGES END ===*/
