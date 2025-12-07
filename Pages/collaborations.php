@@ -2,13 +2,6 @@
     require "../PHP/constants.php";
     require "../PHP/functions.php";
 
-    $folders = '../Media/PDF/';
-    $elements = scandir($folders);
-
-    $elementsPdf = filterPdf($elements);
-
-    $numPdf = count($elementsPdf);
-    
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         if (isset($_POST["lang"])){
             setLanguage($_POST["lang"]);
@@ -20,6 +13,7 @@
     $textsFileName = setLanguage();
     $texts = loadTexts("../$textsFileName");
     $langImg = "../".getLanguageImage($textsFileName);
+    $collaborations = json_decode(file_get_contents("../$COLLABORATIONS_FILE"),true)[$COLLABORATIONS];
 ?>
 
 <!DOCTYPE html>
@@ -27,9 +21,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $texts[$TXT_EX_TITLE]; ?></title>
+    <title><?php echo $texts[$TXT_COLLAB]; ?></title>
     <link rel="stylesheet" href="../CSS/commonStyle.css">
-    <link rel="stylesheet" href="../CSS/whoWeAre&exReportStyle.css">
+    <link rel="stylesheet" href="../CSS/collaborationsStyle.css">
 </head>
 <body>
     <div id="obscurer"></div>
@@ -49,9 +43,7 @@
     
 
     <div id="header">
-        <a class="logoContainer" href="../index.php">
-            <img class="logo" src="../Media/logo.png">
-        </a>
+        <a class="logoContainer" href="../index.php"><img class="logo" src="../Media/logo.png"></a>
 
         <div class="dropdownBox">
             <div class="hoverDropdownBox">
@@ -72,7 +64,7 @@
             <a href="service.php"><button><?php echo $texts[$TXT_SERVICE]; ?></button></a>
             <a href="calendar.php"><button><?php echo $texts[$TXT_EVENTS]; ?></button></a>
             <a href="collaborations.php"><button><?php echo $texts[$TXT_COLLAB]; ?></button></a>
-            <a href="contacts.php"><button><?php echo $texts[$TXT_CONTACTS]; ?></button></a>
+            <a href="contacts.php"><button><?php echo $texts[$TXT_CONTACTS]; ?></button></a> 
         </div>
 
         <div id="menuHamburger" onclick="showLateralSelection()">
@@ -83,37 +75,24 @@
     </div>
 
     <div id="content">
-        <br>
-        <h1 class="mainTitle"><?php echo $texts[$TXT_OLD_BULLETINS]; ?></h1>
-        <?php
-        if ($numPdf > 0) {
-            for($i=0; $i<$numPdf; $i++)
-            {
-                ?>
-                <div class="container2">
-                <?php
-                for($j=0; $j<4; $j++){
-                    $i++;
-
+        <div id="mainContainer">
+            <h1 id="title"><?php echo $texts[$TXT_ROT_COLLAB]; ?></h1>
+            <p><?php echo $texts[$TXT_DESC_COLLAB]; ?></p>
+            <h2 id="subtitle"><?php echo $texts[$TXT_ACT_COLLAB]; ?></h2>
+        
+            <div id="collaborationContainer">
+                <?php foreach ($collaborations as $collaboration) {
                     ?>
-                    <form action="<?php echo "../$PDF_BULLETIN_FOLDER/" . $elementsPdf[$i-1];?>" method="get">
-                        <button class="reportButtons"><?php echo $elementsPdf[$i-1]?></button>
-                    </form>
-                    
+                        <a href="<?php echo $collaboration[$COLLABORATION_LINK];?>" target="_blank">
+                        <div class="collaboration">
+                            <h3><?php echo $collaboration[$COLLABORATION_NAME];?>:</h3>
+                            <p><?php echo $texts[$TXT_SITE]; ?></p>
+                        </div></a>
                     <?php
-                    if($numPdf==$i){
-                        $j=4;
                     }
-
-                }
                 ?>
-                </div>
-                <?php
-            }
-            
-        } else {
-            echo '<p>' . $texts[$TXT_NO_BULLETINS] . '</p>'; 
-        }?>
+            </div>
+        </div>
     </div>
 
     <div id="footer">

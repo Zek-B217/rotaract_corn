@@ -25,6 +25,30 @@
     padding: 20px;
 }
 
+#mainContent button{
+    color: var(--secondaryColor);
+    font-weight: 600;
+
+    background-color: transparent;
+    border-width: 2px;
+    border-color: var(--secondaryColor);
+
+    cursor: pointer;
+}
+
+#mainContent button:hover{
+    background-color: var(--primaryColor);
+}
+
+#mainContent a{
+    color: inherit;
+    text-decoration-color: black;
+}
+
+#mainContent span{
+    color: var(--secondaryColor);
+}
+
 #passwordBtn{
     background-color: transparent;
     color: var(--secondaryColor);
@@ -94,7 +118,7 @@
     margin-top: 10px;
 
     height: fit-content;
-    width: 92%;
+    width: 88%;
 }
 
 .modificationContainer > .editableContent {
@@ -142,7 +166,7 @@
     justify-content: center;
 
     background-color: var(--primaryColor);
-    color: var(--secondaryColor);
+    color: black;
 
     border-color: var(--secondaryColor);
     border-style: solid;
@@ -180,7 +204,7 @@ transform: rotate(45deg);
 
 
 .editableContent p{
-    color: var(--secondaryColor);
+    color: black;
     font-size: 25px;
 }
 
@@ -192,18 +216,16 @@ transform: rotate(45deg);
     gap: 10px;
 }
 
-/*=== PRESIDENTS ===*/
-#exPresidentsGrid{
+/*=== GRID ===*/
+.grid{
     display: grid;
 
-    grid-template-columns: auto auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0,1fr);
     column-gap: 10%;
     row-gap: 10px;
-
-    overflow: hidden;
 }
 
-#exPresidentsGrid > div{
+.grid > div{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -211,22 +233,22 @@ transform: rotate(45deg);
     height: 35px;
 }
 
-#exPresidentsGrid button{
-    height: 100%;
-    width: 27%;
+.grid > div > p{
+    width: 60%;
 
-    color: var(--secondaryColor);
-    font-weight: 600;
-
-    background-color: transparent;
-    border-width: 2px;
-    border-color: var(--secondaryColor);
-
-    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
 
-#exPresidentsGrid button:hover{
-    background-color: var(--primaryColor);
+.grid button{
+    height: 100%;
+}
+/*=== GRID END ===*/
+
+/*=== PRESIDENTS ===*/
+#presidentsGrid button{
+    width: 27%;
 }
 
 #presidentBtns{
@@ -243,7 +265,7 @@ transform: rotate(45deg);
     width: auto;
 }
 
-#addExPresBtn{
+.addBtn{
     height: 50px;
     width: 150px;
 
@@ -259,7 +281,7 @@ transform: rotate(45deg);
     margin: 20px auto 0 auto;
 }
 
-#addExPresBtn:hover{
+.addBtn:hover{
     background-color: var(--primaryColor);
 }
 
@@ -275,18 +297,39 @@ transform: rotate(45deg);
 .role button{
     height: 100%;
     width: var(--presidentsBtnsWidth);
-
-    color: var(--secondaryColor);
-    font-weight: 600;
-
-    background-color: transparent;
-    border-width: 2px;
-    border-color: var(--secondaryColor);
-
-    cursor: pointer;
-}
-
-.role button:hover{
-    background-color: var(--primaryColor);
 }
 /*=== PRESIDENTS END ===*/
+
+/*=== BULLETIN ===*/
+#currentBulletinContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#currentBulletinContainer > p{
+    overflow-wrap: anywhere;
+    width: 75%;
+}
+
+#currentBulletinContainer > button{
+    height: 50px;
+    width: var(--presidentsBtnsWidth);
+}
+
+#pdfGrid > div > div{
+    height: 100%;
+}
+/*=== BULLETIN END ===*/
+
+/*=== COLLABORATIONS ===*/
+#collaborationsContainer > div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#collaborationsContainer button{
+    height: 50px;
+}
+/*=== COLLABORATIONS END ===*/

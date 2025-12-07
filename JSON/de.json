@@ -39,5 +39,16 @@
     "email": "Persönliche E-Mail",
     "message": "Nachricht",
     "submit": "EINREICHEN",
-    "pdf": "Hier unsere Zeitschrift"
+    "pdf": "Hier unsere Bulletin",
+    "home": "Home",
+    "service": "Service",
+    "mainTitle": "Rotaract Trento",
+    "address": "Piazza Dante 20, 38122 Trento (TN)",
+    "rotaryTrento": "Rotary Trento",
+    "privacyAccept": "Ich akzeptiere die ",
+    "privacyLink": "Datenschutzerklärung",
+    "exTitle": "Alte Bulletins",
+    "oldBulletins": "Alte Bulletins",
+    "noBulletins": "Keine Bulletins verfügbar.",
+    "viewAllBulletins": "Alle Bulletins ansehen"
 }

@@ -30,6 +30,7 @@
 
                 fclose($file);
                 header("Location: ../admin.php");
+                exit;
             } else {
                 $_SESSION[$ERROR] = "La nuova password deve essere diversa da quella vecchia";
             }
