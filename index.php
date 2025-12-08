@@ -108,7 +108,7 @@
                 <div class="imageContainer">
                     <?php for ($i=0; $i < $carouselLength; $i++) {
                         ?>
-                            <img src="<?php echo "$CAROUSEL_IMAGES_FOLDER/".$carouselImages[$i];?>" class="sliderImage" />
+                            <img src="<?php echo "Media/".$carouselImages[$i];?>" class="sliderImage" />
                         <?php
                         }
                     ?>

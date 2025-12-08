@@ -38,6 +38,8 @@
     $DE_TEXTS_FILE = "JSON/de.json";
     $PDF_BULLETIN_FOLDER = "Media/PDF";
     $CAROUSEL_IMAGES_FOLDER = "Media/carousel";
+    $HOME_IMAGE_FOLDER = "Media/HomeImg";
+    $TMP_FOLDER = "TMP/";
 
     $TEXT_FILES = [
         $IT_TEXTS_FILE,

@@ -94,9 +94,7 @@
             for($i=0; $i<$numPdf; $i++)
             {
                 ?>
-                <form action="<?php echo "../$PDF_BULLETIN_FOLDER/" . $elementsPdf[$i];?>" method="get">
-                    <button class="reportButtons"><?php echo $elementsPdf[$i]?></button>
-                </form>
+                <a class="reportButtons" href="<?php echo "../$PDF_BULLETIN_FOLDER/" . $elementsPdf[$i];?>" target="_blank"><?php echo $elementsPdf[$i]?></a>
                 <?php
             }
             

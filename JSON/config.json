@@ -1,9 +1,9 @@
 {
-    "currentBulletin": "CV.pdf",
-    "homeImg" : "homeImg.jpg",
+    "currentBulletin": "PDF\/CV.pdf",
+    "homeImg" : "HomeImg\/trento.jpg",
     "carouselImgs": [
-        "carosello1.jpg",
-        "carosello2.jpg",
-        "carosello3.jpg"
+        "carousel\/carosello1.jpg",
+        "carousel\/carosello2.jpg",
+        "carousel\/carosello3.jpg"
     ]
 }
