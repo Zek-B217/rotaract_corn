@@ -1,4 +1,10 @@
 {
     "password": "$2y$10$OY6w5dIaiiCGbfXLLgyYVup94gmXnMqvb5Nr9SgWpoCIDCtgFfVra",
-    "currentBulletin": "CV.pdf"
+    "currentBulletin": "CV.pdf",
+    "homeImg" : "homeImg.jpg",
+    "carouselImgs": [
+        "carosello1.jpg",
+        "carosello2.jpg",
+        "carosello3.jpg"
+    ]
 }

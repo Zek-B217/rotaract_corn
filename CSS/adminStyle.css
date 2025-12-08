@@ -3,7 +3,12 @@
     --secondaryColor: #e2457c;
     --passwordButtonHoverColor: #e6aabf;
     --headerHeight: 120px;
-    --presidentsBtnsWidth: 210px;
+    --presidentsBtnsWidth: 215px;
+}
+
+/*Nascondo il bottone predefinito. Creare un bottone con un javascript che clicchi l'input*/
+input[type=file]{
+    display: none;
 }
 
 #title{
@@ -32,6 +37,8 @@
     background-color: transparent;
     border-width: 2px;
     border-color: var(--secondaryColor);
+
+    padding: 2px 8px;
 
     cursor: pointer;
 }
@@ -179,6 +186,32 @@
     font-size: 20px;
 }
 
+.addForm{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.addForm > div {
+    width: 20%;
+
+    display: flex;
+
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+
+    margin-right: 20px;
+}
+
+.addForm > div > label{
+    margin-left: 5px;
+}
+
+.addForm > div > input{
+    width: 100%;
+}
+
 /*=== ARROW ICONS ===*/
 .arrow {
     border: solid var(--secondaryColor);
@@ -229,8 +262,8 @@ transform: rotate(45deg);
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    height: 35px;
+    
+    height: 70px;
 }
 
 .grid > div > p{
@@ -241,28 +274,18 @@ transform: rotate(45deg);
     text-overflow: ellipsis; 
 }
 
-.grid button{
+.grid button {
     height: 100%;
 }
 /*=== GRID END ===*/
 
 /*=== PRESIDENTS ===*/
-#presidentsGrid button{
-    width: 27%;
+#presidentsGrid form{
+    height: 70%;
 }
 
-#presidentBtns{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    height: 100%;
-    width: var(--presidentsBtnsWidth);
-}
-
-#presidentBtns > button{
-    height: 100%;
-    width: auto;
+#presidentsGrid p{
+    margin: 0;
 }
 
 .addBtn{
@@ -278,7 +301,7 @@ transform: rotate(45deg);
 
     cursor: pointer;
 
-    margin: 20px auto 0 auto;
+    margin: 0px auto 0 auto;
 }
 
 .addBtn:hover{
@@ -291,13 +314,34 @@ transform: rotate(45deg);
     justify-content: space-between;
     align-items: center;
 
-    height: 30px;
+    height: 60px;
+}
+
+.role p{
+    margin: 0;
 }
 
 .role button{
-    height: 100%;
+    height: 70%;
     width: var(--presidentsBtnsWidth);
 }
+
+.presDate{
+    font-size: 20px !important;
+    position: relative;
+
+    left: 15%;
+}
+
+.directorEditInputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: fit-content;
+    height: 100%;
+}
+
 /*=== PRESIDENTS END ===*/
 
 /*=== BULLETIN ===*/
@@ -307,18 +351,39 @@ transform: rotate(45deg);
     align-items: center;
 }
 
-#currentBulletinContainer > p{
+#currentBulletinContainer p{
     overflow-wrap: anywhere;
-    width: 75%;
+    width: 67%;
 }
 
-#currentBulletinContainer > button{
+#currentBulletinContainer button{
     height: 50px;
-    width: var(--presidentsBtnsWidth);
+    width: 50%;
 }
 
-#pdfGrid > div > div{
+#currentBulletinContainer input[type=number]{
+    width: 10%;
+}
+
+#currentBulletinContainer > div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    width: 300px;
+}
+
+#pdfGrid > div > form{
     height: 100%;
+}
+
+#pdfGrid > div {
+    height: 60px;
+}
+#pdfGrid button {
+    height: 65% !important;
+    width: 48%;
+    margin-left: 1px;
 }
 /*=== BULLETIN END ===*/
 
@@ -332,4 +397,50 @@ transform: rotate(45deg);
 #collaborationsContainer button{
     height: 50px;
 }
+
+#collaborationsContainer form > div > input{
+    width: 75%;
+}
 /*=== COLLABORATIONS END ===*/
+
+/*=== PAGES ===*/
+#editablePages button{
+    height: 40px;
+}
+
+#editablePages .editableElementContainer {
+    width: 100% !important;
+}
+
+#editablePages .sectionContainer > p{
+    position: relative;
+    left: 5%;
+    width: 100%;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+#editablePages .editableContent > div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#editablePages .editableContent > div > p{
+    width: 80%;
+}
+
+.pageTextInput{
+    resize: none;
+}
+/*=== PAGES END ===*/
+
+/*=== IMAGES ===*/
+#editableHomeImg{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/*=== IMAGES END ===*/
