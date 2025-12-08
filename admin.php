@@ -219,13 +219,13 @@
 </head>
 <body>
     <div id="header">
-        <a class="logoContainer" href="index.html"><img class="logo" src="Media/logo.png"></a>
+        <a class="logoContainer" href="index.php"><img class="logo" src="Media/logo.png"></a>
 
         <h1 id="title">GESTIONE PAGINE</h1>
 
         <div id="buttons">
             <form action="PHP/logout.php" method="get">
-                <button type="button" id="logoutBtn" type="submit">Logout</button>
+                <button id="logoutBtn" type="submit">Logout</button>
             </form>
         </div>
     </div>
@@ -584,11 +584,11 @@
 
     <div id="footer">
         <form action="Pages/changePassword.php" method="get">
-            <button type="button" id="passwordBtn" type="submit">Cambia Password</button>
+            <button id="passwordBtn" type="submit">Cambia Password</button>
         </form>
 
         <form action="" method="get">
-            <button type="button" id="saveBtn" type="submit">Salva</button>
+            <button id="saveBtn" type="submit">Salva</button>
         </form>
     </div>
 
