@@ -19,7 +19,7 @@
     $langImg = "../" . getLanguageImage($textFile);
 
     $configJson = json_decode($_SESSION[$CONFIG_JSON], true);
-    $selectedBulletin = "../$PDF_BULLETIN_FOLDER/" . $configJson[$CURRENT_BULLETIN];
+    $selectedBulletin = "../Media/" . $configJson[$CURRENT_BULLETIN];
 ?>
 
 <!DOCTYPE html>

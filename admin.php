@@ -1,7 +1,6 @@
 <?php
-    require "PHP/constants.php";
-    require "PHP/functions.php";
-    require "PHP/edit.php";
+    require_once "PHP/constants.php";
+    require_once "PHP/functions.php";
 
     /*INPUT KEYS*/
     $IN_HOME_IMG = "homeImg";
@@ -41,59 +40,60 @@
         exit;
     }
 
+    require_once "PHP/edit.php";
+
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         if (isset($_POST[$INPUT_TYPE])){
             switch ($_POST[$INPUT_TYPE]) {
                 case $IN_HOME_IMG:
-                    echo "HOME IMAGE - VEDI \$_FILES";
+                    editHomeImg($_FILES[$IN_HOME_IMG]);
                     break;
                 case $IN_CAROUSEL_IMG:
-                    echo "CAROSELLO - VEDI \$_FILES";
+                    editCarouselImg($_FILES, $IN_CAROUSEL_IMG);
                     break;
                 case $IN_RENAME_PDF:
-                    echo "RENAME PDF " . $_POST[$IN_INDEX] . " - " . $_POST[$IN_TEXT];
+                    editNamePdf($_POST[$IN_INDEX], $_POST[$IN_TEXT]);
                     break;
                 case $IN_DELETE_PDF:
-                    echo "REMOVE PDF " . $_POST[$IN_INDEX];
+                    editDeletePdf($_POST[$IN_INDEX]);
                     break;
                 case $IN_ADD_PDF:
-                    echo "ADD PDF - VEDI \$_FILES";
+                    editAddPdf($_FILES[$IN_ADD_PDF]);
                     break;
                 case $IN_SELECTED_PDF:
-                    echo "SELEZIONATO PDF " . (int)$_POST[$IN_INDEX] - 1;
+                    editSelectedPdf((int)$_POST[$IN_INDEX] - 1);
                     break;
                 case $IN_ADD_COLLABORATION:
-                    echo "AGGIUNTA COLLAB " . $_POST[$IN_NEW_COLLAB_NAME] . " LINK: " . $_POST[$IN_NEW_COLLAB_LINK];
+                    editAddCollaboration($_POST[$IN_NEW_COLLAB_NAME], $_POST[$IN_NEW_COLLAB_LINK]);
                     break;
                 case $IN_RENAME_COLLAB:
-                    echo "RENAME COLLAB " . $_POST[$IN_INDEX] . "NOME: " . $_POST[$IN_TEXT];
+                    editRenameCollab($_POST[$IN_INDEX], $_POST[$IN_TEXT]);
                     break;
                 case $IN_RELINK_COLLAB:
-                    echo "RELINK COLLAB " . $_POST[$IN_INDEX]. "LINK: " . $_POST[$IN_TEXT];
+                    editRelinkCollab($_POST[$IN_INDEX], $_POST[$IN_TEXT]);
                     break;
                 case $IN_DELETE_COLLAB:
-                    echo "REMOVE COLLAB " . $_POST[$IN_INDEX];
+                    editDeleteCollab($_POST[$IN_INDEX]);
                     break;
                 case $IN_EDIT_PAGE_TEXT:
-                    echo "EDIT PAGE - key:" . $_POST[$IN_EDIT_PAGE_KEY] . " - lang: " . $_POST[$IN_EDIT_PAGE_LANG];
-                    echo "<br>NEW TEXT: <p>" . $_POST[$IN_TEXT] . "</p>";
+                    editPageText($_POST[$IN_EDIT_PAGE_KEY], $_POST[$IN_EDIT_PAGE_LANG], $_POST[$IN_TEXT]);
                     break;
                 case $IN_ADD_PRESIDENT:
-                    echo "AGGIUNGI PRESIDENTE " . $_POST[$IN_NEW_PRES_NAME] . " (" . $_POST[$IN_NEW_PRES_START] . " - " . $_POST[$IN_NEW_PRES_END] .")";
+                    editAddPresident($_POST[$IN_NEW_PRES_NAME], $_POST[$IN_NEW_PRES_START], $_POST[$IN_NEW_PRES_END]);
                     break;
                 case $IN_ADD_EX_PRES:
-                    echo "AGGIUNGI EX PRESIDENTE " . $_POST[$IN_NEW_PRES_NAME] . " (" . $_POST[$IN_NEW_PRES_START] . " - " . $_POST[$IN_NEW_PRES_END] .")";
+                    editAddExPres($_POST[$IN_NEW_PRES_NAME], $_POST[$IN_NEW_PRES_START], $_POST[$IN_NEW_PRES_END]);
                     break;
                 case $IN_DELETE_EX_PRES:
-                    echo "CANCELLA EX PRESIDENTE (Indici invertiti) " . $_POST[$IN_INDEX];
+                    editDeleteExPresident($_POST[$IN_INDEX]);
                     break;
                 case $IN_RENAME_DIRECTOR:
-                    echo "DIRECTOR RENAME " . $_POST[$IN_INDEX] . " - " . $_POST[$IN_TEXT];
+                    editRenameDirector($_POST[$IN_INDEX], $_POST[$IN_TEXT]);
                     break;
             }
         }
-        /*header("Refresh:0");
-        exit;*/
+        header("Refresh:0");
+        exit;
     }
 
     $configJson = json_decode($_SESSION[$CONFIG_JSON], true);
@@ -129,7 +129,7 @@
         ],
         [
             $DIR_ROLE => "Tesoriere",
-            $DIR_NAME => $directorNames[$ROLE_SECRETARY]
+            $DIR_NAME => $directorNames[$ROLE_TREASURE]
         ],
         [
             $DIR_ROLE => "Prefetto",
@@ -139,10 +139,11 @@
 
     //PDF
     $bulletinPdfs = filterPdf(scandir($PDF_BULLETIN_FOLDER));
+
     $selectedBulletin = $configJson[$CURRENT_BULLETIN];
     $validBulletin = true;
-    if (!is_file("$PDF_BULLETIN_FOLDER/" . $selectedBulletin)){
-        $selectedBulletin = "Nessun bollettino selezionato";
+    if (!is_file("Media/" . $selectedBulletin)){
+        $selectedBulletin = "ERRORE: bollettino non selezionato o non esistente";
         $validBulletin = false;
     }
 
@@ -275,11 +276,11 @@
                             <input type="text" name="<?php echo $IN_NEW_PRES_NAME;?>" id="inputNewPresName" required>
                         </div>
                         <div>
-                            <label for="inputNewPresStartDate">Inizio mandato</label>
+                            <label for="inputNewPresStartDate">Inizio mandato presidente corrente</label>
                             <input type="date" name="<?php echo $IN_NEW_PRES_START;?>" id="inputNewPresStartDate" required>
                         </div>
                         <div>
-                            <label for="inputNewPresEndDate">Fine mandato</label>
+                            <label for="inputNewPresEndDate">Fine mandato presidente corrente</label>
                             <input type="date" name="<?php echo $IN_NEW_PRES_END;?>" id="inputNewPresEndDate" required>
                         </div>
                     </form>
@@ -355,7 +356,7 @@
 
                     <form action="" method="post" enctype="multipart/form-data" id="currentBulletinContainer">
                         <p><span>Bollettino attualmente selezionato: </span><?php if ($validBulletin){
-                            ?><a href="<?php echo "$PDF_BULLETIN_FOLDER/" . $selectedBulletin;?>" target="_blank"><?php echo $selectedBulletin;?></a><?php
+                            ?><a href="<?php echo "Media/" . $selectedBulletin;?>" target="_blank"><?php echo $selectedBulletin;?></a><?php
                             } else {
                                 echo $selectedBulletin;
                             }
@@ -563,7 +564,7 @@
                                 <?php for ($i = 0; $i < $carouselLength; $i++) {
                                     ?>
                                     <div>
-                                        <a href="<?php echo "$CAROUSEL_IMAGES_FOLDER/".$carouselImages[$i];?>" target="_blank"><p><?php echo "Carosello " . $i + 1;?></p></a>
+                                        <a href="<?php echo "Media/".$carouselImages[$i];?>" target="_blank"><p><?php echo "Carosello " . $i + 1;?></p></a>
                                         <button type="button" onclick="<?php echo "document.getElementById('inputCarouselImg" . $i + 1 . "').click()"; ?>">Cambia</button>
                                         <input onchange="this.form.submit()" type="file" name="<?php echo $IN_CAROUSEL_IMG . $i + 1;?>" id="<?php echo "inputCarouselImg" . $i + 1;?>">
                                     </div>
