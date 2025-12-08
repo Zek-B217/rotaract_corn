@@ -4,12 +4,29 @@
 
     /*INPUT KEYS*/
     $IN_HOME_IMG = "homeImg";
+    $IN_INDEX = "inputIndex";
+    $IN_TEXT = "inputTxt";
     $IN_CAROUSEL_IMG = "carouselImg";
     $IN_SELECTED_PDF = "selectedPdf"; 
     $IN_RENAME_PDF = "renamePdf";
     $IN_DELETE_PDF = "deletePdf";
-    $IN_PDF_INDEX = "pdfIndex";
     $IN_ADD_PDF = "newPdf";
+    $IN_ADD_COLLABORATION = "newCollaboration";
+    $IN_NEW_COLLAB_LINK = "newCollabLink";
+    $IN_NEW_COLLAB_NAME = "newCollabName";
+    $IN_RENAME_COLLAB = "renameCollab";
+    $IN_RELINK_COLLAB = "relinkCollab";
+    $IN_DELETE_COLLAB = "deleteCollab";
+    $IN_EDIT_PAGE_TEXT = "editPageText";
+    $IN_EDIT_PAGE_KEY = "key";
+    $IN_EDIT_PAGE_LANG = "lang";
+    $IN_ADD_PRESIDENT = "newPresident";
+    $IN_NEW_PRES_NAME = "newPresName";
+    $IN_NEW_PRES_START = "newPresStart";
+    $IN_NEW_PRES_END = "newPresEnd";
+    $IN_ADD_EX_PRES = "newExPres";
+    $IN_DELETE_EX_PRES = "deleteExPres";
+    $IN_RENAME_DIRECTOR = "renameDirector";
 
     $INPUT_TYPE = "action";
     /*=====*/
@@ -37,16 +54,44 @@
                     echo "CAROSELLO";
                     break;
                 case $IN_RENAME_PDF:
-                    echo "RENAME " . $_POST[$IN_PDF_INDEX];
+                    echo "RENAME PDF " . $_POST[$IN_INDEX];
                     break;
                 case $IN_DELETE_PDF:
-                    echo "REMOVE " . $_POST[$IN_PDF_INDEX];
+                    echo "REMOVE PDF " . $_POST[$IN_INDEX];
                     break;
                 case $IN_ADD_PDF:
                     echo "ADD PDF";
                     break;
                 case $IN_SELECTED_PDF:
-                    echo "SELEZIONATO PDF " . (int)$_POST[$IN_PDF_INDEX] - 1;
+                    echo "SELEZIONATO PDF " . (int)$_POST[$IN_INDEX] - 1;
+                    break;
+                case $IN_ADD_COLLABORATION:
+                    echo "AGGIUNTA COLLAB " . $_POST[$IN_NEW_COLLAB_NAME] . " LINK: " . $_POST[$IN_NEW_COLLAB_LINK];
+                    break;
+                case $IN_RENAME_COLLAB:
+                    echo "RENAME COLLAB " . $_POST[$IN_INDEX] . "NOME: " . $_POST[$IN_TEXT];
+                    break;
+                case $IN_RELINK_COLLAB:
+                    echo "RELINK COLLAB " . $_POST[$IN_INDEX]. "LINK: " . $_POST[$IN_TEXT];
+                    break;
+                case $IN_DELETE_COLLAB:
+                    echo "REMOVE COLLAB " . $_POST[$IN_INDEX];
+                    break;
+                case $IN_EDIT_PAGE_TEXT:
+                    echo "EDIT PAGE - key:" . $_POST[$IN_EDIT_PAGE_KEY] . " - lang: " . $_POST[$IN_EDIT_PAGE_LANG];
+                    echo "<br>NEW TEXT: <p>" . $_POST[$IN_TEXT] . "</p>";
+                    break;
+                case $IN_ADD_PRESIDENT:
+                    echo "AGGIUNGI PRESIDENTE " . $_POST[$IN_NEW_PRES_NAME] . " (" . $_POST[$IN_NEW_PRES_START] . " - " . $_POST[$IN_NEW_PRES_END] .")";
+                    break;
+                case $IN_ADD_EX_PRES:
+                    echo "AGGIUNGI EX PRESIDENTE " . $_POST[$IN_NEW_PRES_NAME] . " (" . $_POST[$IN_NEW_PRES_START] . " - " . $_POST[$IN_NEW_PRES_END] .")";
+                    break;
+                case $IN_DELETE_EX_PRES:
+                    echo "CANCELLA EX PRESIDENTE (Indici invertiti) " . $_POST[$IN_INDEX];
+                    break;
+                case $IN_RENAME_DIRECTOR:
+                    echo "DIRECTOR RENAME " . $_POST[$IN_INDEX] . " - " . $_POST[$IN_TEXT];
                     break;
             }
         }
@@ -71,7 +116,13 @@
 
     $DIR_ROLE = "role";
     $DIR_NAME = "name";
+
+    $DIR_PRESIDENT_ROLE = "Presidente";
     $directors = [
+        [
+            $DIR_ROLE => $DIR_PRESIDENT_ROLE,
+            $DIR_NAME => $directorNames[$ROLE_PRESIDENT]
+        ],
         [
             $DIR_ROLE => "Vicepresidente",
             $DIR_NAME => $directorNames[$ROLE_VICE_PRESIDENT]
@@ -87,11 +138,7 @@
         [
             $DIR_ROLE => "Prefetto",
             $DIR_NAME => $directorNames[$ROLE_PREFECT]
-        ],
-        [
-            $DIR_ROLE => "Ex-Presidente",
-            $DIR_NAME => $directorNames[$ROLE_EX_PRESIDENT]
-        ],
+        ]
     ];
 
     //PDF
@@ -184,7 +231,7 @@
     </div>
 
     <div id="mainContent">
-        <!--DIREZIONE-->
+        <!--DIREZIONE E PRESIDENTI-->
         <div class="editableElementContainer">
             <div class="sectionContainer">
                 <div class="arrow right"></div>
@@ -199,53 +246,92 @@
                     <div class="linePoint"></div>
                     <div class="lineBody"></div>
                 </div>
-                <form action="" method="post" class="editableContent">
+                <div class="editableContent">
                     <br>
                     <p><span>Attuale Direzione</span></p>
                     <br>
                     <br>
-
-                    <div class="role">
-                        <p><span>Presidente: </span><?php echo $directorNames[$ROLE_PRESIDENT]?></p>
-                        <div id="presidentBtns">
-                            <button type="button">Modifica</button>
-                            <button type="button">Cambia presidente</button>
-                        </div>
-                    </div>
-
                     <?php foreach ($directors as $director) {
                         ?>
-                            <div class="role">
+                            <form class="role" action="" method="POST">
                                 <p><span><?php echo $director[$DIR_ROLE].": "; ?></span><?php echo $director[$DIR_NAME]?></p>
-                                <button type="button">Modifica</button>
-                            </div>
+                                <?php if ($director[$DIR_ROLE] != $DIR_PRESIDENT_ROLE){
+                                    ?>
+                                    <div class="directorEditInputs">
+                                        <input type="hidden" name="<?php echo $IN_INDEX;?>" value="<?php echo $director[$DIR_ROLE];?>">
+                                        <input type="text" name="<?php echo $IN_TEXT;?>" placeholder="<?php echo "Nome " . $director[$DIR_ROLE];?>" required>         
+                                        <button type="submit" name="<?php echo $INPUT_TYPE;?>" value="<?php echo $IN_RENAME_DIRECTOR;?>">Modifica</button>
+                                    </div>
+                                    <?php
+                                    }
+                                ?>
+                            </form>
                         <?php
                         }
                     ?>
+
+                    <br>
+                    <form class="addForm" action="" method="post">
+                        <button type="submit" name="<?php echo $INPUT_TYPE;?>" value="<?php echo $IN_ADD_PRESIDENT;?>" class="addBtn">Cambia Presidente</button>
+                        <div>
+                            <label for="inputNewPresName">Nome nuovo presidente</label>
+                            <input type="text" name="<?php echo $IN_NEW_PRES_NAME;?>" id="inputNewPresName" required>
+                        </div>
+                        <div>
+                            <label for="inputNewPresStartDate">Inizio mandato</label>
+                            <input type="date" name="<?php echo $IN_NEW_PRES_START;?>" id="inputNewPresStartDate" required>
+                        </div>
+                        <div>
+                            <label for="inputNewPresEndDate">Fine mandato</label>
+                            <input type="date" name="<?php echo $IN_NEW_PRES_END;?>" id="inputNewPresEndDate" required>
+                        </div>
+                    </form>
                     
                     <br>
                     <p><span>Ex-Presidenti</span></p>
                     <br>
                     <br>
 
-                    <div class="grid">
+                    <div class="grid" id="presidentsGrid">
                         <?php
                         for ($i = $numPresidents - 1; $i >= 0; $i--){
                             $currentPresident = $presidents[$i];
                             ?>
-                        <div>
-                            <p><?php echo "<span>".($numPresidents - $i) . ".</span> " . $currentPresident[$PRESIDENT_NAME] ?></p>
-                            <button type="button">Rimuovi</button>
-                        </div>
+                            <div>
+                                <div>
+                                    <p><?php echo "<span>".($numPresidents - $i) . ".</span> " . $currentPresident[$PRESIDENT_NAME] ?></p>
+                                    <p class="presDate"><?php echo $currentPresident[$PRESIDENT_DATE] ?></p>
+                                </div>
+                                
+                                <form action="" method="post">
+                                    <input type="hidden" name="<?php echo $IN_INDEX;?>" value="<?php echo $i;?>">
+                                    <button type="submit" name="<?php echo $INPUT_TYPE;?>" value="<?php echo $IN_DELETE_EX_PRES;?>">Rimuovi</button>
+                                </form>
+                            </div>
                             <?php
                         }
                         ?>
                     </div>
 
-                    <button type="button" class="addBtn">Aggiungi</button>
+                    <br>
+                    <form class="addForm" action="" method="post">
+                        <button type="submit" name="<?php echo $INPUT_TYPE;?>" value="<?php echo $IN_ADD_EX_PRES;?>" class="addBtn">Aggiungi</button>
+                        <div>
+                            <label for="inputExPresName">Nome nuovo presidente</label>
+                            <input type="text" name="<?php echo $IN_NEW_PRES_NAME;?>" id="inputExPresName" required>
+                        </div>
+                        <div>
+                            <label for="inputExPresStartDate">Inizio mandato</label>
+                            <input type="date" name="<?php echo $IN_NEW_PRES_START;?>" id="inputExPresStartDate" required>
+                        </div>
+                        <div>
+                            <label for="inputExPresEndDate">Fine mandato</label>
+                            <input type="date" name="<?php echo $IN_NEW_PRES_END;?>" id="inputExPresEndDate" required>
+                        </div>
+                    </form>
 
                     <br>
-                </form>
+                </div>
             </div>
         </div>
 
@@ -271,25 +357,16 @@
                     <br>
 
                     <form action="" method="post" enctype="multipart/form-data" id="currentBulletinContainer">
-                        <p><span>Bollettino attualmente selezionato: </span>
-                            <?php if ($validBulletin){
-                                ?>
-                                <a href="<?php echo "$PDF_BULLETIN_FOLDER/" . $selectedBulletin;?>" target="_blank">
-                                <?php
-                                }  
-                            ?>
-                                <?php echo $selectedBulletin;?>
-                            <?php if ($validBulletin){
-                                ?>
-                                </a>
-                                <?php
-                                }  
-                            ?>
-                        </p>
+                        <p><span>Bollettino attualmente selezionato: </span><?php if ($validBulletin){
+                            ?><a href="<?php echo "$PDF_BULLETIN_FOLDER/" . $selectedBulletin;?>" target="_blank"><?php echo $selectedBulletin;?></a><?php
+                            } else {
+                                echo $selectedBulletin;
+                            }
+                        ?></p>
 
                         <div>
                             <label for="pdfNumberSelection">N. Bollettino</label>
-                            <input type="number" name="<?php echo $IN_PDF_INDEX;?>" id="pdfNumberSelection" required>
+                            <input type="number" name="<?php echo $IN_INDEX;?>" id="pdfNumberSelection" required>
                             <button type="submin" name="<?php echo $INPUT_TYPE;?>" value="<?php echo $IN_SELECTED_PDF;?>" >Cambia</button>
                         </div>
                     </form>
@@ -301,15 +378,17 @@
                         for ($i=0; $i < sizeof($bulletinPdfs); $i++) { 
                             ?>
                             <div>
-                                <p><span><?php echo $i + 1 . ". ";?></span>
-                                    <a href="<?php echo "$PDF_BULLETIN_FOLDER/" . $bulletinPdfs[$i];?>" target="_blank">
-                                        <?php echo $bulletinPdfs[$i];?>
-                                    </a>
-                                </p>
+                                <p><span><?php echo $i + 1 . ". ";?></span><a href="<?php echo "$PDF_BULLETIN_FOLDER/" . $bulletinPdfs[$i];?>" target="_blank">
+                                    <?php echo $bulletinPdfs[$i];?>
+                                </a></p>
                                 <form action="" method="post">
-                                    <input type="hidden" name="<?php echo $IN_PDF_INDEX;?>" value="<?php echo $i;?>">
+                                    <div>
+                                        <input type="text" name="<?php echo $IN_TEXT;?>" id="<?php echo "inputPdfText". $i + 1;?>" placeholder="Nuovo nome" required>
+                                    </div>
+
+                                    <input type="hidden" name="<?php echo $IN_INDEX;?>" value="<?php echo $i;?>">
                                     <button type="submit" name="<?php echo $INPUT_TYPE;?>" value="<?php echo $IN_RENAME_PDF;?>">Rinomina</button>
-                                    <button type="submit" name="<?php echo $INPUT_TYPE;?>" value="<?php echo $IN_DELETE_PDF;?>">Rimuovi</button>
+                                    <button type="submit" name="<?php echo $INPUT_TYPE;?>" value="<?php echo $IN_DELETE_PDF;?>" formnovalidate>Rimuovi</button>
                                 </form>
                             </div>
                             <?php
@@ -317,9 +396,10 @@
                         ?>
                     </div>
 
-                    <form class="centerForm" action="" method="post" enctype="multipart/form-data">
+                    <br>
+                    <form class="addForm" action="" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="<?php echo $INPUT_TYPE;?>" value="<?php echo $IN_ADD_PDF;?>">
-                        <button type="button" onclick="<?php echo "document.getElementById('inputAddPdf').click()"; ?>" class="addBtn">Aggiungi </button>
+                        <button type="button" onclick="<?php echo "document.getElementById('inputAddPdf').click()"; ?>" class="addBtn">Aggiungi</button>
                         <input onchange="this.form.submit()" type="file" name="<?php echo $IN_ADD_PDF;?>" id="<?php echo "inputAddPdf";?>">
                     </form>
                     <br>
@@ -343,7 +423,7 @@
                     <div class="lineBody"></div>
                 </div>
 
-                <form action="" method="post" class="editableContent">
+                <div class="editableContent">
                     <br>
                     <p><span>Collaborazioni attuali</span></p>
                     <br>
@@ -353,25 +433,36 @@
                         <?php for ($i=0; $i < sizeof($collaborations); $i++) { 
                             ?>
                             <div>
-                                <p><span><?php echo $i + 1 . ". ";?></span>
-                                    <a href="<?php echo $collaborations[$i][$COLLABORATION_LINK];?>" target="_blank">
-                                        <?php echo $collaborations[$i][$COLLABORATION_NAME];?>
-                                    </a>
-                                </p>
-                                <div>
-                                    <button type="button">Modifica Nome</button>
-                                    <button type="button">Modifica Link</button>
-                                    <button type="button">Rimuovi</button>
-                                </div>
+                                <p><span><?php echo $i + 1 . ". ";?></span><a href="<?php echo $collaborations[$i][$COLLABORATION_LINK];?>" target="_blank"><?php echo $collaborations[$i][$COLLABORATION_NAME];?></a></p>
+                                <form action="" method="post">
+                                    <div>
+                                        <label for="<?php echo "inputCollabText". $i + 1;?>">Modifica: </label>
+                                        <input type="text" name="<?php echo $IN_TEXT;?>" id="<?php echo "inputCollabText". $i + 1;?>" placeholder="Inserire la modifica da effettuare" required>
+                                    </div>
+                                    <input type="hidden" name="<?php echo $IN_INDEX;?>" value="<?php echo $i;?>">
+                                    <button type="submit" name="<?php echo $INPUT_TYPE;?>" value="<?php echo $IN_RENAME_COLLAB;?>">Modifica Nome</button>
+                                    <button type="submit" name="<?php echo $INPUT_TYPE;?>" value="<?php echo $IN_RELINK_COLLAB;?>">Modifica Link</button>
+                                    <button type="submit" name="<?php echo $INPUT_TYPE;?>" value="<?php echo $IN_DELETE_COLLAB;?>" formnovalidate>Rimuovi</button>
+                                </form>
                             </div>
                             <?php
                             }
                         ?>
                     </div>
 
-                    <button type="button" class="addBtn">Aggiungi</button>
+                    <form class="addForm" action="" method="post">
+                        <button type="submit" name="<?php echo $INPUT_TYPE;?>" value="<?php echo $IN_ADD_COLLABORATION;?>" class="addBtn">Aggiungi</button>
+                        <div>
+                            <label for="inputCollabName">Nome</label>
+                            <input type="text" name="<?php echo $IN_NEW_COLLAB_NAME;?>" id="inputCollabName" required>
+                        </div>
+                        <div>
+                            <label for="inputCollabLink">Link</label>
+                            <input type="text" name="<?php echo $IN_NEW_COLLAB_LINK;?>" id="inputCollabLink" required>
+                        </div>
+                    </form>
                     <br>
-                </form>
+                </div>
             </div>
         </div>
 
@@ -427,15 +518,21 @@
                                                             <div class="lineBody"></div>
                                                         </div>
                                                         <form action="" method="post" class="editableContent">
+                                                            <input type="hidden" name="<?php echo $IN_EDIT_PAGE_KEY;?>" value="<?php echo $key;?>">
+                                                            <input type="hidden" name="<?php echo $IN_EDIT_PAGE_LANG;?>" id="<?php echo $key."EditLang";?>">
+                                                            <input type="hidden" name="<?php echo $INPUT_TYPE;?>", value="<?php echo $IN_EDIT_PAGE_TEXT;?>">
+
                                                             <?php foreach ($texts as $language => $languageTexts) {
                                                                 ?>
                                                                 <div>
                                                                     <p><span><?php echo "$language: ";?></span><?php echo $languageTexts[$key];?></p>
-                                                                    <button type="button">Modifica</button>
+                                                                    <button type="button" onclick="setupLangInputValue('<?php echo $key;?>' , '<?php echo $language;?>' , this)">Modifica</button>
                                                                 </div>
                                                                 <?php
                                                             }
                                                             ?>
+
+                                                            <textarea class="pageTextInput" name="<?php echo $IN_TEXT;?>" rows="1" placeholder="Inserire il nuovo testo" required></textarea>
                                                         </form>
                                                     </div>
                                                 </div>

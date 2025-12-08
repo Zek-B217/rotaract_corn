@@ -186,10 +186,30 @@ input[type=file]{
     font-size: 20px;
 }
 
-.centerForm{
+.addForm{
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+.addForm > div {
+    width: 20%;
+
+    display: flex;
+
+    flex-direction: column;
+    align-items: start;
     justify-content: center;
+
+    margin-right: 20px;
+}
+
+.addForm > div > label{
+    margin-left: 5px;
+}
+
+.addForm > div > input{
+    width: 100%;
 }
 
 /*=== ARROW ICONS ===*/
@@ -242,8 +262,8 @@ transform: rotate(45deg);
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    height: 35px;
+    
+    height: 70px;
 }
 
 .grid > div > p{
@@ -260,22 +280,12 @@ transform: rotate(45deg);
 /*=== GRID END ===*/
 
 /*=== PRESIDENTS ===*/
-#presidentsGrid button{
-    width: 27%;
+#presidentsGrid form{
+    height: 70%;
 }
 
-#presidentBtns{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    height: 100%;
-    width: var(--presidentsBtnsWidth);
-}
-
-#presidentBtns > button{
-    height: 100%;
-    width: auto;
+#presidentsGrid p{
+    margin: 0;
 }
 
 .addBtn{
@@ -291,7 +301,7 @@ transform: rotate(45deg);
 
     cursor: pointer;
 
-    margin: 20px auto 0 auto;
+    margin: 0px auto 0 auto;
 }
 
 .addBtn:hover{
@@ -304,13 +314,34 @@ transform: rotate(45deg);
     justify-content: space-between;
     align-items: center;
 
-    height: 30px;
+    height: 60px;
+}
+
+.role p{
+    margin: 0;
 }
 
 .role button{
-    height: 100%;
+    height: 70%;
     width: var(--presidentsBtnsWidth);
 }
+
+.presDate{
+    font-size: 20px !important;
+    position: relative;
+
+    left: 15%;
+}
+
+.directorEditInputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: fit-content;
+    height: 100%;
+}
+
 /*=== PRESIDENTS END ===*/
 
 /*=== BULLETIN ===*/
@@ -345,6 +376,15 @@ transform: rotate(45deg);
 #pdfGrid > div > form{
     height: 100%;
 }
+
+#pdfGrid > div {
+    height: 60px;
+}
+#pdfGrid button {
+    height: 65% !important;
+    width: 48%;
+    margin-left: 1px;
+}
 /*=== BULLETIN END ===*/
 
 /*=== COLLABORATIONS ===*/
@@ -356,6 +396,10 @@ transform: rotate(45deg);
 
 #collaborationsContainer button{
     height: 50px;
+}
+
+#collaborationsContainer form > div > input{
+    width: 75%;
 }
 /*=== COLLABORATIONS END ===*/
 
@@ -387,6 +431,10 @@ transform: rotate(45deg);
 #editablePages .editableContent > div > p{
     width: 80%;
 }
+
+.pageTextInput{
+    resize: none;
+}
 /*=== PAGES END ===*/
 
 /*=== IMAGES ===*/
@@ -395,9 +443,4 @@ transform: rotate(45deg);
     align-items: center;
     justify-content: space-between;
 }
-
-form {
-    background-color: aquamarine;
-}
-
 /*=== IMAGES END ===*/

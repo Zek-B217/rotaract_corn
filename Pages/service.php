@@ -87,47 +87,32 @@
 
             <div id="servicesList">
                 <div class="serviceItem">
-                    <p>
-                        <?php echo $texts[$TXT_SERVICE_DESC]; ?>
-                    </p>
-                
-                    <p>
-                        <?php echo $texts[$TXT_FIVE_WAYS]; ?>
-                    </p>
+                    <p><?php echo $texts[$TXT_SERVICE_DESC]; ?></p>
+                    <p><?php echo $texts[$TXT_FIVE_WAYS]; ?></p>
                 </div>
                 <div class="serviceItem">
                     <h2><?php echo $texts[$TXT_WAY1]; ?></h2>
-                    <p>
-                        <?php echo $texts[$TXT_WAY1_DESC]; ?>
-                    </p>
+                    <p><?php echo $texts[$TXT_WAY1_DESC]; ?></p>
                 </div>
 
                 <div class="serviceItem">
                     <h2><?php echo $texts[$TXT_WAY2]; ?></h2>
-                    <p>
-                        <?php echo $texts[$TXT_WAY2_DESC]; ?>
-                    </p>
+                    <p><?php echo $texts[$TXT_WAY2_DESC]; ?></p>
                 </div>
 
                 <div class="serviceItem">
                     <h2><?php echo $texts[$TXT_WAY3]; ?></h2>
-                    <p>
-                        <?php echo $texts[$TXT_WAY3_DESC]; ?>
-                    </p>
+                    <p><?php echo $texts[$TXT_WAY3_DESC]; ?></p>
                 </div>
 
                 <div class="serviceItem">
                     <h2><?php echo $texts[$TXT_WAY4]; ?></h2>
-                    <p>
-                        <?php echo $texts[$TXT_WAY4_DESC]; ?>
-                    </p>
+                    <p><?php echo $texts[$TXT_WAY4_DESC]; ?></p>
                 </div>
 
                 <div class="serviceItem">
                     <h2><?php echo $texts[$TXT_WAY5]; ?></h2>
-                    <p>
-                        <?php echo $texts[$TXT_WAY5_DESC]; ?>
-                    </p>
+                    <p><?php echo $texts[$TXT_WAY5_DESC]; ?></p>
                 </div>
 
             </div> 

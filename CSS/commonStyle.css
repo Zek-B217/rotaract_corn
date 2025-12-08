@@ -25,6 +25,11 @@
     --lateralSelectionCurrentPosition: var(--lateralSelectionStartingPosition);
 }
 
+p{
+    white-space: pre-wrap; 
+    word-wrap: break-word;
+}
+
 body{
     /*Posiziono l'header in cima e il footer in fondo*/
     display: flex;
