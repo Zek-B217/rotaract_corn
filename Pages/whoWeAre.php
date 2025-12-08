@@ -10,11 +10,15 @@
         exit;
     }
 
-    $textsFileName = setLanguage();
-    $texts = loadTexts("../$textsFileName");
-    $langImg = "../".getLanguageImage($textsFileName);
+    session_set_cookie_params(0); //distruggi la sessione all'uscita dal browser
+    session_start();
+    loadJsonInSession("../");
 
-    $jsonContent = json_decode(file_get_contents("../$PRESIDENTS_FILE"),true);
+    $textFile = setLanguage();
+    $texts = json_decode($_SESSION[$TXT_JSON][$textFile], true);
+    $langImg = "../" . getLanguageImage($textFile);
+
+    $jsonContent = json_decode($_SESSION[$PRESIDENTS_JSON],true);
     $exPresidents = $jsonContent[$EX_PRESIDENTS];
     $lenght = count($exPresidents);
 

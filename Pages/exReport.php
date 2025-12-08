@@ -17,9 +17,13 @@
         exit;
     }
 
-    $textsFileName = setLanguage();
-    $texts = loadTexts("../$textsFileName");
-    $langImg = "../".getLanguageImage($textsFileName);
+    session_set_cookie_params(0); //distruggi la sessione all'uscita dal browser
+    session_start();
+    loadJsonInSession("../");
+
+    $textFile = setLanguage();
+    $texts = json_decode($_SESSION[$TXT_JSON][$textFile], true);
+    $langImg = "../" . getLanguageImage($textFile);
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +33,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $texts[$TXT_EX_TITLE]; ?></title>
     <link rel="stylesheet" href="../CSS/commonStyle.css">
-    <link rel="stylesheet" href="../CSS/whoWeAre&exReportStyle.css">
+    <link rel="stylesheet" href="../CSS/exReportStyle.css">
 </head>
 <body>
     <div id="obscurer"></div>
@@ -90,24 +94,9 @@
             for($i=0; $i<$numPdf; $i++)
             {
                 ?>
-                <div class="container2">
-                <?php
-                for($j=0; $j<4; $j++){
-                    $i++;
-
-                    ?>
-                    <form action="<?php echo "../$PDF_BULLETIN_FOLDER/" . $elementsPdf[$i-1];?>" method="get">
-                        <button class="reportButtons"><?php echo $elementsPdf[$i-1]?></button>
-                    </form>
-                    
-                    <?php
-                    if($numPdf==$i){
-                        $j=4;
-                    }
-
-                }
-                ?>
-                </div>
+                <form action="<?php echo "../$PDF_BULLETIN_FOLDER/" . $elementsPdf[$i];?>" method="get">
+                    <button class="reportButtons"><?php echo $elementsPdf[$i]?></button>
+                </form>
                 <?php
             }
             

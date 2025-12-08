@@ -3,6 +3,31 @@
         return filterFiles($fileArray, ["pdf"]);
     }
 
+    function loadJsonInSession($mainFolder = ""){
+        require "constants.php";
+
+        if (session_status() != PHP_SESSION_ACTIVE){
+            session_start();
+        }
+
+        if (!isset($_SESSION[$CONFIG_JSON])){
+            $_SESSION[$CONFIG_JSON] = file_get_contents($mainFolder . $CONFIG_FILE);
+        }
+        if (!isset($_SESSION[$TXT_JSON])){
+            $_SESSION[$TXT_JSON] = [];
+
+            foreach ($TEXT_FILES as $txtFile) {
+                $_SESSION[$TXT_JSON][$txtFile] = file_get_contents($mainFolder . $txtFile);
+            }
+        }
+        if (!isset($_SESSION[$COLLAB_JSON])){
+            $_SESSION[$COLLAB_JSON] = file_get_contents($mainFolder . $COLLABORATIONS_FILE);
+        }
+        if (!isset($_SESSION[$PRESIDENTS_JSON])){
+            $_SESSION[$PRESIDENTS_JSON] = file_get_contents($mainFolder . $PRESIDENTS_FILE);
+        }
+    }
+
     function filterFiles($fileArray, $extensions){
         $fileArray = array_diff($fileArray, array('.', '..'));
 
@@ -16,10 +41,6 @@
         }
 
         return $newArray;
-    }
-
-    function loadTexts($filePath){
-        return json_decode(file_get_contents("$filePath"),true);
     }
 
     function setLanguage($lang = null) {
@@ -47,12 +68,12 @@
         }
 
         setcookie($LANGUAGE_COOKIE, $textFileName, time() + 60*60*24*365, "/","",true, true);
-
         return $textFileName;
     }
 
     function getLanguageImage($textName){
         require "constants.php";
+
         $imageName = "it";
         switch ($textName) {
             case $IT_TEXTS_FILE:
@@ -93,4 +114,11 @@
         $keys = array_diff($keys, $removeArr);
 
         return $keys;
+    }
+
+    function saveJsonInFile($json, $filePath) {
+        $file = fopen($filePath, "w");
+        fwrite($file,$json);
+
+        fclose($file);
     }

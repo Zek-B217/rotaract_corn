@@ -10,10 +10,16 @@
         exit;
     }
 
-    $textsFileName = setLanguage();
-    $texts = loadTexts("../$textsFileName");
-    $langImg = "../".getLanguageImage($textsFileName);
-    $selectedBulletin = "../$PDF_BULLETIN_FOLDER/" . json_decode(file_get_contents("../$CONFIG_FILE"), true)[$CURRENT_BULLETIN];
+    session_set_cookie_params(0); //distruggi la sessione all'uscita dal browser
+    session_start();
+    loadJsonInSession("../");
+
+    $textFile = setLanguage();
+    $texts = json_decode($_SESSION[$TXT_JSON][$textFile], true);
+    $langImg = "../" . getLanguageImage($textFile);
+
+    $configJson = json_decode($_SESSION[$CONFIG_JSON], true);
+    $selectedBulletin = "../$PDF_BULLETIN_FOLDER/" . $configJson[$CURRENT_BULLETIN];
 ?>
 
 <!DOCTYPE html>

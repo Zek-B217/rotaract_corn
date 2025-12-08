@@ -1,6 +1,7 @@
 <?php
     require "PHP/constants.php";
     require "PHP/functions.php";
+    require "PHP/edit.php";
 
     /*INPUT KEYS*/
     $IN_HOME_IMG = "homeImg";
@@ -33,34 +34,30 @@
 
     session_set_cookie_params(0); //distruggi la sessione all'uscita dal browser
     session_start();
+    loadJsonInSession();
+
     if (!isset($_SESSION[$IS_LOGGED]) || !$_SESSION[$IS_LOGGED]){
         header("Location: PHP/logout.php"); //Redirigo al logout in maniera da ripulire la sessione
         exit;
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
-
-        var_dump($_POST);
-        echo "<br><br>";
-        var_dump($_FILES);
-        echo "<br><br>";
-
         if (isset($_POST[$INPUT_TYPE])){
             switch ($_POST[$INPUT_TYPE]) {
                 case $IN_HOME_IMG:
-                    echo "HOME IMAGE";
+                    echo "HOME IMAGE - VEDI \$_FILES";
                     break;
                 case $IN_CAROUSEL_IMG:
-                    echo "CAROSELLO";
+                    echo "CAROSELLO - VEDI \$_FILES";
                     break;
                 case $IN_RENAME_PDF:
-                    echo "RENAME PDF " . $_POST[$IN_INDEX];
+                    echo "RENAME PDF " . $_POST[$IN_INDEX] . " - " . $_POST[$IN_TEXT];
                     break;
                 case $IN_DELETE_PDF:
                     echo "REMOVE PDF " . $_POST[$IN_INDEX];
                     break;
                 case $IN_ADD_PDF:
-                    echo "ADD PDF";
+                    echo "ADD PDF - VEDI \$_FILES";
                     break;
                 case $IN_SELECTED_PDF:
                     echo "SELEZIONATO PDF " . (int)$_POST[$IN_INDEX] - 1;
@@ -99,8 +96,7 @@
         exit;*/
     }
 
-
-    $configJson = json_decode(file_get_contents("$CONFIG_FILE"), true);
+    $configJson = json_decode($_SESSION[$CONFIG_JSON], true);
 
     //Img
     $homeImg = $configJson[$HOME_IMAGE];
@@ -109,7 +105,7 @@
     $carouselLength = sizeof($carouselImages);
 
     //Presidents
-    $presidentsJsonContent = json_decode(file_get_contents($PRESIDENTS_FILE), true);
+    $presidentsJsonContent = json_decode($_SESSION[$PRESIDENTS_JSON], true);
     $presidents = $presidentsJsonContent[$EX_PRESIDENTS];
     $directorNames = $presidentsJsonContent[$DIRECTORS];
     $numPresidents = sizeof($presidents);
@@ -151,14 +147,15 @@
     }
 
     //Collaborations
-    $collaborations = json_decode(file_get_contents($COLLABORATIONS_FILE), true)[$COLLABORATIONS];
+    $collaborations = json_decode($_SESSION[$COLLAB_JSON], true)[$COLLABORATIONS];
 
     //Texts
     $texts = [
-        "it" => loadTexts($IT_TEXTS_FILE),
-        "en" => loadTexts($EN_TEXTS_FILE),
-        "de" => loadTexts($DE_TEXTS_FILE)
+        "it" => json_decode($_SESSION[$TXT_JSON][$IT_TEXTS_FILE], true),
+        "en" => json_decode($_SESSION[$TXT_JSON][$EN_TEXTS_FILE], true),
+        "de" => json_decode($_SESSION[$TXT_JSON][$DE_TEXTS_FILE], true)
     ];
+
     $italianTexts = $texts["it"];
     $commonKeys = [
         $TXT_HOME,
@@ -587,7 +584,7 @@
             <button id="passwordBtn" type="submit">Cambia Password</button>
         </form>
 
-        <form action="" method="get">
+        <form action="PHP/saveConfiguration.php" method="get">
             <button id="saveBtn" type="submit">Salva</button>
         </form>
     </div>
