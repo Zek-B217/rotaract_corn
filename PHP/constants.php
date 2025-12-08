@@ -32,11 +32,24 @@
     $CONFIG_FILE = "JSON/config.json";
     $PRESIDENTS_FILE = "JSON/presidents.json";
     $COLLABORATIONS_FILE = "JSON/collaborations.json";
+    $PASSWORD_FILE = "JSON/psw.json";
     $IT_TEXTS_FILE = "JSON/it.json";
     $EN_TEXTS_FILE = "JSON/en.json";
     $DE_TEXTS_FILE = "JSON/de.json";
     $PDF_BULLETIN_FOLDER = "Media/PDF";
     $CAROUSEL_IMAGES_FOLDER = "Media/carousel";
+
+    $TEXT_FILES = [
+        $IT_TEXTS_FILE,
+        $EN_TEXTS_FILE,
+        $DE_TEXTS_FILE
+    ];
+
+    /*JSON SESSION*/
+    $TXT_JSON = "texts";
+    $CONFIG_JSON = "config";
+    $COLLAB_JSON = "collaborations";
+    $PRESIDENTS_JSON = "presidents";
 
     /*TEXT KEYS*/
     $TXT_HOME = "home";

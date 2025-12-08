@@ -15,7 +15,7 @@
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
-        $json = json_decode(file_get_contents("../$CONFIG_FILE"),true);
+        $json = json_decode(file_get_contents("../$PASSWORD_FILE"),true);
         $savedPassword = $json[$PASSWORD];
 
         $inputOldPassword = $_POST["oldPassword"];
@@ -25,7 +25,7 @@
             if (!password_verify($inputNewPassword, $savedPassword)){
                 $json[$PASSWORD] = password_hash($inputNewPassword, PASSWORD_DEFAULT);
                 
-                $file = fopen("../$CONFIG_FILE", "w");
+                $file = fopen("../$PASSWORD_FILE", "w");
                 fwrite($file,json_encode($json, JSON_PRETTY_PRINT));
 
                 fclose($file);
@@ -66,7 +66,7 @@
                 <p onclick="togglePasswordVisibility('repeatPasswordInput')">Mostra password</p>
             </div>
             <br>
-            <button id="loginBtn" type="submit">Accedi</button>
+            <button id="loginBtn" type="submit">Cambia Password</button>
         </form>
 
         <p id="error"><?php echo $error;?></p>
